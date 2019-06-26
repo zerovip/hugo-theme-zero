@@ -1,0 +1,301 @@
+@charset"utf-8";
+@font-face{
+  font-family: 'FantasqueSansMono';
+  src: url('/font/FantasqueSansMono-Regular.eot'); /* IE9 */
+  src: url('/font/FantasqueSansMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+       url('/font/FantasqueSansMono-Regular.woff') format('woff'), /* Morden Browsers */
+       url('/font/FantasqueSansMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/font/FantasqueSansMono-Regular.svg#FantasqueSansMono') format('svg'); /* Legacy iOS */
+}
+*{
+  border-width: 0;
+  margin: 0;
+  padding:0;
+  font-family: Arial, 微软雅黑, MicroSoft YaHei, Hiragino Sans GB；
+}
+body {
+  min-width: 52rem;
+  background-color: #EEFFE7;
+}
+.left_bar{
+  float:left;
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  margin-left: 0.5%;
+  padding-bottom: 1.25rem;
+  box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem #888888;
+}
+.option_part{
+  position: relative;
+  text-align: right;
+  padding-top: 0.875rem;
+  padding-right: 1rem;
+}
+li{
+  list-style: none;
+}
+.title_part{
+  position: relative;
+  padding-top: 4.375rem;
+  padding-bottom: 3.125rem;
+}
+.title{
+  position: relative;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: center;
+  font-weight: 900;
+  color: #669900;
+  font-size: 2.375rem;
+}
+.subtitle{
+  position: relative;
+  padding-top: 0.625rem;
+  padding-right: 2.5rem;
+  text-align: right;
+  font-size: 1.875rem;
+  color: #669900;
+  font-weight: 800;
+}
+.main_part{
+  position: relative;
+  padding-top: 0.628rem;
+  padding-left: 1.25rem;
+  /*有没有内框，element的框。。。*/
+}
+.left_bar .h1.active::after {
+  content: "◂";
+}
+.left_bar .h2.active::after {
+  content: "<";
+}
+.main_part .active a {
+  color:#006600;
+}
+a:link{
+  color: #6AA84F;
+  text-decoration: none;
+}
+a:visited{
+  color: #6AA84F;
+  text-decoration: none;
+}
+.left_bar .h1{
+  padding-top: 1.25rem;
+  margin-right: 1.25rem;
+  position: relative;
+  /*教程中讲的普通流似乎并不是这个relative，但我这里不写relative似乎也可以，还需再搞清楚二者区别*/
+  /*height: 20px;*/
+  /*如果内容高度超过了height会怎样？干脆不写height让它自动margin*/
+  font-size: 1.75rem;
+  /*line-height: 0px;*/ 
+  /*line-height在只有一行的时候，如果不写0px会有问题。。。？？*/
+  color: #6AA84F;
+  font-weight: 700;
+  border-bottom: 0.375rem #93C47D solid;
+}
+.h2{
+  /*怎么把radio的圈圈弄大一点*/
+  position: relative;
+  padding-bottom: 0.375rem;
+  padding-left: 0.625rem;
+  font-size: 1.375rem; 
+  font-weight: 600;
+  color: #6AA84F;
+}
+.footer_part{
+  height: 3.125rem;
+  position: absolute;
+  bottom: 0;
+  color: #6AA84F;
+  margin-left: 1.5625rem;
+}
+.right_part{
+  margin-left: 25.5%; /* Same as the width of the left_bar */
+}
+.page_title_part{
+  position: relative;
+  padding-top: 5rem;
+  padding-left: 5rem;
+}
+.page_title{
+  color: #6AA84F;
+  font-size: 3.125rem;
+  font-weight: 600;
+}
+.title_des{
+  margin-left: 0.75rem;
+  margin-right: 3.75rem;
+  color: #6AA84F;
+  font-size: 1.25rem;
+}
+.right_main{
+  position: relative;
+  padding-top: 5rem;
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
+  margin-bottom: 8rem;
+}
+.article_title{
+  position: relative;
+  color: #6AA84F;
+  font-size: 1.875rem;
+  font-weight: 700;
+  padding-top: 1rem;
+  margin-left: 2.625rem;
+}
+.article_des{
+  position: relative;
+  color: #6AA84F;
+  font-size: 1rem;
+  margin-left: 3.75rem;
+}
+.article_sum{
+  position: relative;
+  color: #006600;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-left: 3.75rem;
+  margin-right: 5.75rem;
+  border-bottom: 0.375rem #93C47D solid;
+}
+.article{
+  position: relative;
+  color: #274E13;
+  font-size: 1.1rem;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+  counter-reset: h1counter;
+}
+.article h1{
+  margin-top: 2rem;
+  margin-left: -2rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  counter-reset: h2counter;
+}
+.article h2{
+  margin-top: 1.8rem;
+  margin-left: -1.75rem;
+  font-size: 2rem;
+  font-weight: 800;
+  counter-reset: h3counter;
+}
+.article h3{
+  margin-top: 1.6rem;
+  margin-left: -1.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  counter-reset: h4counter;
+}
+.article h4{
+  margin-top: 1.4rem;
+  margin-left: -1.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  counter-reset: h5counter;
+}
+.article h5{
+  margin-top: 1.3rem;
+  margin-left: -1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  counter-reset: h6counter;
+}
+.article h6{
+  margin-top: 1.2rem;
+  margin-left: -1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.article h1:before {
+  counter-increment: h1counter;
+  content: counter(h1counter) ".\0000a0\0000a0";
+}
+.article h2:before {
+  counter-increment: h2counter;
+  content: counter(h1counter) "."
+            counter(h2counter) ".\0000a0\0000a0";
+}
+.article h3:before {
+  counter-increment: h3counter;
+  content: counter(h1counter) "."
+            counter(h2counter) "."
+            counter(h3counter) ".\0000a0\0000a0";
+}
+.article h4:before {
+  counter-increment: h4counter;
+  content: counter(h1counter) "."
+            counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) ".\0000a0\0000a0";
+}
+.article h5:before {
+  counter-increment: h5counter;
+  content: counter(h1counter) "."
+            counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "."
+            counter(h5counter) ".\0000a0\0000a0";
+}
+.article h6:before {
+  counter-increment: h6counter;
+  content: counter(h1counter) "."
+            counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "."
+            counter(h5counter) "."
+            counter(h6counter) ".\0000a0\0000a0";
+}
+.article p{
+  margin-top: 0.8rem;
+  text-indent: 2.2rem; /* article font-size 的二倍，确保是空了两个格.*/
+  line-height: 170%;
+  margin-left: -1.25rem;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+.article code{
+  background-color: #032424;
+  border-radius: 0.25rem;
+  color: #E9FFF2;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-family: FantasqueSansMono;
+}
+pre{
+  background-color: #032424;
+  line-height: 110%;
+  border-radius: 0.3rem;
+  margin-top: 0.5rem;
+  margin-left: 2.5rem;
+  margin-right: 2rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  overflow-x: auto;
+}
+pre code{
+  font-size: 1rem;
+}
+.article a{
+  text-decoration: underline;
+}
+.special_notes{
+  position: relative;
+  margin-left: 1.875rem;
+  margin-right: 1.875rem;
+}
+blockquote{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.6rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  font-size: 1.05rem;
+  background-color: #DDDDDD;
+  border-left:5px solid #4B4B4B;
+}

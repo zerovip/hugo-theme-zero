@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {{ hugo.Generator }}
+    <title>{{ .Site.Title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+</head>
+
+<body>
+<!--MathJax 的引用-->
+{{ if (and .IsPage (eq .Params.markup "pandoc")) }}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+{{ end }}
+
+<!--左边栏-->
+<div class='left_bar'>
+
+    <!--选项区-->
+    <div class='option_part'>
+        {{ $curr_page := . }}
+        {{ range $.Site.Home.AllTranslations }}
+        <li><a href="{{ .Permalink }}{{ substr $curr_page.RelPermalink 4 }}">{{ .Language.LanguageName }}●</a></li>
+        {{ end }}
+    </div>
+
+    <!--题目区-->
+    <div class='title_part'>
+        <div class='title'><a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a></div>
+        <div class='subtitle'>(●’◡’●)ﾉ</div>
+    </div>
+
+    <!--导航区-->
+    <!--这里独创的有
+        {{/* if eq .Identifier (path.Base $currentNode.RelPermalink) */}}active{{/* end */}}
+        它是等价于网上找到的下面这一行的
+        {{/* if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) */}}active{{/* end */}}
+    -->
+    <div class='main_part'>
+        {{ $currentNode := . }}
+        {{ range .Site.Menus.main }} {{/* 确保和config中的一级标题的主菜单一致，下面也是 */}}
+	        <div  class="h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Section) }}active{{ end }}">
+                <a href="{{ .URL }}">{{ .Name }}</a>
+            </div>
+            {{ if .HasChildren }}
+                {{ range .Children }}
+                    {{ if ne .Identifier ""}}
+                        <div class="h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Params.section) }}active{{ end }}">
+                            <a href="{{ .URL }}">{{ .Name }} </a>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{end}}
+    </div>
+
+    <!--版权区-->
+    <div class='footer_part'>
+        <div class='copyright'>©2019 {{ i18n "copyright" }}</div>
+    </div>
+</div>
+
+<!--右边主要部分-->
+<div class='right_part'>
+    {{ block "right_part_title" . }}{{ end }}
+    {{ block "right_part_main" . }}{{ end }}
+</div>
+
+</body>
+</html>

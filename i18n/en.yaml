@@ -1,0 +1,17 @@
+- id: copyright
+  translation: All Right Reserved.
+
+- id: tag
+  translation: "Tag: "
+
+- id: count
+  translation: words
+
+- id: reading-time
+  translation: Reading time
+
+- id: minutes
+  translation: minutes
+
+- id: hello
+  translation: Hello!

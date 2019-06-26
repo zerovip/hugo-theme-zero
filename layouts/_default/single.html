@@ -1,0 +1,24 @@
+{{ define "right_part_title" }}
+<div class="page_title_part">
+    <div class="page_title">
+        {{ .Title }}
+    </div>
+    <div class="title_des">
+        {{ .Date.Format "2006-01-02" }} - {{ .WordCount }} {{ i18n "count" }}
+    </div>
+</div>
+{{ end }}
+
+{{ define "right_part_main" }}
+<div class="right_main">
+    <div class="article">
+        {{ .Content }}
+    </div>
+    <div class="special_notes">
+        {{ with .Params.file_path }}
+            </br></br></br>如果没有显示，请点击<a href="/{{ . }}/">这里</a>下载.
+            <embed src="/{{ . }}/" width="100%" height="700" type="application/pdf"/>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

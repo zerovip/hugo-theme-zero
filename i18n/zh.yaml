@@ -1,0 +1,17 @@
+- id: copyright
+  translation: 版权所有.
+
+- id: tag
+  translation: 标签：
+
+- id: count
+  translation: 字
+
+- id: reading-time
+  translation: 阅读时间
+
+- id: minutes
+  translation: 分钟
+
+- id: hello
+  translation: 你好！

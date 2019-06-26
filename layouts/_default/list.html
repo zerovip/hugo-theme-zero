@@ -1,0 +1,42 @@
+{{ define "right_part_title" }}
+<div class="page_title_part">
+    <div class="page_title">
+        {{ $currentNode := . }}
+        {{ range .Site.Menus.main }}
+                {{ if ($currentNode.IsMenuCurrent "main" .) }}
+                    {{ .Name }}
+                {{ else }}
+                    {{ range .Children }}
+                        {{ if ($currentNode.IsMenuCurrent "main" .) }}
+                            {{ .Name }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+        {{ end }}
+    </div>
+    <div class="title_des">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
+
+{{ define "right_part_main" }}
+<div class="right_main">
+    {{ $currentNode := . }}
+    {{ range .Site.Menus.main }}
+        {{ if ($currentNode.IsMenuCurrent "main" .) }}
+            {{ range where (where $currentNode.Site.Pages "Section" (path.Base .URL)) "Title" "ne" "" }}
+                {{ .Render "summary" }}
+            {{ end }}
+        {{ else }}
+            {{ range .Children }}
+                {{ if ($currentNode.IsMenuCurrent "main" .) }}
+                    {{ range $currentNode.Pages }}
+                        {{ .Render "summary" }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+</div>
+{{ end }}

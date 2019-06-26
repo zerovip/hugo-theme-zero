@@ -1,0 +1,11 @@
+<a href="{{ .Permalink }}">
+<div class="article_title">
+    ■{{ .Title }}
+</div>
+<div class="article_des">
+    {{ .Date.Format "2006-01-02" }} - {{ i18n "reading-time" }}: {{ .ReadingTime }}{{ i18n "minutes" }}
+</div>
+<div class="article_sum">
+    {{ .Summary }}...
+</div>
+</a>

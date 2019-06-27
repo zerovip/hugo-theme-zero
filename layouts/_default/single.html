@@ -16,7 +16,7 @@
     </div>
     <div class="special_notes">
         {{ with .Params.file_path }}
-            </br></br></br>如果没有显示，请点击<a href="/{{ . }}/">这里</a>下载.
+            </br></br></br>如果没有显示，请点击<a href="/{{ . }}">这里</a>下载.
             <embed src="/{{ . }}" width="100%" height="700" type="application/pdf"/>
         {{ end }}
     </div>

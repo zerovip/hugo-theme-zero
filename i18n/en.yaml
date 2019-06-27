@@ -15,3 +15,6 @@
 
 - id: hello
   translation: Hello!
+
+- id: no-translate
+  translation: Here is nothing. Probably because the author didn't translate this article.

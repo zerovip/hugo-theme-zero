@@ -37,8 +37,8 @@ li{
 }
 .title_part{
   position: relative;
-  padding-top: 4.375rem;
-  padding-bottom: 3.125rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.125rem;
 }
 .title{
   position: relative;
@@ -133,8 +133,8 @@ a:visited{
 .right_main{
   position: relative;
   padding-top: 5rem;
-  margin-left: 3.5rem;
-  margin-right: 3.5rem;
+  margin-left: 2.7%;
+  margin-right: 2.2%;
   margin-bottom: 8rem;
 }
 .article_title{

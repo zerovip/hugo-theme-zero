@@ -32,7 +32,7 @@ body {
   padding-top: 0.875rem;
   padding-right: 1rem;
 }
-li{
+.option_part li{
   list-style: none;
 }
 .title_part{
@@ -112,6 +112,7 @@ a:visited{
   margin-left: 1.5625rem;
 }
 .right_part{
+  padding-left: 2rem;
   margin-left: 25.5%; /* Same as the width of the left_bar */
 }
 .page_title_part{
@@ -133,9 +134,9 @@ a:visited{
 .right_main{
   position: relative;
   padding-top: 5rem;
-  margin-left: 2.7%;
-  margin-right: 2.2%;
-  margin-bottom: 8rem;
+  margin-left: 8%;
+  margin-right: 14%;
+  margin-bottom: 6rem;
 }
 .article_title{
   position: relative;
@@ -164,8 +165,6 @@ a:visited{
   position: relative;
   color: #274E13;
   font-size: 1.1rem;
-  margin-left: 7.5rem;
-  margin-right: 7.5rem;
   counter-reset: h1counter;
 }
 .article h1{
@@ -298,4 +297,9 @@ blockquote{
   font-size: 1.05rem;
   background-color: #DDDDDD;
   border-left:5px solid #4B4B4B;
+}
+.right_comments{
+  background-color: white;
+  margin-right: 2rem;
+  border-top: 0.375rem #93C47D solid;
 }

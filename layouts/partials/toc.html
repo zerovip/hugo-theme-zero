@@ -1,0 +1,55 @@
+<style>
+.toc_content ul {
+  counter-reset: section;  
+  list-style-type: none;
+  margin: 0 1rem;
+}
+.toc_content li::before {
+  counter-increment: section;
+  content: counters(section,".") " ";
+}
+.toc_part {
+  overflow-y: auto;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+}
+.toc_title {
+  position: relative;
+  background-color: #6AA84F;
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.toc_content {
+  overflow-y: scroll;
+  max-height: 30rem;
+  right: 0;
+  display: none;
+  position: relative;
+  background-color: #99CC66;
+  border-style: solid;
+  border-width: 0.3rem;
+  border-color: #66CC66;
+}
+.toc_content a {
+  color: black;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.toc_content a:hover {
+  background-color: #CCFFCC
+}
+.toc_part:hover .toc_content {
+  display: block;
+}
+</style>
+
+<div class="toc_part">
+    <button class="toc_title">{{ i18n "toc" }}</button>
+    <div class="toc_content">
+        {{ .TableOfContents }}
+    </div>
+</div>

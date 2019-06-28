@@ -18,3 +18,6 @@
 
 - id: no-translate
   translation: Il n'y a rien ici, peut-être que cet article n'est pas traduit.
+
+- id: toc
+  translation: Table des Matières

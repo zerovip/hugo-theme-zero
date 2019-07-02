@@ -253,7 +253,7 @@ a:visited{
   line-height: 170%;
   margin-left: -1.25rem;
   text-align: justify;
-  text-justify: inter-ideograph;
+  hyphens: auto;
 }
 .article code{
   background-color: #032424;

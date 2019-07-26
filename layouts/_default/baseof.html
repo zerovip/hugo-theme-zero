@@ -5,6 +5,11 @@
     {{ hugo.Generator }}
     <title>{{ .Site.Title }}</title>
     <link rel="stylesheet" type="text/css" href="/css/base.css">
+    
+    <!--Google Analytics 部分-->
+    {{ if not .Site.IsServer }}
+        {{ template "_internal/google_analytics_async.html" . }}
+    {{ end }}
 </head>
 
 <body>
@@ -65,11 +70,6 @@
     {{ block "right_part_title" . }}{{ end }}
     {{ block "right_part_main" . }}{{ end }}
 </div>
-
-<!--Google Analytics 部分-->
-{{ if not .Site.IsServer }}
-    {{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
 
 </body>
 </html>

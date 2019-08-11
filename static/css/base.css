@@ -262,6 +262,7 @@ a:visited{
 }
 p{
   overflow-x: auto; /*为的是让宽一些的图片不把整个右边撑开*/
+  overflow-y: visible;
 }
 .article code{
   background-color: #032424;

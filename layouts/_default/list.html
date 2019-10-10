@@ -1,3 +1,19 @@
+{{ define "head_title" }}
+    {{ $currentNode := . }}
+    {{ range .Site.Menus.main }}
+        {{ if ($currentNode.IsMenuCurrent "main" .) }}
+            {{ .Name }}
+        {{ else }}
+            {{ range .Children }}
+                {{ if ($currentNode.IsMenuCurrent "main" .) }}
+                    {{ .Name }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+
+{{ end }}
+
 {{ define "right_part_title" }}
 <div class="page_title_part">
     <div class="page_title">

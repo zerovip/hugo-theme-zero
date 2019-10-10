@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     {{ hugo.Generator }}
-    <title>{{ .Site.Title }}</title>
+    <title>
+        {{ block "head_title" . }}{{ end }} | {{ .Site.Title }}
+    </title>
     <link rel="stylesheet" type="text/css" href="/css/base.css">
     
     <!--Google Analytics 部分-->

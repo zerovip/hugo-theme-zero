@@ -308,7 +308,7 @@ blockquote{
   padding-right: 1.6rem;
   font-size: 1.05rem;
   background-color: #DDDDDD;
-  border-left:5px solid #4B4B4B;
+  border-left: 0.2rem solid #4B4B4B;
 }
 .right_comments{
   background-color: white;
@@ -318,4 +318,50 @@ blockquote{
 .footnotes{
   margin-top: 6rem;
   border-top: 0.375rem #93C47D solid;
+}
+.toc_content ul {
+  counter-reset: section;  
+  list-style-type: none;
+  margin: 0 1rem;
+}
+.toc_content li::before {
+  counter-increment: section;
+  content: counters(section,".") " ";
+}
+.toc_part {
+  overflow-y: auto;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+}
+.toc_title {
+  position: relative;
+  background-color: #6AA84F;
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.toc_content {
+  overflow-y: scroll;
+  max-height: 30rem;
+  right: 0;
+  display: none;
+  position: relative;
+  background-color: #99CC66;
+  border-style: solid;
+  border-width: 0.3rem;
+  border-color: #66CC66;
+}
+.toc_content a {
+  color: black;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.toc_content a:hover {
+  background-color: #CCFFCC
+}
+.toc_part:hover .toc_content {
+  display: block;
 }

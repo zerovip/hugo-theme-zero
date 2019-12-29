@@ -1,0 +1,234 @@
+body {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+}
+.bar_for_phone{
+    display: none;
+}
+.body_for_pc{
+    display: -webkit-flex;
+    display: flex;
+}
+.left{
+    display: -webkit-flex;
+    display: flex;
+    /* 下面四行是为了让右边动，左边固定住的，这是方案1 */
+    /*position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;*/
+    /* 这个方案可能浏览器支持不好，因此不采用 */
+    flex-direction: column;
+    order: 1;
+    width: 25vw;
+    height: 100vh;
+    margin-left: 0.5vw;
+}
+.left_non-footer{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    flex-grow: 1;
+}
+.left_non-footer_option{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    order: 1;
+    align-self: flex-end;
+}
+.left_non-footer_head{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    padding-top: 0.75rem;
+    padding-bottom: 0.125rem;
+}
+.left_non-footer_head_title{
+    display: -webkit-flex;
+    display: flex;
+    order: 1;
+    align-self: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    margin-left: 2rem;
+    margin-right: 1.5rem;
+    font-size: 2rem;
+    color: #6AA84F;
+    font-weight: 900;
+}
+.left_non-footer_head_subtitle{
+    display: -webkit-flex;
+    display: flex;
+    order: 2;
+    align-self: flex-end;
+    margin-right: 20%;
+    padding-top: 0.625rem;
+    font-size: 1.5rem;
+    color: #6AA84F;
+    font-weight: 700;
+}
+.left_non-footer_main{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 3;
+}
+.left_footer{
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 2;
+}
+.right{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    width: 75vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    /* 下面两行是为了让右边动，左边固定住的，这是方案2 */
+    overflow-y: auto;
+    height: 100vh;
+    /* 这个方案挺不错，先用着 */
+}
+.right_head{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    padding-top: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+.right_head_title{
+    display: -webkit-flex;
+    display: flex;
+    order: 1;
+    font-size: 3.125rem;
+    font-weight: 600;
+}
+.right_head_des{
+    display: -webkit-flex;
+    display: flex;
+    order: 2;
+    font-size: 1.25rem;
+}
+.right_main{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    padding-top: 5rem;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: 6rem;
+}
+.right_main_article{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    font-size: 1.2rem;
+}
+.right_main_article h1{
+    margin-top: 2rem;
+    margin-left: -2rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+.right_main_article h2{
+    margin-top: 1.8rem;
+    margin-left: -1.8rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+.right_main_article h3{
+    margin-top: 1.6rem;
+    margin-left: -1.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.right_main_article h4{
+    margin-top: 1.4rem;
+    margin-left: -1.4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.right_main_article h5{
+    margin-top: 1.2rem;
+    margin-left: -1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.right_main_article h6{
+    margin-top: 1rem;
+    margin-left: -1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.right_main_article p{
+    margin-top: 1rem;
+    text-indent: 2.4rem; /* article font-size 的二倍，确保是空了两个格.*/
+    line-height: 160%;
+}
+/*下面三个都是给列表页用的*/
+.right_main_article-title{
+    margin-left: 3.75rem;
+    margin-right: 3.75rem;
+    font-size: 1.8rem;
+}
+.right_main_article-des{
+    margin-left: 3.75rem;
+    margin-right: 3.75rem;
+    font-size: 1rem;
+}
+.right_main_article-sum{
+    color: #006600;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 3.75rem;
+    margin-right: 3.75rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 0.375rem #93C47D solid;
+}
+.right_main_notes{
+    order: 2;
+}
+.right_comments{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    order: 3;
+}
+.toc{
+    overflow-y: auto;
+    position: fixed;
+    z-index: 1;
+    right: 1%;
+    top: 20%;
+}
+.toc_title{
+    position: relative;
+    background-color: #6AA84F;
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+.toc_content{
+    max-height: 30rem;
+    right: 0;
+    display: none;
+    position: relative;
+}
+.toc:hover .toc_content{
+    display: block;
+}

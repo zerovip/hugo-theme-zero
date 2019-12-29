@@ -1,367 +1,249 @@
 @charset"utf-8";
 @font-face{
-  font-family: 'FantasqueSansMono';
-  src: url('/font/FantasqueSansMono-Regular.eot'); /* IE9 */
-  src: url('/font/FantasqueSansMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
-       url('/font/FantasqueSansMono-Regular.woff') format('woff'), /* Morden Browsers */
-       url('/font/FantasqueSansMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('/font/FantasqueSansMono-Regular.svg#FantasqueSansMono') format('svg'); /* Legacy iOS */
+    font-family: 'FantasqueSansMono';
+    src: url('/font/FantasqueSansMono-Regular.eot'); /* IE9 */
+    src: url('/font/FantasqueSansMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+        url('/font/FantasqueSansMono-Regular.woff') format('woff'), /* Morden Browsers */
+        url('/font/FantasqueSansMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('/font/FantasqueSansMono-Regular.svg#FantasqueSansMono') format('svg'); /* Legacy iOS */
 }
 *{
-  border-width: 0;
-  margin: 0;
-  padding:0;
-  font-family: Arial, MicroSoft YaHei, 微软雅黑, Hiragino Sans GB；
+    border-width: 0;
+    margin: 0;
+    padding:0;
+    font-family: Arial, MicroSoft YaHei, 微软雅黑, Hiragino Sans GB；
 }
-body {
-  min-width: 52rem;
-  background-color: #EEFFE7;
-}
-.left_bar{
-  float:left;
-  width: 25%;
-  height: 95%;
-  position: fixed;
-  z-index: 1;
-  overflow-y: auto;
-  background-color: #EEFFE7;
-  margin-left: 0.5%;
-  box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem #888888;
-  /*上面盒子阴影的六个参数：水平阴影位置（负值为向下），竖直阴影位置，模糊距离，阴影尺寸，颜色，inset 内阴影*/
-}
-.option_part{
-  position: relative;
-  text-align: right;
-  padding-top: 0.875rem;
-  padding-right: 1rem;
-}
-.option_part li{
-  list-style: none;
-}
-.title_part{
-  position: relative;
-  padding-top: 0.75rem;
-  padding-bottom: 0.125rem;
-}
-.title{
-  position: relative;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  text-align: center;
-  font-weight: 900;
-  color: #669900;
-  font-size: 2.375rem;
-}
-.subtitle{
-  position: relative;
-  padding-top: 0.625rem;
-  padding-right: 2.5rem;
-  text-align: right;
-  font-size: 1.875rem;
-  color: #669900;
-  font-weight: 800;
-}
-.main_part{
-  position: relative;
-  padding-top: 0.628rem;
-  padding-left: 1.25rem;
-  /*有没有内框，element的框。。。*/
-}
-.left_bar .h1.active::after {
-  content: "◂";
-}
-.left_bar .h2.active::after {
-  content: "<";
-}
-.main_part .active a {
-  color:#006600;
+body{
+    overflow: hidden;
+    height: 100vh;
+    background-color: #EEFFE7;
 }
 a:link{
-  color: #6AA84F;
-  text-decoration: none;
+    color: #6AA84F;
+    text-decoration: none;
 }
 a:visited{
-  color: #6AA84F;
-  text-decoration: none;
+    color: #6AA84F;
+    text-decoration: none;
 }
-.left_bar .h1{
-  padding-top: 1.25rem;
-  margin-right: 1.25rem;
-  position: relative;
-  /*教程中讲的普通流似乎并不是这个relative，但我这里不写relative似乎也可以，还需再搞清楚二者区别*/
-  /*height: 20px;*/
-  /*如果内容高度超过了height会怎样？干脆不写height让它自动margin*/
-  font-size: 1.75rem;
-  /*line-height: 0px;*/ 
-  /*line-height在只有一行的时候，如果不写0px会有问题。。。？？*/
-  color: #6AA84F;
-  font-weight: 700;
-  border-bottom: 0.375rem #93C47D solid;
+.left{
+    background-color: #EEFFE7;
+    box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem #888888;
+    /*上面盒子阴影的六个参数：水平阴影位置（负值为向下），竖直阴影位置，模糊距离，阴影尺寸，颜色，inset 内阴影*/
 }
-.h2{
-  /*怎么把radio的圈圈弄大一点*/
-  position: relative;
-  padding-bottom: 0.375rem;
-  padding-left: 0.625rem;
-  font-size: 1.375rem; 
-  font-weight: 600;
-  color: #6AA84F;
+.left_non-footer{
+    margin-bottom: 1.25rem;
+    margin-top: 2.5rem;
+    /* 这一行是为了在高度不够显示时出现进度条 */
+    overflow-y: auto;
 }
-.footer_part{
-  width: 25%;
-  height: 4%;
-  position: fixed;
-  bottom: 0;
-  z-index: 2;
-  background-color: #EEFFE7;
-  color: #6AA84F;
+.left_non-footer_option{
+    margin-right: 0.75rem;
 }
-.right_part{
-  padding-left: 2rem;
-  margin-left: 25.5%; /* Same as the width of the left_bar */
+.left_non-footer_main{
+    margin-left: 12%;
+    padding-top: 0.628rem;
 }
-.page_title_part{
-  position: relative;
-  padding-top: 5rem;
-  padding-left: 5rem;
+.left_non-footer li{
+    list-style: none;
 }
-.page_title{
-  color: #6AA84F;
-  font-size: 3.125rem;
-  font-weight: 600;
+.left_non-footer .h1{
+    padding-top: 1.25rem;
+    font-size: 1.5rem;
+    color: #6AA84F;
+    font-weight: 700;
+    border-bottom: 0.375rem #93C47D solid;
 }
-.title_des{
-  margin-left: 0.75rem;
-  margin-right: 3.75rem;
-  color: #6AA84F;
-  font-size: 1.25rem;
+.left_non-footer .h2{
+    padding-top: 0.4rem;
+    padding-left: 0.725rem;
+    font-size: 1.2rem; 
+    font-weight: 600;
+    color: #6AA84F;
 }
-.right_main{
-  position: relative;
-  padding-top: 5rem;
-  margin-left: 8%;
-  margin-right: 14%;
-  margin-bottom: 6rem;
+.left_non-footer .h1.active::after {
+    content: "◂";
 }
-.article_title{
-  position: relative;
-  color: #6AA84F;
-  font-size: 1.875rem;
-  font-weight: 700;
-  padding-top: 1rem;
-  margin-left: 2.625rem;
+.left_non-footer .h2.active::after {
+    content: "<";
 }
-.article_des{
-  position: relative;
-  color: #6AA84F;
-  font-size: 1rem;
-  margin-left: 3.75rem;
+.left_non-footer_main .active a {
+    color:#006600;
 }
-.article_sum{
-  position: relative;
-  color: #006600;
-  font-size: 0.9rem;
-  font-weight: 400;
-  margin-left: 3.75rem;
-  margin-right: 5.75rem;
-  border-bottom: 0.375rem #93C47D solid;
+.left_footer{
+    margin-bottom: 1.35rem;
+    color: #6AA84F;
 }
-.article{
-  position: relative;
-  color: #274E13;
-  font-size: 1.1rem;
-  counter-reset: h1counter;
+.right_head_title{
+    color: #6AA84F;
 }
-.article h1{
-  margin-top: 2rem;
-  margin-left: -2rem;
-  font-size: 2.5rem;
-  font-weight: 900;
-  counter-reset: h2counter;
+.right_head_des{
+    color: #6AA84F;
 }
-.article h2{
-  margin-top: 1.8rem;
-  margin-left: -1.75rem;
-  font-size: 2rem;
-  font-weight: 800;
-  counter-reset: h3counter;
+.right_main_article{
+    color: #274E13;
 }
-.article h3{
-  margin-top: 1.6rem;
-  margin-left: -1.5rem;
-  font-size: 1.5rem;
-  font-weight: 800;
-  counter-reset: h4counter;
+.right_main_article code{
+    background-color: #032424;
+    border-radius: 0.15rem;
+    color: #E9FFF2;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    font-family: FantasqueSansMono;
 }
-.article h4{
-  margin-top: 1.4rem;
-  margin-left: -1.25rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  counter-reset: h5counter;
+.right_main_article a{
+    text-decoration: underline;
 }
-.article h5{
-  margin-top: 1.3rem;
-  margin-left: -1rem;
-  font-size: 1.5rem;
-  font-weight: 500;
-  counter-reset: h6counter;
+.right_main_article ol{
+    margin-left: 2rem;
 }
-.article h6{
-  margin-top: 1.2rem;
-  margin-left: -1rem;
-  font-size: 1.3rem;
-  font-weight: 500;
-}
-.article h1:before {
-  counter-increment: h1counter;
-  content: counter(h1counter) ".\0000a0\0000a0";
-}
-.article h2:before {
-  counter-increment: h2counter;
-  content: counter(h1counter) "."
-            counter(h2counter) ".\0000a0\0000a0";
-}
-.article h3:before {
-  counter-increment: h3counter;
-  content: counter(h1counter) "."
-            counter(h2counter) "."
-            counter(h3counter) ".\0000a0\0000a0";
-}
-.article h4:before {
-  counter-increment: h4counter;
-  content: counter(h1counter) "."
-            counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) ".\0000a0\0000a0";
-}
-.article h5:before {
-  counter-increment: h5counter;
-  content: counter(h1counter) "."
-            counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "."
-            counter(h5counter) ".\0000a0\0000a0";
-}
-.article h6:before {
-  counter-increment: h6counter;
-  content: counter(h1counter) "."
-            counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "."
-            counter(h5counter) "."
-            counter(h6counter) ".\0000a0\0000a0";
-}
-.article p{
-  margin-top: 0.8rem;
-  text-indent: 2.2rem; /* article font-size 的二倍，确保是空了两个格.*/
-  line-height: 170%;
-  margin-left: -1.25rem;
-  text-align: justify;
-  hyphens: auto;
-}
-p{
-  overflow-x: auto; /*为的是让宽一些的图片不把整个右边撑开*/
-  overflow-y: visible;
+.right_main_article p{
+    overflow-x: auto; /*为的是让宽一些的图片不把整个右边撑开*/
+    overflow-y: hidden;
 }
 figure{
-  text-align: center;
-}
-.article code{
-  background-color: #032424;
-  border-radius: 0.25rem;
-  color: #E9FFF2;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  font-family: FantasqueSansMono;
+    text-align: center;
 }
 pre{
-  background-color: #032424;
-  line-height: 110%;
-  border-radius: 0.3rem;
-  margin-top: 0.5rem;
-  margin-left: 2.5rem;
-  margin-right: 2rem;
-  padding-left: 0.3rem;
-  padding-right: 0.3rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  overflow-x: auto;
+    background-color: #032424;
+    line-height: 110%;
+    border-radius: 0.3rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    overflow-x: auto;
 }
 pre code{
-  font-size: 1rem;
-}
-.article a{
-  text-decoration: underline;
-}
-.special_notes{
-  position: relative;
-  margin-left: 1.875rem;
-  margin-right: 1.875rem;
+    font-size: 1rem;
 }
 blockquote{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.6rem;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-  font-size: 1.05rem;
-  background-color: #DDDDDD;
-  border-left: 0.2rem solid #4B4B4B;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.05rem;
+    background-color: #DDDDDD;
+    border-left: 0.2rem solid #4B4B4B;
 }
-.right_comments{
-  background-color: white;
-  margin-right: 2rem;
-  border-top: 0.375rem #93C47D solid;
+/*下面两个都是给列表页用的*/
+.right_main_article-title{
+    color: #6AA84F;
+    font-weight: 700;
+}
+.right_main_article-des{
+    color: #6AA84F;
+}
+.right_main_notes{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 }
 .footnotes{
-  margin-top: 6rem;
-  border-top: 0.375rem #93C47D solid;
+    margin-top: 3rem;
+    border-top: 0.375rem #93C47D solid;
 }
-.toc_content ul {
-  counter-reset: section;  
-  list-style-type: none;
-  margin: 0 1rem;
+.footnotes p{
+    background-color: #BCF5A9;
+    color: #173B0B;
 }
-.toc_content li::before {
-  counter-increment: section;
-  content: counters(section,".") " ";
+.right_comments{
+    background-color: white;
+    border-top: 0.375rem #93C47D solid;
 }
-.toc_part {
-  overflow-y: auto;
-  position: fixed;
-  z-index: 1;
-  right: 0;
+.toc_content{
+    overflow-y: auto;
+    background-color: #99CC66;
+    border-style: solid;
+    border-width: 0.3rem;
+    border-color: #66CC66;
 }
-.toc_title {
-  position: relative;
-  background-color: #6AA84F;
-  color: white;
-  padding: 1rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
+.toc_content a{
+    color: black;
+    font-size: 1.1rem;
+    text-decoration: none;
 }
-.toc_content {
-  overflow-y: scroll;
-  max-height: 30rem;
-  right: 0;
-  display: none;
-  position: relative;
-  background-color: #99CC66;
-  border-style: solid;
-  border-width: 0.3rem;
-  border-color: #66CC66;
+.toc_content a:hover{
+    /*其实对手机端来说这没什么用，因为没法 hover*/
+    background-color: #CCFFCC;
 }
-.toc_content a {
-  color: black;
-  font-size: 1.1rem;
-  text-decoration: none;
+
+/* 下面是标题计数器 */
+.right_main_article{
+    counter-reset: h1counter;
 }
-.toc_content a:hover {
-  background-color: #CCFFCC
+.right_main_article h1{
+    counter-reset: h2counter;
 }
-.toc_part:hover .toc_content {
-  display: block;
+.right_main_article h2{
+    counter-reset: h3counter;
 }
+.right_main_article h3{
+    counter-reset: h4counter;
+}
+.right_main_article h4{
+    counter-reset: h5counter;
+}
+.right_main_article h5{
+    counter-reset: h6counter;
+}
+.right_main_article h6{
+    /* nothing for counter */
+}
+/* 上面是标题计数器 */
+/* 下面是文章标题计数显示 */
+.right_main_article h1:before {
+    counter-increment: h1counter;
+    content: counter(h1counter) ".\0000a0\0000a0";
+}
+.right_main_article h2:before {
+    counter-increment: h2counter;
+    content: counter(h1counter) "."
+        counter(h2counter) ".\0000a0\0000a0";
+}
+.right_main_article h3:before {
+    counter-increment: h3counter;
+    content: counter(h1counter) "."
+        counter(h2counter) "."
+        counter(h3counter) ".\0000a0\0000a0";
+}
+.right_main_article h4:before {
+    counter-increment: h4counter;
+    content: counter(h1counter) "."
+        counter(h2counter) "."
+        counter(h3counter) "."
+        counter(h4counter) ".\0000a0\0000a0";
+}
+.right_main_article h5:before {
+    counter-increment: h5counter;
+    content: counter(h1counter) "."
+        counter(h2counter) "."
+        counter(h3counter) "."
+        counter(h4counter) "."
+        counter(h5counter) ".\0000a0\0000a0";
+}
+.right_main_article h6:before {
+    counter-increment: h6counter;
+    content: counter(h1counter) "."
+        counter(h2counter) "."
+        counter(h3counter) "."
+        counter(h4counter) "."
+        counter(h5counter) "."
+        counter(h6counter) ".\0000a0\0000a0";
+}
+/* 上面是文章标题计数显示 */
+/* 下面是目录标题计数显示 */
+.toc_content ul{
+    counter-reset: section;  
+    list-style-type: none;
+    margin: 0 1rem;
+}
+.toc_content li::before{
+    counter-increment: section;
+    content: counters(section,".") " ";
+}
+/* 上面是目录标题计数显示 */

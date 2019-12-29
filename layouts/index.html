@@ -2,14 +2,17 @@
     {{ i18n "hello" }}
 {{ end }}
 
-{{ define "right_part_title" }}
-<div class="page_title_part">
-    <div class="page_title">
+{{ define "right_head" }}
+<div class="right_head">
+    <div class="right_head_title">
         {{ i18n "hello" }}
     </div>
 </div>
+{{ end }}
+
+{{ define "right_main" }}
 <div class="right_main">
-    <div class="article">
+    <div class="right_main_article">
         {{ .Content }}
     </div>
 </div>

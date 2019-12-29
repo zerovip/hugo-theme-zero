@@ -6,15 +6,23 @@
     <title>
         {{ block "head_title" . }}{{ end }} | {{ .Site.Title }}
     </title>
+    <!-- CSS 进行小屏幕适配 -->
     <link rel="stylesheet" type="text/css" href="/css/base.css" />
-    <link rel="stylesheet" media="screen and (max-device-width: 600px)" type="text/css" href="/css/small.css" />
-    <link rel="stylesheet" media="screen and (min-width: 600px)" type="text/css" href="/css/normal.css" />
-
-
+    <link rel="stylesheet" media="screen and (max-width: 800px)" type="text/css" href="/css/small.css" />
+    <link rel="stylesheet" media="screen and (min-width: 800px)" type="text/css" href="/css/normal.css" />
     <!--Google Analytics 部分-->
     {{ if not .Site.IsServer }}
         {{ template "_internal/google_analytics_async.html" . }}
     {{ end }}
+    <!--小屏幕顶部的两条点击事件-->
+    <script>
+        function ChangeClassLeft(){
+            document.getElementById("left").classList.toggle("left_show");
+            }
+        function ChangeClassTOC(){
+            document.getElementById("toc").classList.toggle("toc_show");
+            }
+    </script>
 </head>
 
 <body>
@@ -23,58 +31,75 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 {{ end }}
 
-<!--左边栏-->
-<div class='left_bar'>
-
-    <!--选项区-->
-    <div class='option_part'>
-        {{ $curr_page := . }}
-        {{ range $.Site.Home.AllTranslations }}
-        <li><a href="{{ .Permalink }}{{ substr $curr_page.RelPermalink 4 }}">{{ .Language.LanguageName }}●</a></li>
-        {{ end }}
+<!--小屏幕顶部设计，在宽屏幕中不显示-->
+<div class='bar_for_phone'>
+    <div class='bar_left_button'>
+        <button class='left_button_for_bar' onclick="ChangeClassLeft()">●●●</button>
     </div>
-
-    <!--题目区-->
-    <div class='title_part'>
-        <div class='title'><a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a></div>
-        <div class='subtitle'>(●’◡’●)ﾉ</div>
+    <div class='bar_title'>
+        <a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a>
     </div>
+    <div class='bar_right_button'>
+        {{ block "bar_toc" . }}{{ end }}
+    </div>
+</div>
 
-    <!--导航区-->
-    <!--这里独创的有
-        {{/* if eq .Identifier (path.Base $currentNode.RelPermalink) */}}active{{/* end */}}
-        它是等价于网上找到的下面这一行的
-        {{/* if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) */}}active{{/* end */}}
-    -->
-    <div class='main_part'>
-        {{ $currentNode := . }}
-        {{ range .Site.Menus.main }} {{/* 确保和config中的一级标题的主菜单一致，下面也是 */}}
-	        <div  class="h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Section) }}active{{ end }}">
-                <a href="{{ .URL }}">{{ .Name }}</a>
-            </div>
-            {{ if .HasChildren }}
-                {{ range .Children }}
-                    {{ if ne .Identifier ""}}
-                        <div class="h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Params.section) }}active{{ end }}">
-                            <a href="{{ .URL }}">{{ .Name }} </a>
-                        </div>
-                    {{ end }}
+<!-- 网页端主体-->
+<div class='body_for_pc'>
+    <!--左边栏-->
+    <div class='left' id='left'>
+
+        <!--非页脚区-->
+        <div class='left_non-footer'>
+            <!--选项区-->
+            <div class='left_non-footer_option'>
+                {{ $curr_page := . }}
+                {{ range $.Site.Home.AllTranslations }}
+                <li><a href="{{ .Permalink }}{{ substr $curr_page.RelPermalink 4 }}">{{ .Language.LanguageName }}●</a></li>
                 {{ end }}
-            {{ end }}
-        {{end}}
+            </div>
+            <!--题目区-->
+            <div class='left_non-footer_head'>
+                <div class='left_non-footer_head_title'><a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a></div>
+                <div class='left_non-footer_head_subtitle'>(●’◡’●)ﾉ</div>
+            </div>
+            <!--导航区-->
+            <!--这里独创的有
+                {{/* if eq .Identifier (path.Base $currentNode.RelPermalink) */}}active{{/* end */}}
+                它是等价于网上找到的下面这一行的
+                {{/* if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) */}}active{{/* end */}}
+            -->
+            <div class='left_non-footer_main'>
+                {{ $currentNode := . }}
+                {{ range .Site.Menus.main }} {{/* 确保和config中的一级标题的主菜单一致，下面也是 */}}
+                    <div  class="h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Section) }}active{{ end }}">
+                        <a href="{{ .URL }}">{{ .Name }}</a>
+                    </div>
+                    {{ if .HasChildren }}
+                        {{ range .Children }}
+                            {{ if ne .Identifier ""}}
+                                <div class="h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Params.section) }}active{{ end }}">
+                                    <a href="{{ .URL }}">{{ .Name }} </a>
+                                </div>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{end}}
+            </div>
+
+        </div>
+        <!--页脚版权区-->
+        <div class='left_footer'>
+            <div class='copyright'>©2019 {{ i18n "copyright" }}</div>
+        </div>
     </div>
+    <!--右边主要部分-->
+    <div class='right'>
+        {{ block "right_head" . }}{{ end }}
+        {{ block "right_main" . }}{{ end }}
+    </div>
+    <!--目录部分-->
+    {{ block "toc" . }}{{ end }}
 </div>
-
-<!--版权区-->
-<div class='footer_part'>
-    <div class='copyright'>©2019 {{ i18n "copyright" }}</div>
-</div>
-
-<!--右边主要部分-->
-<div class='right_part'>
-    {{ block "right_part_title" . }}{{ end }}
-    {{ block "right_part_main" . }}{{ end }}
-</div>
-
 </body>
 </html>

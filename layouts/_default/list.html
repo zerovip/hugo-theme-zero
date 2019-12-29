@@ -11,12 +11,11 @@
             {{ end }}
         {{ end }}
     {{ end }}
-
 {{ end }}
 
-{{ define "right_part_title" }}
-<div class="page_title_part">
-    <div class="page_title">
+{{ define "right_head" }}
+<div class="right_head">
+    <div class="right_head_title">
         {{ $currentNode := . }}
         {{ range .Site.Menus.main }}
                 {{ if ($currentNode.IsMenuCurrent "main" .) }}
@@ -30,13 +29,13 @@
                 {{ end }}
         {{ end }}
     </div>
-    <div class="title_des">
+    <div class="right_head_des">
         {{ .Content }}
     </div>
 </div>
 {{ end }}
 
-{{ define "right_part_main" }}
+{{ define "right_main" }}
 <div class="right_main">
     {{ $currentNode := . }}
     {{ range .Site.Menus.main }}

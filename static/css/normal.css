@@ -129,14 +129,17 @@ body {
     padding-top: 5rem;
     margin-left: 6%;
     margin-right: 6%;
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
 }
 .right_main_article{
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
-    order: 1;
+    /* 注释掉以防在 front matter 有 content 的列表页
+     * 顺序错乱 */
+    /*order: 1;*/
     font-size: 1.2rem;
+    margin-bottom: 3rem;
 }
 .right_main_article h1{
     margin-top: 2rem;

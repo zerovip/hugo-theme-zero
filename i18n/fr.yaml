@@ -1,9 +1,6 @@
 - id: copyright
   translation: Tous Droits Réservés.
 
-- id: tag
-  translation: Tag
-
 - id: count
   translation: mots
 
@@ -21,3 +18,9 @@
 
 - id: toc
   translation: Table des Matières
+
+- id: recent_content
+  translation: Contenu Récent
+
+- id: rss_feed
+  translation: Flux RSS

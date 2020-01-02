@@ -1,9 +1,6 @@
 - id: copyright
   translation: 版权所有.
 
-- id: tag
-  translation: 标签
-
 - id: count
   translation: 字
 
@@ -21,3 +18,9 @@
 
 - id: toc
   translation: 目录
+
+- id: recent_content
+  translation: 近期内容
+
+- id: rss_feed
+  translation: RSS 订阅

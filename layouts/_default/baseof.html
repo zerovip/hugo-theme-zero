@@ -54,6 +54,8 @@
         <div class='left_non-footer'>
             <!--选项区-->
             <div class='left_non-footer_option'>
+                <li><a href="{{ .Permalink }}index.xml">{{ i18n "rss_feed" }}<img src="/images/rss.png" /></a></li>
+                <li><br /></li>
                 {{ $curr_page := . }}
                 {{ range $.Site.Home.AllTranslations }}
                 <li><a href="{{ .Permalink }}{{ substr $curr_page.RelPermalink 4 }}">{{ .Language.LanguageName }}●</a></li>

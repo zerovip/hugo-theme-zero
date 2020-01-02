@@ -40,13 +40,13 @@
     {{ $currentNode := . }}
     {{ range .Site.Menus.main }}
         {{ if ($currentNode.IsMenuCurrent "main" .) }}
-            {{ range where (where $currentNode.Site.Pages "Section" (path.Base .URL)) "Title" "ne" "" }}
+            {{ range where (where (where $currentNode.Site.Pages "Section" (path.Base .URL)) "Title" "ne" "") ".Params.hide" "ne" true }}
                 {{ .Render "summary" }}
             {{ end }}
         {{ else }}
             {{ range .Children }}
                 {{ if ($currentNode.IsMenuCurrent "main" .) }}
-                    {{ range $currentNode.Pages }}
+                    {{ range where $currentNode.Pages ".Params.hide" "ne" true }}
                         {{ .Render "summary" }}
                     {{ end }}
                 {{ end }}

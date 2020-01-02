@@ -15,5 +15,8 @@
     <div class="right_main_article">
         {{ .Content }}
     </div>
+    {{ range first 5 (where .Site.RegularPages ".Params.hide" "ne" true) }}
+        {{ .Render "summary"}}
+    {{ end }}
 </div>
 {{ end }}

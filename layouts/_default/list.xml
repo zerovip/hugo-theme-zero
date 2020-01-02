@@ -1,0 +1,51 @@
+{{ define "rss_title" }}
+    {{ $currentNode := . }}
+    {{ range .Site.Menus.main }}
+        {{ if ($currentNode.IsMenuCurrent "main" .) }}
+            {{ .Name }}
+        {{ else }}
+            {{ range .Children }}
+                {{ if ($currentNode.IsMenuCurrent "main" .) }}
+                    {{ .Name }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }} 
+
+{{ define "rss_main" }}
+    {{ $currentNode := . }}
+    {{ range .Site.Menus.main }}
+        {{ if ($currentNode.IsMenuCurrent "main" .) }}
+            {{ range where (where (where $currentNode.Site.Pages "Section" (path.Base .URL)) "Title" "ne" "") ".Params.hide" "ne" true }}
+                <item>
+                    <title>{{ .Title }}</title>
+                    <link>{{ .Permalink }}</link>
+                    <pubDate>{{ .Date.Format "2006-01-02" | safeHTML }}</pubDate>
+                    {{ with .Site.Author.email }}
+                        <author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>
+                    {{end}}
+                    <guid>{{ .Permalink }}</guid>
+                    <description>{{ .Content | html }}</description>
+                </item>
+            {{ end }}
+        {{ else }}
+            {{ range .Children }}
+                {{ if ($currentNode.IsMenuCurrent "main" .) }}
+                    {{ range where $currentNode.Pages ".Params.hide" "ne" true }}
+                        <item>
+                            <title>{{ .Title }}</title>
+                            <link>{{ .Permalink }}</link>
+                            <pubDate>{{ .Date.Format "2006-01-02" | safeHTML }}</pubDate>
+                            {{ with .Site.Author.email }}
+                                <author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>
+                            {{end}}
+                            <guid>{{ .Permalink }}</guid>
+                            <description>{{ .Content | html }}</description>
+                        </item>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}

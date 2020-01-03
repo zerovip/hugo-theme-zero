@@ -1,17 +1,29 @@
 body {
-    display: -webkit-flex;
-    display: flex;
+    display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+    display: -moz-box; /* Firefox 17- */
+    display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+    display: -moz-flex; /* Firefox 18+ */
+    display: -ms-flexbox; /* IE 10 */
+    display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
     flex-direction: column;
 }
 .bar_for_phone{
     display: none;
 }
 .body_for_pc{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 .left{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     /* 下面四行是为了让右边动，左边固定住的，这是方案1 */
     /*position: sticky;
@@ -26,14 +38,22 @@ body {
     margin-left: 0.5vw;
 }
 .left_non-footer{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 1;
     flex-grow: 1;
 }
 .left_non-footer_option{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -41,7 +61,11 @@ body {
     align-self: flex-end;
 }
 .left_non-footer_head{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 2;
@@ -49,7 +73,11 @@ body {
     padding-bottom: 0.125rem;
 }
 .left_non-footer_head_title{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 1;
     align-self: center;
@@ -62,7 +90,11 @@ body {
     font-weight: 900;
 }
 .left_non-footer_head_subtitle{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 2;
     align-self: flex-end;
@@ -73,20 +105,32 @@ body {
     font-weight: 700;
 }
 .left_non-footer_main{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 3;
 }
 .left_footer{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     order: 2;
 }
 .right{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 2;
@@ -99,7 +143,11 @@ body {
     /* 这个方案挺不错，先用着 */
 }
 .right_head{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     /*align-items: center;*/
@@ -109,20 +157,32 @@ body {
     padding-right: 5rem;
 }
 .right_head_title{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 1;
     font-size: 2.3rem;
     font-weight: 600;
 }
 .right_head_des{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 2;
     font-size: 1.25rem;
 }
 .right_main{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 2;
@@ -132,7 +192,11 @@ body {
     margin-bottom: 3rem;
 }
 .right_main_article{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     /* 注释掉以防在 front matter 有 content 的列表页
@@ -206,7 +270,11 @@ body {
     order: 2;
 }
 .right_comments{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 3;

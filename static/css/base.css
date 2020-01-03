@@ -33,7 +33,7 @@ a:visited{
 }
 .left_non-footer{
     margin-bottom: 1.25rem;
-    margin-top: 2.5rem;
+    margin-top: 1rem;
     /* 这一行是为了在高度不够显示时出现进度条 */
     overflow-y: auto;
 }

@@ -1,16 +1,28 @@
 body {
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
 }
 .bar_for_phone{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 1;
     height: 6vh;
 }
 .bar_left_button{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 1;
 }
@@ -22,7 +34,11 @@ body {
     color: white;
 }
 .bar_title{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;/*上下的中间*/
     order: 2;
@@ -33,7 +49,11 @@ body {
     font-weight: 700;
 }
 .bar_right_button{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 3;
 }
@@ -46,14 +66,22 @@ body {
   font-weight: 600;
 }
 .body_for_pc{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 2;
     height: 94vh;
     position: relative;/*保证左右菜单拉出来后不遮挡顶栏*/
 }
 .left{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 1;
@@ -71,14 +99,22 @@ body {
     opacity: 1;
 }
 .left_non-footer{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 1;
     flex-grow: 1;
 }
 .left_non-footer_option{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -89,20 +125,32 @@ body {
     display: none;
 }
 .left_non-footer_main{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 2;
 }
 .left_footer{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     order: 2;
 }
 .right{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 2;
@@ -112,7 +160,11 @@ body {
     overflow-y: auto;
 }
 .right_head{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     /*align-items: center;*/
@@ -122,20 +174,32 @@ body {
     padding-right: 1.5rem;
 }
 .right_head_title{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 1;
     font-size: 1.75rem;
     font-weight: 900;
 }
 .right_head_des{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     order: 2;
     font-size: 1rem;
 }
 .right_main{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 2;
@@ -145,7 +209,11 @@ body {
     margin-bottom: 1.5rem;
 }
 .right_main_article{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     /* 注释掉以防在 front matter 有 content 的列表页
@@ -215,7 +283,11 @@ body {
     order: 2;
 }
 .right_comments{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 3;
@@ -226,7 +298,11 @@ body {
     display: none;
 }
 .toc_show{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 3;
@@ -241,7 +317,11 @@ body {
     display: none;
 }
 .toc_content{
+    display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     order: 2;

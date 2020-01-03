@@ -54,7 +54,11 @@
         <div class='left_non-footer'>
             <!--选项区-->
             <div class='left_non-footer_option'>
-                <li><a href="{{ .Permalink }}index.xml">{{ i18n "rss_feed" }}<img src="/images/rss.png" /></a></li>
+                {{ if .IsNode }}
+                    <li><a href="{{ .Permalink }}index.xml">{{ i18n "rss_feed" }}<img src="/images/rss.png" /></a></li>
+                {{ else }}
+                    <li><br /></li>
+                {{ end }}
                 <li><br /></li>
                 {{ $curr_page := . }}
                 {{ range $.Site.Home.AllTranslations }}

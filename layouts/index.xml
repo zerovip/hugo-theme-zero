@@ -31,7 +31,7 @@
             {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
         {{ end }}
         -->
-        {{ range where .Site.RegularPages ".Params.hide" "ne" true }}
+        {{ range where .Site.RegularPages ".Params.rss_hide" "ne" true }}
             <item>
                 <title>{{ .Title }}</title>
                 <link>{{ .Permalink }}</link>

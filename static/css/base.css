@@ -171,6 +171,20 @@ blockquote{
     /*其实对手机端来说这没什么用，因为没法 hover*/
     background-color: #CCFFCC;
 }
+/*下面是防剧透黑块*/
+.black_block{
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    background-color: #173B0B;
+    color: #173B0B;
+    transition: all 0.3s ease-in-out;
+}
+.black_block_show{
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    background-color: #173B0B;
+    color: #BCF5A9;
+}
 
 /* 下面是标题计数器 */
 .right_main_article{

@@ -17,7 +17,7 @@
     {{ $currentNode := . }}
     {{ range .Site.Menus.main }}
         {{ if ($currentNode.IsMenuCurrent "main" .) }}
-            {{ range where (where (where $currentNode.Site.Pages "Section" (path.Base .URL)) "Title" "ne" "") ".Params.hide" "ne" true }}
+            {{ range where (where (where $currentNode.Site.Pages "Section" (path.Base .URL)) "Title" "ne" "") ".Params.rss_hide" "ne" true }}
                 <item>
                     <title>{{ .Title }}</title>
                     <link>{{ .Permalink }}</link>
@@ -32,7 +32,7 @@
         {{ else }}
             {{ range .Children }}
                 {{ if ($currentNode.IsMenuCurrent "main" .) }}
-                    {{ range where $currentNode.Pages ".Params.hide" "ne" true }}
+                    {{ range where $currentNode.Pages ".Params.rss_hide" "ne" true }}
                         <item>
                             <title>{{ .Title }}</title>
                             <link>{{ .Permalink }}</link>

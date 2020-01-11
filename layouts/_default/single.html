@@ -29,9 +29,12 @@
             {{ end }}
         </div>
     </div>
-    <div class="right_comments">
-        {{ partial "comments.html" . }}
-    </div>
+    {{ if not .Site.IsServer }}
+    <!--本地测试时不加载评论区-->
+        <div class="right_comments">
+            {{ partial "comments.html" . }}
+        </div>
+    {{ end }}
 {{ end }}
 
 {{ define "toc" }}

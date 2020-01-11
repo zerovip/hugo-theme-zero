@@ -15,7 +15,7 @@
     {{ if not .Site.IsServer }}
         {{ template "_internal/google_analytics_async.html" . }}
     {{ end }}
-    <!--小屏幕顶部的两条点击事件-->
+    <!--小屏幕顶部的两条点击事件，以及防剧透黑块点击事件-->
     <script>
         function ChangeClassLeft(){
             document.getElementById("left").classList.toggle("left_show");
@@ -23,13 +23,17 @@
         function ChangeClassTOC(){
             document.getElementById("toc").classList.toggle("toc_show");
             }
+        function ChangeClassBlackBlock(wait_to_change){
+            wait_to_change.classList.toggle("black_block_show");
+            }
     </script>
 </head>
 
 <body>
 <!--MathJax 的引用-->
 {{ if (and .IsPage (eq .Params.markup "pandoc")) }}
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {{ end }}
 
 <!--小屏幕顶部设计，在宽屏幕中不显示-->

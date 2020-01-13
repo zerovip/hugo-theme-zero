@@ -26,6 +26,7 @@ body {
     display: flex;
     order: 1;
     width: 3rem;
+    background-color: #6AA84F;
 }
 .left_button_for_bar{
     display: -webkit-box;

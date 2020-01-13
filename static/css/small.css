@@ -15,7 +15,7 @@ body {
     display: -ms-flexbox;
     display: flex;
     order: 1;
-    height: 6vh;
+    height: 3rem;
 }
 .bar_left_button{
     display: -webkit-box;
@@ -25,13 +25,28 @@ body {
     display: -ms-flexbox;
     display: flex;
     order: 1;
+    width: 3rem;
 }
 .left_button_for_bar{
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    background-color: #6AA84F;
-    font-size: 1.2rem;
-    color: white;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.bar1, .bar2, .bar3{
+    width: 2rem;
+    height: 0.7rem;
+    background-color: black;
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
 }
 .bar_title{
     display: -webkit-box;

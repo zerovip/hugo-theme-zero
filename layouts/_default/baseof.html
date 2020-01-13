@@ -39,7 +39,11 @@
 <!--小屏幕顶部设计，在宽屏幕中不显示-->
 <div class='bar_for_phone'>
     <div class='bar_left_button'>
-        <button class='left_button_for_bar' onclick="ChangeClassLeft()">●●●</button>
+        <div class='left_button_for_bar' onclick="ChangeClassLeft()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
     </div>
     <div class='bar_title'>
         <a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a>

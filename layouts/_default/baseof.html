@@ -11,9 +11,11 @@
     <link rel="stylesheet" type="text/css" href="/css/base.css" />
     <link rel="stylesheet" media="screen and (max-width: 1200px)" type="text/css" href="/css/small.css" />
     <link rel="stylesheet" media="screen and (min-width: 1201px)" type="text/css" href="/css/normal.css" />
-    <!--Google Analytics 部分-->
+    <!--Google Analytics 部分以及 GoatCounter 部分-->
     {{ if not .Site.IsServer }}
         {{ template "_internal/google_analytics_async.html" . }}
+        <script data-goatcounter="https://{{ .Param "GoatCounterName" }}.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
     {{ end }}
     <!--小屏幕顶部的两条点击事件，以及防剧透黑块点击事件-->
     <script>
@@ -35,6 +37,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {{ end }}
+
 
 <!--小屏幕顶部设计，在宽屏幕中不显示-->
 <div class='bar_for_phone'>

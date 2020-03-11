@@ -127,6 +127,8 @@ blockquote{
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     font-size: 1.05rem;
     background-color: #DDDDDD;
     border-left: 0.2rem solid #4B4B4B;

@@ -26,6 +26,16 @@ a:visited{
     color: #6AA84F;
     text-decoration: none;
 }
+/*
+.right a:link{
+    color:  #0B4C5F;
+    text-decoration: none;
+}
+.right a:visited{
+    color: #0B4C5F;
+    text-decoration: none;
+}
+ */
 .left{
     background-color: #EEFFE7;
     box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem #888888;
@@ -138,6 +148,9 @@ table{
     background-color: #BCF5A9;
     margin-bottom: 0.25rem;
 }
+thead tr{
+    background: #BCF5A9;
+}
 th{
     border-bottom: 0.125rem solid black;
     padding-top: 0.125rem;
@@ -147,6 +160,12 @@ th{
 td{
     padding-left: 0.7rem;
     padding-right: 0.7rem;
+}
+tbody tr:nth-child(even){
+    background: #D0F5A9;
+}
+tbody tr:nth-child(odd){
+    background: #A9F5A9;
 }
 /*下面两个都是给列表页用的*/
 .right_main_article-title{

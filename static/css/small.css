@@ -288,12 +288,16 @@ body {
 .right_main_article-des{
     margin-left: 0.6rem;
     margin-right: 0.6rem;
-    margin-bottom: 0.3rem;
-    border-bottom: 0.3rem #93C47D solid;
     font-size: 0.9rem;
 }
 .right_main_article-sum{
-    display: none;/*小屏幕不显示摘要*/
+    color: #006600;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 0.4rem #93C47D solid;
 }
 .right_main_notes{
     order: 2;

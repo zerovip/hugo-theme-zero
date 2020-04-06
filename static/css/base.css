@@ -167,6 +167,12 @@ tbody tr:nth-child(even){
 tbody tr:nth-child(odd){
     background: #A9F5A9;
 }
+img{
+    width: auto;
+    height: auto;
+    max-width: 95%;
+    max-height: 100%;
+}
 /*下面两个都是给列表页用的*/
 .right_main_article-title{
     color: #6AA84F;

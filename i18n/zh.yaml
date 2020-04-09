@@ -24,3 +24,6 @@
 
 - id: rss_feed
   translation: RSS 订阅
+
+- id: figure
+  translation: 图

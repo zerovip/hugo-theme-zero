@@ -114,6 +114,9 @@ a:visited{
 figure{
     text-align: center;
 }
+figcaption{
+    font-size: 75%
+}
 pre{
     background-color: #032424;
     line-height: 110%;
@@ -170,7 +173,7 @@ tbody tr:nth-child(odd){
 img{
     width: auto;
     height: auto;
-    max-width: 95%;
+    max-width: 90%;
     max-height: 100%;
 }
 /*下面两个都是给列表页用的*/

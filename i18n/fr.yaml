@@ -24,3 +24,6 @@
 
 - id: rss_feed
   translation: Flux RSS
+
+- id: figure
+  translation: Figure

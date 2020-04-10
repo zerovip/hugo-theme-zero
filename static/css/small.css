@@ -1,42 +1,44 @@
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
 body {
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 .bar_for_phone{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    order: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
     height: 3rem;
 }
 .bar_left_button{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    order: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
     width: 3rem;
     background-color: #6AA84F;
 }
 .left_button_for_bar{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
@@ -51,14 +53,17 @@ body {
 }
 .bar_title{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    align-items: center;/*上下的中间*/
-    order: 2;
-    flex-grow: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;/*上下的中间*/
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     background-color: #274E13;
     padding-left: 1rem;
     font-size: 1.375rem;
@@ -66,12 +71,11 @@ body {
 }
 .bar_right_button{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    order: 3;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
 }
 .toc_title_for_bar{
   background-color: #6AA84F;
@@ -83,24 +87,25 @@ body {
 }
 .body_for_pc{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    order: 2;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
     height: 94vh;
     position: relative;/*保证左右菜单拉出来后不遮挡顶栏*/
 }
 .left{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
     position: absolute;/*保证左边拉出来后右边呆在原位不被挤压*/
     top: 0;
     bottom: 0;
@@ -108,6 +113,8 @@ body {
     width: 80vw;
     margin-left: -79.5vw;
     opacity: 0.6;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 .left_show{
@@ -116,60 +123,75 @@ body {
 }
 .left_non-footer{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 1;
-    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
 }
 .left_non-footer_option{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    order: 1;
-    align-self: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
 }
 .left_non-footer_head{
     display: none;
 }
 .left_non-footer_main{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 2;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
 }
 .left_footer{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    order: 2;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
 }
 .right{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 2;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
     width: 100vw;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
@@ -177,48 +199,50 @@ body {
 }
 .right_head{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     /*align-items: center;*/
-    order: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
     padding-top: 3rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
 .right_head_title{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    order: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
     font-size: 1.75rem;
     font-weight: 900;
 }
 .right_head_des{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    order: 2;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
     font-size: 1rem;
 }
 .right_main{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 2;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
     padding-top: 3.5rem;
     margin-left: 6vw;
     margin-right: 6vw;
@@ -226,12 +250,12 @@ body {
 }
 .right_main_article{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     /* 注释掉以防在 front matter 有 content 的列表页
      * 顺序错乱 */
     /*order: 1;*/
@@ -291,26 +315,27 @@ body {
     font-size: 0.9rem;
 }
 .right_main_article-sum{
-    color: #006600;
-    font-size: 0.9rem;
-    font-weight: 400;
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     margin-bottom: 1.5rem;
     border-bottom: 0.4rem #93C47D solid;
 }
 .right_main_notes{
-    order: 2;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
 }
 .right_comments{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 3;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
 }
@@ -319,13 +344,15 @@ body {
 }
 .toc_show{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 3;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
     position: absolute;
     top: 0;
     right: 0;
@@ -338,13 +365,15 @@ body {
 }
 .toc_content{
     display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    order: 2;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
     height: 94vh;
     z-index: 1;
 }

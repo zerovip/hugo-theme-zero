@@ -221,6 +221,7 @@ body {
             flex-direction: column;
     /* 注释掉以防在 front matter 有 content 的列表页
      * 顺序错乱 */
+    /* 应该就是首页吧？ */
     /*order: 1;*/
     font-size: 1.2rem;
     margin-bottom: 3rem;
@@ -284,9 +285,9 @@ body {
     border-bottom: 0.375rem #93C47D solid;
 }
 .right_main_notes{
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    /* 注释掉以防在 front matter 有 content 的列表页
+     * 顺序错乱 */
+    /* order: 2; */
 }
 .right_comments{
     display: -webkit-box;

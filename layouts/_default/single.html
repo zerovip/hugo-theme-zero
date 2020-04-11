@@ -22,12 +22,12 @@
         <div class="right_main_article">
             {{ .Content }}
         </div>
-        <div class="right_main_notes">
-            {{ with .Params.file_path }}
+        {{ with .Params.file_path }}
+            <div class="right_main_notes">
                 </br></br></br>如果没有显示，请点击<a href="/{{ . }}">这里</a>下载.
                 <embed src="/{{ . }}" width="100%" height="700" type="application/pdf"/>
-            {{ end }}
-        </div>
+            </div>
+        {{ end }}
     </div>
     {{ if not .Site.IsServer }}
     <!--本地测试时不加载评论区-->

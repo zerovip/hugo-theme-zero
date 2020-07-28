@@ -27,3 +27,25 @@
 
 - id: figure
   translation: 图
+
+- id: other-articles
+  translation: 友情链接（该栏目下的其他文章）
+
+- id: num_di
+  translation: 第
+
+- id: num_qi
+  translation: 期：
+
+- id: this-article
+  translation: （就是这篇！）
+
+- id: not-show
+  translation: 如果没有显示，请点击
+
+- id: here
+  translation: 这里
+
+- id: download
+  translation: 下载
+

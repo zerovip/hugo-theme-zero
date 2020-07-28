@@ -27,3 +27,24 @@
 
 - id: figure
   translation: Figure
+
+- id: other-articles
+  translation: Other links in this column
+- id: num_di
+  translation: No.
+
+- id: num_qi
+  translation: ":"
+
+- id: this-article
+  translation: (This one!)
+
+- id: not-show
+  translation: "If it doesn't show, click "
+
+- id: here
+  translation: here
+
+- id: download
+  translation: " to download"
+

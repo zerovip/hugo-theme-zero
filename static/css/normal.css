@@ -228,7 +228,7 @@ body {
     /* 应该就是首页吧？ */
     /*order: 1;*/
     font-size: 1.2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
 }
 .right_main_article h1{
     margin-bottom: 0.6rem;

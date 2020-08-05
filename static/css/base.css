@@ -53,6 +53,12 @@ a:visited{
 .left_non-footer_option{
     margin-right: 0.75rem;
 }
+.left_non-footer_option_active{
+
+}
+.left_non-footer_option_non-active{
+
+}
 .left_non-footer_main{
     margin-left: 12%;
     padding-top: 0.628rem;

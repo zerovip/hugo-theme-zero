@@ -72,8 +72,23 @@
                 {{ end }}
                 <li><br /></li>
                 {{ $curr_page := . }}
+                {{ $curr_lang := $curr_page.Language.Lang }}
+                {{ $curr_trans_list := slice }}
+                {{ range $curr_page.Translations }}
+                    {{ $curr_trans_list = $curr_trans_list | append .Language.Lang }}
+                {{ end }}
                 {{ range $.Site.Home.AllTranslations }}
-                <li><a href="{{ .Permalink }}{{ substr $curr_page.RelPermalink 4 }}">{{ .Language.LanguageName }}●</a></li>
+                    {{ if (eq .Language.Lang $curr_lang) }}
+                        <li class='left_non-footer_option_active'>{{ .Language.LanguageName }} ⦿ </li>
+                    {{ else }}
+                        {{ if (in $curr_trans_list .Language.Lang) }}
+                            <li class='left_non-footer_option_non-active'>
+                                <a href="{{ .Permalink }}{{ substr $curr_page.RelPermalink 4 }}">{{ .Language.LanguageName }} ○ </a>
+                            </li>
+                        {{ else }}
+                            <li class='left_non-footer_option_non-active'>{{ .Language.LanguageName }} ⨂ </li>
+                        {{ end }}
+                    {{ end }}
                 {{ end }}
             </div>
             <!--题目区-->

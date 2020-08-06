@@ -7,6 +7,14 @@
     <title>
         {{ block "head_title" . }}{{ end }} | {{ .Site.Title }}
     </title>
+    <!-- highlight 自动生成配色，
+        执行 hugo gen chromastyles - -style=paraiso-light > themes/zero/static/css/syntax.css 即可
+        注意去掉 style 前面两个横线中的空格.
+        可选格式见：https://xyproto.github.io/splash/docs/all.html
+        文档见：https://gohugo.io/content-management/syntax-highlighting/
+        别忘了在 config.yaml 中做一些配置.
+    -->
+    <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
     <!-- CSS 进行小屏幕适配 -->
     <link rel="stylesheet" type="text/css" href="/css/base.css" />
     <link rel="stylesheet" media="screen and (max-width: 1200px)" type="text/css" href="/css/small.css" />

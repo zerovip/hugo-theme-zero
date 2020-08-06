@@ -92,6 +92,9 @@ a:visited{
 .left_footer{
     margin-bottom: 1.35rem;
     color: #6AA84F;
+    /* background-color: #BCF5A9; */
+    border-bottom: 0.1rem solid;
+    border-top: 0.1rem solid;
 }
 .right_head_title{
     color: #6AA84F;
@@ -102,10 +105,11 @@ a:visited{
 .right_main_article{
     color: #274E13;
 }
-.right_main_article code{
-    background-color: #032424;
+code, code span{
+    background-color: #e7e9db;  /* 得和 highlight 自动生成的背景颜色一样 */
+    /* 见 themes/zero/static/css/syntax.css 的第一行 */
+    font-size: 1rem;
     border-radius: 0.15rem;
-    color: #E9FFF2;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
     font-family: FantasqueSansMono;
@@ -127,7 +131,8 @@ figcaption{
     font-size: 75%
 }
 pre{
-    background-color: #032424;
+    background-color: #e7e9db;  /* 得和 highlight 自动生成的背景颜色一样 */
+    /* 见 themes/zero/static/css/syntax.css 的第一行 */
     line-height: 110%;
     border-radius: 0.3rem;
     margin-top: 0.5rem;
@@ -138,9 +143,6 @@ pre{
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     overflow-x: auto;
-}
-pre code{
-    font-size: 1rem;
 }
 blockquote{
     margin-top: 0.5rem;

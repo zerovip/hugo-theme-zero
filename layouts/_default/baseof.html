@@ -7,45 +7,29 @@
     <title>
         {{ block "head_title" . }}{{ end }} | {{ .Site.Title }}
     </title>
-    <!-- highlight 自动生成配色，
-        执行 hugo gen chromastyles - -style=paraiso-light > themes/zero/static/css/syntax.css 即可
-        注意去掉 style 前面两个横线中的空格.
-        可选格式见：https://xyproto.github.io/splash/docs/all.html
-        文档见：https://gohugo.io/content-management/syntax-highlighting/
-        别忘了在 config.yaml 中做一些配置.
-    -->
-    <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
-    <!-- CSS 进行小屏幕适配 -->
+
+    <!-- CSS 外链，进行了小屏幕的适配 -->
     <link rel="stylesheet" type="text/css" href="/css/base.css" />
     <link rel="stylesheet" media="screen and (max-width: 1200px)" type="text/css" href="/css/small.css" />
     <link rel="stylesheet" media="screen and (min-width: 1201px)" type="text/css" href="/css/normal.css" />
+
+    <!-- highlight 自动生成配色 -->
+    <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+
     <!--Google Analytics 部分以及 GoatCounter 部分-->
     {{ if not .Site.IsServer }}
         {{ template "_internal/google_analytics_async.html" . }}
         <script data-goatcounter="https://{{ .Param "GoatCounterName" }}.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
     {{ end }}
-    <!--小屏幕顶部的两条点击事件，以及防剧透黑块点击事件-->
-    <script>
-        function ChangeClassLeft(){
-            document.getElementById("left").classList.toggle("left_show");
-            }
-        function ChangeClassTOC(){
-            document.getElementById("toc").classList.toggle("toc_show");
-            }
-        function ChangeClassBlackBlock(wait_to_change){
-            wait_to_change.classList.toggle("black_block_show");
-            }
-    </script>
 </head>
 
-<body>
+<body class="theme-container">
 <!--MathJax 的引用-->
 {{ if (and .IsPage (eq .Params.markup "pandoc")) }}
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" async></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
 {{ end }}
-
 
 <!--小屏幕顶部设计，在宽屏幕中不显示-->
 <div class='bar_for_phone'>
@@ -68,17 +52,20 @@
 <div class='body_for_pc'>
     <!--左边栏-->
     <div class='left' id='left'>
-
         <!--非页脚区-->
         <div class='left_non-footer'>
             <!--选项区-->
             <div class='left_non-footer_option'>
-                {{ if .IsNode }}
-                    <li><a href="{{ .Permalink }}index.xml">{{ i18n "rss_feed" }}<img src="/images/rss.png" /></a></li>
-                {{ else }}
-                    <li><br /></li>
-                {{ end }}
+                <!-- 主题切换部分 -->
+                <div class="theme-switch">
+                    <label class="switch">
+                        <input type="checkbox" class="theme-switcher light" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
                 <li><br /></li>
+
+                <!-- 语言选项部分 -->
                 {{ $curr_page := . }}
                 {{ $curr_lang := $curr_page.Language.Lang }}
                 {{ $curr_trans_list := slice }}
@@ -98,12 +85,23 @@
                         {{ end }}
                     {{ end }}
                 {{ end }}
+                <li><br /></li>
+
+                <!-- RSS 订阅按钮 -->
+                {{ if .IsNode }}
+                    <li class='left_non-footer_option_active'><a href="{{ .Permalink }}index.xml">{{ i18n "rss_feed" }} <img src="/images/rss.png" /></a></li>
+                {{ else }}
+                    <li class='left_non-footer_option_non-active'>{{ i18n "rss_feed" }} ⨂ </li>
+                {{ end }}
+                <li><br /></li>
             </div>
+                
             <!--题目区-->
             <div class='left_non-footer_head'>
                 <div class='left_non-footer_head_title'><a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a></div>
                 <div class='left_non-footer_head_subtitle'>(●’◡’●)ﾉ</div>
             </div>
+
             <!--导航区-->
             <!--这里独创的有
                 {{/* if eq .Identifier (path.Base $currentNode.RelPermalink) */}}active{{/* end */}}
@@ -131,16 +129,22 @@
         </div>
         <!--页脚版权区-->
         <div class='left_footer'>
-            <div class='copyright'>©2019-2020 {{ i18n "copyright" }}</div>
+            <div class='copyright'>©2019-{{ now.Format "2006" }} {{ i18n "copyright" }}</div>
         </div>
     </div>
+
     <!--右边主要部分-->
     <div class='right'>
         {{ block "right_head" . }}{{ end }}
         {{ block "right_main" . }}{{ end }}
     </div>
+
     <!--目录部分-->
     {{ block "toc" . }}{{ end }}
 </div>
+
+<!-- 外链 js -->
+<script type="text/javascript" src="/js/main.js"></script>
+
 </body>
 </html>

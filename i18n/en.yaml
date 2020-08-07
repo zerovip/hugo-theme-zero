@@ -13,8 +13,8 @@
 - id: hello
   translation: Hello!
 
-- id: no-translate
-  translation: Here is nothing. Probably because the author didn't translate this article.
+- id: 404-des
+  translation: Nothing here.
 
 - id: toc
   translation: Table of Content

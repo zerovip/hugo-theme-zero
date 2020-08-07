@@ -13,8 +13,8 @@
 - id: hello
   translation: Bonjour!
 
-- id: no-translate
-  translation: Il n'y a rien ici, peut-être que cet article n'est pas traduit.
+- id: 404-des
+  translation: Il n'y a rien ici.
 
 - id: toc
   translation: Table des Matières

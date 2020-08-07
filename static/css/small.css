@@ -26,7 +26,6 @@ body {
         -ms-flex-order: 1;
             order: 1;
     width: 3rem;
-    background-color: #6AA84F;
 }
 .left_button_for_bar{
     display: -webkit-box;
@@ -47,7 +46,6 @@ body {
 .bar1, .bar2, .bar3{
     width: 2rem;
     height: 0.7rem;
-    background-color: black;
     margin-top: 0.15rem;
     margin-bottom: 0.15rem;
 }
@@ -64,7 +62,6 @@ body {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    background-color: #274E13;
     padding-left: 1rem;
     font-size: 1.375rem;
     font-weight: 700;
@@ -78,8 +75,6 @@ body {
             order: 3;
 }
 .toc_title_for_bar{
-  background-color: #6AA84F;
-  color: white;
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 1rem;
@@ -322,7 +317,6 @@ body {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     margin-bottom: 1.5rem;
-    border-bottom: 0.4rem #93C47D solid;
 }
 .right_main_notes{
     /* 注释掉以防在 front matter 有 content 的列表页

@@ -98,7 +98,6 @@ body {
     margin-left: 2rem;
     margin-right: 1.5rem;
     font-size: 2rem;
-    color: #6AA84F;
     font-weight: 900;
 }
 .left_non-footer_head_subtitle{
@@ -113,7 +112,6 @@ body {
     margin-right: 20%;
     padding-top: 0.625rem;
     font-size: 1.5rem;
-    color: #6AA84F;
     font-weight: 700;
 }
 .left_non-footer_main{
@@ -286,7 +284,6 @@ body {
     margin-left: 3.75rem;
     margin-right: 3.75rem;
     margin-bottom: 1.75rem;
-    border-bottom: 0.375rem #93C47D solid;
 }
 .right_main_notes{
     /* 注释掉以防在 front matter 有 content 的列表页
@@ -316,8 +313,6 @@ body {
 }
 .toc_title{
     position: relative;
-    background-color: #6AA84F;
-    color: white;
     padding: 1rem;
     font-size: 1rem;
     border: none;

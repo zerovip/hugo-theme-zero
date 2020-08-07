@@ -13,8 +13,8 @@
 - id: hello
   translation: 你好！
 
-- id: no-translate
-  translation: 这里还什么都没有，很可能是因为这篇文章还没有翻译.
+- id: 404-des
+  translation: 这里还什么都没有.
 
 - id: toc
   translation: 目录

@@ -1,5 +1,4 @@
 /* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
-
 @charset"utf-8";
 @font-face{
     font-family: 'FantasqueSansMono';
@@ -8,6 +7,143 @@
         url('/font/FantasqueSansMono-Regular.woff') format('woff'), /* Morden Browsers */
         url('/font/FantasqueSansMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('/font/FantasqueSansMono-Regular.svg#FantasqueSansMono') format('svg'); /* Legacy iOS */
+}
+:root{
+/* light mode */
+    --c-light-background: #EEFFE7;
+    --c-light-link: #6AA84F;
+    --c-light-bar_side: #6AA84F;
+    --c-light-bar_middle: #274E13;
+    --c-light-bar-toc_fg: white;
+    --c-light-bar-ham_fg: black;
+    --c-light-shadow: #888888;
+    --c-light-normal-font: #6AA84F;
+    --c-light-thin-line: #93C47D;
+    --c-light-thick-font: #006600;
+    --c-light-read: #274E13;
+    --c-light-code_bg: #E7E9DB;  /* 得和 highlight 自动生成的背景颜色一样 */
+        /* 见 themes/zero/static/css/syntax.css 的第一行 */
+    --c-light-quote: #DDDDDD;
+    --c-light-quote-left: #4B4B4B;
+    --c-light-table-footnote: #BCF5A9;
+    --c-light-table_border: black;
+    --c-light-table_even: #D0F5A9;
+    --c-light-table_odd: #A9F5A9;
+    --c-light-toc_bg: #99CC66;
+    --c-light-toc_fg_hover: #CCFFCC;
+    --c-light-checkbox: #FCE100;
+/* dark mode */
+    --c-dark-background: #EEFFE7;
+    --c-dark-link: #6AA84F;
+    --c-dark-bar_side: #6AA84F;
+    --c-dark-bar_middle: #274E13;
+    --c-dark-bar-toc_fg: white;
+    --c-dark-bar-ham_fg: black;
+    --c-dark-shadow: #888888;
+    --c-dark-normal-font: #6AA84F;
+    --c-dark-thin-line: #93C47D;
+    --c-dark-thick-font: #006600;
+    --c-dark-read: #274E13;
+    --c-dark-code_bg: #E7E9DB;  /* 得和 highlight 自动生成的背景颜色一样 */
+        /* 见 themes/zero/static/css/syntax.css 的第一行 */
+    --c-dark-quote: #DDDDDD;
+    --c-dark-quote-left: #4B4B4B;
+    --c-dark-table-footnote: #BCF5A9;
+    --c-dark-table_border: black;
+    --c-dark-table_even: #D0F5A9;
+    --c-dark-table_odd: #A9F5A9;
+    --c-dark-toc_bg: #99CC66;
+    --c-dark-toc_fg_hover: #CCFFCC;
+    --c-dark-checkbox: #757575;
+}
+.theme-container{
+    --c-background: var(--c-dark-background);
+    --c-link: var(--c-dark-link);
+    --c-bar_side: var(--c-dark-bar_side);
+    --c-bar_middle: var(--c-dark-bar_middle);
+    --c-bar-toc_fg: var(--c-dark-bar-toc_fg);
+    --c-bar-ham_fg: var(--c-dark-bar-ham_fg);
+    --c-shadow: var(--c-dark-shadow);
+    --c-normal-font: var(--c-dark-normal-font);
+    --c-thin-line: var(--c-dark-thin-line);
+    --c-thick-font: var(--c-dark-thick-font);
+    --c-read: var(--c-dark-read);
+    --c-code_bg: var(--c-dark-code_bg);
+    --c-quote: var(--c-dark-quote);
+    --c-quote-left: var(--c-dark-quote-left);
+    --c-table-footnote: var(--c-dark-table-footnote);
+    --c-table_border: var(--c-dark-table_border);
+    --c-table_even: var(--c-dark-table_even);
+    --c-table_odd: var(--c-dark-table_odd);
+    --c-toc_bg: var(--c-dark-toc_bg);
+    --c-toc_fg_hover: var(--c-dark-toc_fg_hover);
+    --c-checkbox: var(--c-dark-checkbox);
+}
+.theme-container.light{
+    --c-background: var(--c-light-background);
+    --c-link: var(--c-light-link);
+    --c-bar_side: var(--c-light-bar_side);
+    --c-bar_middle: var(--c-light-bar_middle);
+    --c-bar-toc_fg: var(--c-light-bar-toc_fg);
+    --c-bar-ham_fg: var(--c-light-bar-ham_fg);
+    --c-shadow: var(--c-light-shadow);
+    --c-normal-font: var(--c-light-normal-font);
+    --c-thin-line: var(--c-light-thin-line);
+    --c-thick-font: var(--c-light-thick-font);
+    --c-read: var(--c-light-read);
+    --c-code_bg: var(--c-light-code_bg);
+    --c-quote: var(--c-light-quote);
+    --c-quote-left: var(--c-light-quote-left);
+    --c-table-footnote: var(--c-light-table-footnote);
+    --c-table_border: var(--c-light-table_border);
+    --c-table_even: var(--c-light-table_even);
+    --c-table_odd: var(--c-light-table_odd);
+    --c-toc_bg: var(--c-light-toc_bg);
+    --c-toc_fg_hover: var(--c-light-toc_fg_hover);
+    --c-checkbox: var(--c-light-checkbox);
+}
+/* The switch - the box around the slider */
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+}
+/* Hide default HTML checkbox */
+.switch .theme-switcher{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+/* The slider */
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0rem;
+    right: 0;
+    bottom: 0;
+    background-color: var(--c-checkbox);
+    transition: 0.2s;
+}
+.slider:before{
+    position: absolute;
+    content: "🌑";
+    height: 0;
+    width: 0;
+    left: 0;
+    top: 0.8rem;
+    line-height: 0px;
+    transition: 0.2s;
+}
+.theme-switcher:checked + .slider:before{
+    left: -1.5rem;
+    content: "🌞";
+    transform: translateX(3.5rem);
+}
+/* Rounded sliders */
+.slider.round{
+    border-radius: 1.5rem;
 }
 *{
     border-width: 0;
@@ -18,30 +154,33 @@
 body{
     overflow: hidden;
     height: 100vh;
-    background-color: #EEFFE7;
+    background-color: var(--c-background);
 }
 a:link{
-    color: #6AA84F;
+    color: var(--c-link);
     text-decoration: none;
 }
 a:visited{
-    color: #6AA84F;
+    color: var(--c-link);
     text-decoration: none;
 }
-/*
-.right a:link{
-    color:  #0B4C5F;
-    text-decoration: none;
+.bar_left_button{
+    background-color: var(--c-bar_side);
 }
-.right a:visited{
-    color: #0B4C5F;
-    text-decoration: none;
+.bar_title{
+    background-color: var(--c-bar_middle);
 }
- */
+.toc_title_for_bar{
+    background-color: var(--c-bar_side);
+    color: var(--c-bar-toc_fg);
+}
+.bar1, .bar2, .bar3{
+    background-color: var(--c-bar-ham_fg);
+}
 .left{
-    background-color: #EEFFE7;
-    -webkit-box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem #888888;
-            box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem #888888;
+    background-color: var(--c-background);
+    -webkit-box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem var(--c-shadow);
+            box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem var(--c-shadow);
     /*上面盒子阴影的六个参数：水平阴影位置（负值为向下），竖直阴影位置，模糊距离，阴影尺寸，颜色，inset 内阴影*/
 }
 .left_non-footer{
@@ -53,11 +192,17 @@ a:visited{
 .left_non-footer_option{
     margin-right: 0.75rem;
 }
-.left_non-footer_option_active{
-
+.left_non-footer_option_active, .left_non-footer_option_active a{
+    color: var(--c-thick-font);
 }
 .left_non-footer_option_non-active{
-
+    color: var(--c-normal-font);
+}
+.left_non-footer_head_title{
+    color: var(--c-normal-font);
+}
+.left_non-footer_head_subtitle{
+    color: var(--c-normal-font);
 }
 .left_non-footer_main{
     margin-left: 12%;
@@ -69,16 +214,16 @@ a:visited{
 .left_non-footer .h1{
     padding-top: 1.25rem;
     font-size: 1.5rem;
-    color: #6AA84F;
+    color: var(--c-normal-font);
     font-weight: 700;
-    border-bottom: 0.375rem #93C47D solid;
+    border-bottom: 0.375rem var(--c-thin-line) solid;
 }
 .left_non-footer .h2{
     padding-top: 0.4rem;
     padding-left: 0.725rem;
     font-size: 1.2rem; 
     font-weight: 600;
-    color: #6AA84F;
+    color: var(--c-normal-font);
 }
 .left_non-footer .h1.active::after {
     content: "◂";
@@ -87,27 +232,25 @@ a:visited{
     content: "<";
 }
 .left_non-footer_main .active a {
-    color:#006600;
+    color: var(--c-thick-font);
 }
 .left_footer{
     margin-bottom: 1.35rem;
-    color: #6AA84F;
-    /* background-color: #BCF5A9; */
+    color: var(--c-normal-font);
     border-bottom: 0.1rem solid;
     border-top: 0.1rem solid;
 }
 .right_head_title{
-    color: #6AA84F;
+    color: var(--c-normal-font);
 }
 .right_head_des{
-    color: #6AA84F;
+    color: var(--c-normal-font);
 }
 .right_main_article{
-    color: #274E13;
+    color: var(--c-read);
 }
 code, code span{
-    background-color: #e7e9db;  /* 得和 highlight 自动生成的背景颜色一样 */
-    /* 见 themes/zero/static/css/syntax.css 的第一行 */
+    background-color: var(--c-code_bg);
     font-size: 1rem;
     border-radius: 0.15rem;
     padding-left: 0.1rem;
@@ -131,8 +274,7 @@ figcaption{
     font-size: 75%
 }
 pre{
-    background-color: #e7e9db;  /* 得和 highlight 自动生成的背景颜色一样 */
-    /* 见 themes/zero/static/css/syntax.css 的第一行 */
+    background-color: var(--c-code_bg);
     line-height: 110%;
     border-radius: 0.3rem;
     margin-top: 0.5rem;
@@ -154,19 +296,19 @@ blockquote{
     margin-left: 1rem;
     margin-right: 1rem;
     font-size: 1.05rem;
-    background-color: #DDDDDD;
-    border-left: 0.2rem solid #4B4B4B;
+    background-color: var(--c-quote);
+    border-left: 0.2rem solid var(--c-quote-left);
 }
 table{
     margin: auto;
-    background-color: #BCF5A9;
+    background-color: var(--c-table-footnote);
     margin-bottom: 0.25rem;
 }
 thead tr{
-    background: #BCF5A9;
+    background: var(--c-table-footnote);
 }
 th{
-    border-bottom: 0.125rem solid black;
+    border-bottom: 0.125rem solid var(--c-table_border);
     padding-top: 0.125rem;
     padding-left: 0.7rem;
     padding-right: 0.7rem;
@@ -176,10 +318,10 @@ td{
     padding-right: 0.7rem;
 }
 tbody tr:nth-child(even){
-    background: #D0F5A9;
+    background: var(--c-table_even);
 }
 tbody tr:nth-child(odd){
-    background: #A9F5A9;
+    background: var(--c-table_odd);
 }
 img{
     width: auto;
@@ -189,16 +331,17 @@ img{
 }
 /*下面三个都是给列表页用的*/
 .right_main_article-title{
-    color: #6AA84F;
+    color: var(--c-normal-font);
     font-weight: 700;
 }
 .right_main_article-des{
-    color: #6AA84F;
+    color: var(--c-normal-font);
 }
 .right_main_article-sum{
-    color: #006600;
+    color: var(--c-thick-font);
     font-size: 0.9rem;
     font-weight: 400;
+    border-bottom: 0.375rem var(--c-thin-line) solid;
 }
 .right_main_notes{
     margin-left: 1.5rem;
@@ -206,38 +349,42 @@ img{
 }
 .footnotes{
     margin-top: 3rem;
-    border-top: 0.375rem #93C47D solid;
+    border-top: 0.375rem var(--c-thin-line) solid;
 }
 .footnotes p{
-    background-color: #BCF5A9;
-    color: #173B0B;
+    background-color: var(--c-table-footnote);
+    color: var(--c-read);
 }
 .right_comments{
-    background-color: white;
-    border-top: 0.375rem #93C47D solid;
+    background-color: #463D4E;   /* 评论区使用的 utterances 的 github-dark-orange 主题，写死不能动 */
+    border-top: 0.375rem var(--c-thin-line) solid;
+}
+.toc_title{
+    background-color: var(--c-bar_side);
+    color: var(--c-bar-toc_fg);
 }
 .toc_content{
     overflow-y: auto;
-    background-color: #99CC66;
+    background-color: var(--c-toc_bg);
     border-style: solid;
     border-width: 0.3rem;
-    border-color: #66CC66;
+    border-color: var(--c-thin-line);
 }
 .toc_content a{
-    color: black;
+    color: var(--c-bar-ham_fg);
     font-size: 1.1rem;
     text-decoration: none;
 }
 .toc_content a:hover{
     /*其实对手机端来说这没什么用，因为没法 hover*/
-    background-color: #CCFFCC;
+    background-color: var(--c-toc_fg_hover);
 }
 /*下面是防剧透黑块*/
 .black_block{
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-    background-color: #173B0B;
-    color: #173B0B;
+    background-color: var(--c-read);
+    color: var(--c-read);
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -245,8 +392,8 @@ img{
 .black_block_show{
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-    background-color: #173B0B;
-    color: #BCF5A9;
+    background-color: var(--c-read);
+    color: var(--c-background);
 }
 
 /* 下面是标题计数器 */

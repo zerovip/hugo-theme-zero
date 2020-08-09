@@ -9,97 +9,117 @@
         url('/font/FantasqueSansMono-Regular.svg#FantasqueSansMono') format('svg'); /* Legacy iOS */
 }
 :root{
-/* light mode */
-    --c-light-background: #EEFFE7;
-    --c-light-link: #6AA84F;
-    --c-light-bar_side: #6AA84F;
-    --c-light-bar_middle: #274E13;
-    --c-light-bar-toc_fg: white;
-    --c-light-bar-ham_fg: black;
-    --c-light-shadow: #888888;
-    --c-light-normal-font: #6AA84F;
-    --c-light-thin-line: #93C47D;
-    --c-light-thick-font: #006600;
-    --c-light-read: #274E13;
-    --c-light-code_bg: #E7E9DB;  /* 得和 highlight 自动生成的背景颜色一样 */
-        /* 见 themes/zero/static/css/syntax.css 的第一行 */
-    --c-light-quote: #DDDDDD;
-    --c-light-quote-left: #4B4B4B;
-    --c-light-table-footnote: #BCF5A9;
-    --c-light-table_border: black;
-    --c-light-table_even: #D0F5A9;
-    --c-light-table_odd: #A9F5A9;
-    --c-light-toc_bg: #99CC66;
-    --c-light-toc_fg_hover: #CCFFCC;
-    --c-light-checkbox: #FCE100;
+/* https://colorschemedesigner.com/csd-3.5/#<Scheme ID> */
+    /* Scheme ID 就是第一个括号里那个，例如：2H61T31--w0w0 */
+    /* 最后四位代表 Scheme Contrast 的位置 */
+    /*     w0w0 是 Scheme Contrast 放中间 */
+    /*     --00 是 Scheme Contrast 左上角 */
+    /*     k7w0 是 Scheme Contrast 中间稍下 */
 /* dark mode */
-    --c-dark-background: #EEFFE7;
-    --c-dark-link: #6AA84F;
-    --c-dark-bar_side: #6AA84F;
-    --c-dark-bar_middle: #274E13;
-    --c-dark-bar-toc_fg: white;
-    --c-dark-bar-ham_fg: black;
-    --c-dark-shadow: #888888;
-    --c-dark-normal-font: #6AA84F;
-    --c-dark-thin-line: #93C47D;
-    --c-dark-thick-font: #006600;
-    --c-dark-read: #274E13;
-    --c-dark-code_bg: #E7E9DB;  /* 得和 highlight 自动生成的背景颜色一样 */
-        /* 见 themes/zero/static/css/syntax.css 的第一行 */
-    --c-dark-quote: #DDDDDD;
-    --c-dark-quote-left: #4B4B4B;
-    --c-dark-table-footnote: #BCF5A9;
-    --c-dark-table_border: black;
-    --c-dark-table_even: #D0F5A9;
-    --c-dark-table_odd: #A9F5A9;
-    --c-dark-toc_bg: #99CC66;
-    --c-dark-toc_fg_hover: #CCFFCC;
+    --c-dark-background: #222222;   /* Dark Grey */
+    --c-dark-background_left: #323232;  /* 12 dp */
+    --c-dark-read: #B6BFB2; /* (2H61T31--w0w0) Primary Color 2 */
+    --c-dark-normal-font: #809875;  /* (2H61T9MtDw0w0) Primary Color 2 */
+    --c-dark-thick-font: #9FCB8D;   /* (2H61T9MtDw0w0) Primary Color 1 *//* 亲自指定 */
+    --c-dark-link: var(--c-dark-normal-font);
+    --c-dark-thin-line: var(--c-dark-normal-font);
+    --c-dark-table-footnote: #434343;   /* 亲自指定 */
+    --c-dark-table_border: #EEFFE7; /* (2H61T31--w0w0) Primary Color 1 */
+    --c-dark-table_even: #404040;   /* 亲自指定 */
+    --c-dark-table_odd: #373737;    /* 亲自指定 */
+    --c-dark-bar_middle: #2F3A0E;     /* (2e61Tw0aaw0w0) Secondary Color B 2 */
+    --c-dark-bar_side: #5D605D;   /* (2L61T1wjfw0w0) Primary Color 2 *//* (2H61T31----00) Primary Color 2 做 Primary Color */
+    --c-dark-bar-ham_fg: #EEFFE7;   /* (2H61T31--w0w0) Primary Color 1 */
+    --c-dark-bar-toc_fg: #F9FFE7;   /* (2H61T31--w0w0) Secondary Color B 1 */
+    --c-dark-toc_bg: var(--c-dark-bar_side);
+    --c-dark-toc_fg_hover: var(--c-dark-table-footnote);
+    --c-dark-quote: #BCBFB2;    /* (2H61T31--w0w0) Secondary Color B 2 */
+    --c-dark-quote-left: var(--c-dark-bar_side);
+    --c-dark-code: #000000; /* black */
+    --c-dark-code_bg: var(--c-dark-quote);
+    --c-dark-shadow: #888888;      /* grey */
+    --c-dark-notation_fg: #D1D1D1;
+    --c-dark-notation_bg: #52542C;
     --c-dark-checkbox: #757575;
+/* light mode */
+    --c-light-background: #EEFFE7;  /* (2H61T31--w0w0) Primary Color 1 *//* 亲自指定 */
+    --c-light-background_left: var(--c-light-background);
+    --c-light-read: #174D00;        /* (2H61T31----00) Primary Color 3 */
+    --c-light-normal-font: #66A64B; /* (2H61T31--w0w0) Primary Color 3 */
+    --c-light-thick-font: #316C18;  /* (2H61Thyoew0w0) Primary Color 3 *//* (2H61T31--w0w0) Primary Color 3 做 Primary Color 1 */
+    --c-light-link: var(--c-light-normal-font);
+    --c-light-thin-line: #92C77C;   /* (2H61T31--k7w0) Primary Color 3 */
+    --c-light-table-footnote: #BBF5A9;  /* (2J61T9WSJw0w0) Primary Color 1 *//* 亲自指定 */
+    --c-light-table_border: #000000;    /* black */
+    --c-light-table_even: #CEFAC0;  /* (2J61T9WSJw0w0) Primary Color 4 */
+    --c-light-table_odd: #DAFACF;   /* (2J61T9WSJw0w0) Primary Color 5 */
+    --c-light-bar_middle: var(--c-light-read);
+    --c-light-bar_side: var(--c-light-normal-font);
+    --c-light-bar-ham_fg: #000000;  /* black */
+    --c-light-bar-toc_fg: #F9FFE7;  /* (2H61T31--w0w0) Secondary Color B 1 */
+    --c-light-toc_bg: var(--c-light-bar_side);
+    --c-light-toc_fg_hover: var(--c-light-table-footnote);
+    --c-light-quote: #BCBFB2;       /* (2H61T31--w0w0) Secondary Color B 2 */
+    --c-light-quote-left: #7A807E;  /* (2H61T31----00) Secondary Color A 2 */
+    --c-light-code: #000000;        /* black */
+    --c-light-code_bg: var(--c-light-quote);
+    --c-light-shadow: #888888;      /* grey */
+    --c-light-notation_fg: #000000;
+    --c-light-notation_bg: #F2F5A9;
+    --c-light-checkbox: #FFA500;    /* 亲自指定 */
 }
 .theme-container{
     --c-background: var(--c-dark-background);
-    --c-link: var(--c-dark-link);
-    --c-bar_side: var(--c-dark-bar_side);
-    --c-bar_middle: var(--c-dark-bar_middle);
-    --c-bar-toc_fg: var(--c-dark-bar-toc_fg);
-    --c-bar-ham_fg: var(--c-dark-bar-ham_fg);
-    --c-shadow: var(--c-dark-shadow);
-    --c-normal-font: var(--c-dark-normal-font);
-    --c-thin-line: var(--c-dark-thin-line);
-    --c-thick-font: var(--c-dark-thick-font);
+    --c-background_left: var(--c-dark-background_left);
     --c-read: var(--c-dark-read);
-    --c-code_bg: var(--c-dark-code_bg);
-    --c-quote: var(--c-dark-quote);
-    --c-quote-left: var(--c-dark-quote-left);
+    --c-normal-font: var(--c-dark-normal-font);
+    --c-thick-font: var(--c-dark-thick-font);
+    --c-link: var(--c-dark-link);
+    --c-thin-line: var(--c-dark-thin-line);
     --c-table-footnote: var(--c-dark-table-footnote);
     --c-table_border: var(--c-dark-table_border);
     --c-table_even: var(--c-dark-table_even);
     --c-table_odd: var(--c-dark-table_odd);
+    --c-bar_middle: var(--c-dark-bar_middle);
+    --c-bar_side: var(--c-dark-bar_side);
+    --c-bar-ham_fg: var(--c-dark-bar-ham_fg);
+    --c-bar-toc_fg: var(--c-dark-bar-toc_fg);
     --c-toc_bg: var(--c-dark-toc_bg);
     --c-toc_fg_hover: var(--c-dark-toc_fg_hover);
+    --c-quote: var(--c-dark-quote);
+    --c-quote-left: var(--c-dark-quote-left);
+    --c-code: var(--c-dark-code);
+    --c-code_bg: var(--c-dark-code_bg);
+    --c-shadow: var(--c-dark-shadow);
+    --c-notation_fg: var(--c-dark-notation_fg);
+    --c-notation_bg: var(--c-dark-notation_bg);
     --c-checkbox: var(--c-dark-checkbox);
 }
 .theme-container.light{
     --c-background: var(--c-light-background);
-    --c-link: var(--c-light-link);
-    --c-bar_side: var(--c-light-bar_side);
-    --c-bar_middle: var(--c-light-bar_middle);
-    --c-bar-toc_fg: var(--c-light-bar-toc_fg);
-    --c-bar-ham_fg: var(--c-light-bar-ham_fg);
-    --c-shadow: var(--c-light-shadow);
-    --c-normal-font: var(--c-light-normal-font);
-    --c-thin-line: var(--c-light-thin-line);
-    --c-thick-font: var(--c-light-thick-font);
+    --c-background_left: var(--c-light-background_left);
     --c-read: var(--c-light-read);
-    --c-code_bg: var(--c-light-code_bg);
-    --c-quote: var(--c-light-quote);
-    --c-quote-left: var(--c-light-quote-left);
+    --c-normal-font: var(--c-light-normal-font);
+    --c-thick-font: var(--c-light-thick-font);
+    --c-link: var(--c-light-link);
+    --c-thin-line: var(--c-light-thin-line);
     --c-table-footnote: var(--c-light-table-footnote);
     --c-table_border: var(--c-light-table_border);
     --c-table_even: var(--c-light-table_even);
     --c-table_odd: var(--c-light-table_odd);
+    --c-bar_middle: var(--c-light-bar_middle);
+    --c-bar_side: var(--c-light-bar_side);
+    --c-bar-ham_fg: var(--c-light-bar-ham_fg);
+    --c-bar-toc_fg: var(--c-light-bar-toc_fg);
     --c-toc_bg: var(--c-light-toc_bg);
     --c-toc_fg_hover: var(--c-light-toc_fg_hover);
+    --c-quote: var(--c-light-quote);
+    --c-quote-left: var(--c-light-quote-left);
+    --c-code: var(--c-light-code);
+    --c-code_bg: var(--c-light-code_bg);
+    --c-shadow: var(--c-light-shadow);
+    --c-notation_fg: var(--c-light-notation_fg);
+    --c-notation_bg: var(--c-light-notation_bg);
     --c-checkbox: var(--c-light-checkbox);
 }
 /* The switch - the box around the slider */
@@ -178,7 +198,7 @@ a:visited{
     background-color: var(--c-bar-ham_fg);
 }
 .left{
-    background-color: var(--c-background);
+    background-color: var(--c-background_left);
     -webkit-box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem var(--c-shadow);
             box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem var(--c-shadow);
     /*上面盒子阴影的六个参数：水平阴影位置（负值为向下），竖直阴影位置，模糊距离，阴影尺寸，颜色，inset 内阴影*/
@@ -251,10 +271,13 @@ a:visited{
 }
 code, code span{
     background-color: var(--c-code_bg);
+    color: var(--c-code);
     font-size: 1rem;
     border-radius: 0.15rem;
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
     font-family: FantasqueSansMono;
 }
 .right_main_article a{
@@ -296,8 +319,9 @@ blockquote{
     margin-left: 1rem;
     margin-right: 1rem;
     font-size: 1.05rem;
+    color: var(--c-code);
     background-color: var(--c-quote);
-    border-left: 0.2rem solid var(--c-quote-left);
+    border-left: 0.6rem solid var(--c-quote-left);
 }
 table{
     margin: auto;
@@ -343,9 +367,19 @@ img{
     font-weight: 400;
     border-bottom: 0.375rem var(--c-thin-line) solid;
 }
+.notation_color{
+    color: var(--c-notation_fg);
+    background-color: var(--c-notation_bg);
+}
 .right_main_notes{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+}
+.right_main_notes p{
+    color: var(--c-read);
+}
+strong span{
+    color: var(--c-read) !important;
 }
 .footnotes{
     margin-top: 3rem;

@@ -1,13 +1,13 @@
 // 小屏幕顶部的两条点击事件
-function ChangeClassLeft(){
+function ChangeClassLeft() {
     document.getElementById("left").classList.toggle("left_show");
 }
-function ChangeClassTOC(){
+function ChangeClassTOC() {
     document.getElementById("toc").classList.toggle("toc_show");
 }
 
 // 防剧透黑块点击事件
-function ChangeClassBlackBlock(wait_to_change){
+function ChangeClassBlackBlock(wait_to_change) {
     wait_to_change.classList.toggle("black_block_show");
 }
 

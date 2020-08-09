@@ -44,7 +44,7 @@
         </div>
         {{ with .Params.file_path }}
             <div class="right_main_notes">
-                {{ i18n "not-show" }}<a href="/{{ . }}">{{ i18n "here" }}</a>{{ i18n "download" }}.
+                <p>{{ i18n "not-show" }}<a href="/{{ . }}">{{ i18n "here" }}</a>{{ i18n "download" }}.</p>
                 <embed src="/{{ . }}" width="100%" height="800" type="application/pdf"/>
                 <br/><br/><br/><br/><br/>
             </div>

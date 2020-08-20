@@ -370,6 +370,10 @@ img{
 .notation_color{
     color: var(--c-notation_fg);
     background-color: var(--c-notation_bg);
+    margin-bottom: 0.4rem;
+}
+.notation_color p{
+    margin-bottom: 0rem !important;
 }
 .right_main_notes{
     margin-left: 1.5rem;

@@ -25,7 +25,7 @@ const themeContainer = document.querySelector(".theme-container");
 var ctheme = read_cookie("ctheme");
 // 如果 cookie 里有值就按 cookie 的方法去做
 // 如果 cookie 里没有值就看 checkbox 的默认值
-// checkbox 的默认值看 baseof.html
+// checkbox 的默认值看 single.html
 if (ctheme == "dark") {
     themeContainer.classList.remove("light");
     checkbox.checked = false;

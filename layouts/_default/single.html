@@ -24,7 +24,7 @@
             <!-- 下面是友情链接部分 -->
             <!-- 计数部分参考了
                 https://discourse.gohugo.io/t/how-counting-up-a-variable-in-range/586/8 -->
-            {{ if isset .Params "column" }}
+            {{ if .Params.column }}
                 <p></p><p></p><p></p><p></p><p></p><p></p>
                 <h1>{{ i18n "other-articles" }}</h1>
                 {{ $currentNode := . }}

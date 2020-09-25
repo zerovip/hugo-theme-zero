@@ -27,27 +27,27 @@ var ctheme = read_cookie("ctheme");
 // 如果 cookie 里没有值就看 checkbox 的默认值
 // checkbox 的默认值看 single.html
 if (ctheme == "dark") {
-    themeContainer.classList.remove("light");
+    themeContainer.classList.add("dark");
     checkbox.checked = false;
 } else if (ctheme == "light") {
-    themeContainer.classList.add("light");
+    themeContainer.classList.remove("dark");
     checkbox.checked = true;
 } else {
     if (checkbox.checked) {
-        themeContainer.classList.add("light");
+        themeContainer.classList.remove("dark");
         document.cookie = "ctheme=light; path=/";
     } else {
-        themeContainer.classList.remove("light");
+        themeContainer.classList.add("dark");
         document.cookie = "ctheme=dark; path=/";
     }
 }
 // 添加监听函数，在 checkbox 状态改变时改写 css 变量并改写 cookie
 checkbox.addEventListener("change", function() {
     if (themeContainer && this.checked) {
-        themeContainer.classList.add("light");
+        themeContainer.classList.remove("dark");
         document.cookie = "ctheme=light; path=/";
     } else {
-        themeContainer.classList.remove("light");
+        themeContainer.classList.add("dark");
         document.cookie = "ctheme=dark; path=/";
     }
 });

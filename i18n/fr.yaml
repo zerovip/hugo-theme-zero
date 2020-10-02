@@ -30,6 +30,7 @@
 
 - id: other-articles
   translation: Autres liens dans cette colonne
+
 - id: num_di
   translation: "no"
 
@@ -48,3 +49,5 @@
 - id: download
   translation: " pour le télécharger"
 
+- id: summary
+  translation: Résumé

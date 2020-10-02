@@ -211,7 +211,7 @@ body {
     padding-top: 5rem;
     margin-left: 6%;
     margin-right: 6%;
-    margin-bottom: 3rem;
+    padding-bottom: 6rem;
 }
 .right_main_article{
     display: -webkit-box;
@@ -271,19 +271,18 @@ body {
 }
 /*下面三个都是给列表页用的*/
 .right_main_article-title{
-    margin-left: 3.75rem;
-    margin-right: 3.75rem;
-    font-size: 1.8rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    font-size: 1.4rem;
 }
 .right_main_article-des{
-    margin-left: 3.75rem;
-    margin-right: 3.75rem;
-    font-size: 1rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
 }
-.right_main_article-sum{
-    margin-left: 3.75rem;
-    margin-right: 3.75rem;
-    margin-bottom: 1.75rem;
+.right_main_article-des-sum{
+    font-size: 0.85rem;
 }
 .right_main_notes{
     /* 注释掉以防在 front matter 有 content 的列表页

@@ -245,7 +245,7 @@ body {
     padding-top: 3.5rem;
     margin-left: 6vw;
     margin-right: 6vw;
-    margin-bottom: 1.5rem;
+    padding-bottom: 5rem;
 }
 .right_main_article{
     display: -webkit-box;
@@ -306,17 +306,16 @@ body {
 .right_main_article-title{
     margin-left: 0.6rem;
     margin-right: 0.6rem;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 .right_main_article-des{
     margin-left: 0.6rem;
     margin-right: 0.6rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
 }
-.right_main_article-sum{
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-    margin-bottom: 1.5rem;
+.right_main_article-des-sum{
+    font-size: 0.8rem;
 }
 .right_main_notes{
     /* 注释掉以防在 front matter 有 content 的列表页

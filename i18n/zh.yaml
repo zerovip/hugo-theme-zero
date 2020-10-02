@@ -49,3 +49,5 @@
 - id: download
   translation: 下载
 
+- id: summary
+  translation: 摘要

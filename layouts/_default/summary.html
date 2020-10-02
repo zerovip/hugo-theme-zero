@@ -1,11 +1,14 @@
 <a href="{{ .Permalink }}">
 <div class="right_main_article-title">
-    ■ {{ .Title }}
+    ■ &nbsp {{ .Title }}
 </div>
 <div class="right_main_article-des">
-    {{ .Date.Format "2006-01-02" }} - {{ i18n "reading-time" }}: {{ .ReadingTime }}{{ i18n "minutes" }}
-</div>
-<div class="right_main_article-sum">
-    {{ .Summary }}
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    ◇ {{ .Date.Format "2006-01-02" }}&nbsp
+    ◇ {{ i18n "reading-time" }}: {{ .ReadingTime }}{{ i18n "minutes" }}&nbsp
+    <span class="right_main_article-des-sum">
+        ◇ {{ i18n "summary" }}:
+        {{ replace (replace (replace (replace (replace (trim .Summary "\n") "<p>" "") "</p>" "") "&rsquo;" "’") "&hellip;" "…") "&amp;" "&" | truncate 50 }}
+    </span>
 </div>
 </a>

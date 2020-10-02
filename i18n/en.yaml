@@ -30,6 +30,7 @@
 
 - id: other-articles
   translation: Other links in this column
+
 - id: num_di
   translation: No.
 
@@ -48,3 +49,5 @@
 - id: download
   translation: " to download"
 
+- id: summary
+  translation: Summary

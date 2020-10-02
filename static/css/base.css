@@ -356,16 +356,15 @@ img{
 /*下面三个都是给列表页用的*/
 .right_main_article-title{
     color: var(--c-normal-font);
-    font-weight: 700;
+    font-weight: 600;
 }
 .right_main_article-des{
     color: var(--c-normal-font);
+    border-bottom: 0.275rem var(--c-thin-line) solid;
 }
-.right_main_article-sum{
+.right_main_article-des-sum{
     color: var(--c-thick-font);
-    font-size: 0.9rem;
     font-weight: 400;
-    border-bottom: 0.375rem var(--c-thin-line) solid;
 }
 .notation_color{
     color: var(--c-notation_fg);

@@ -302,6 +302,22 @@ body {
     text-indent: 2rem; /* article font-size 的二倍，确保是空了两个格.*/
     line-height: 150%;
 }
+.right_main_article ul{
+    margin-bottom: 0.6rem;
+}
+.right_main_article ul ul{
+    margin-bottom: 0.6rem;
+    margin-left: 0.8rem;
+}
+.right_main_article ul ul ul{
+    margin-bottom: 0.6rem;
+    margin-left: 1.6rem;
+}
+.right_main_article ul ul ul ul{
+    margin-bottom: 0.6rem;
+    margin-left: 2.4rem;
+}
+/* 上面的多级列表缩进，见, https://stackoverflow.com/q/11445453/9783145 */
 /*下面三个都是给列表页用的*/
 .right_main_article-title{
     margin-left: 0.6rem;

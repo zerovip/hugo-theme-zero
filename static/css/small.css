@@ -392,3 +392,22 @@ body {
     height: 94vh;
     z-index: 1;
 }
+blockquote{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+}
+blockquote:before{
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+}

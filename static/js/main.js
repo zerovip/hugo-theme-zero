@@ -18,6 +18,29 @@ function read_cookie(key) {
     var result;
     return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? (result[1]) : null;
 }
+// utterances 的改变主题函数，见 https://github.com/utterance/utterances/issues/170
+function ut_change_to_light_mode() {
+    try {
+        const message = {
+            type: 'set-theme',
+            theme: 'github-light'
+        };
+        var utterances = document.querySelector('iframe');
+        utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+    catch(err) {}
+}
+function ut_change_to_dark_mode() {
+    try {
+        const message = {
+            type: 'set-theme',
+            theme: 'github-dark'
+        };
+        var utterances = document.querySelector('iframe');
+        utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+    catch(err) {}
+}
 // 初始化
 const checkbox = document.querySelector(".theme-switcher");
 const themeContainer = document.querySelector(".theme-container");
@@ -29,26 +52,33 @@ var ctheme = read_cookie("ctheme");
 if (ctheme == "dark") {
     themeContainer.classList.add("dark");
     checkbox.checked = false;
+    ut_change_to_dark_mode();
 } else if (ctheme == "light") {
     themeContainer.classList.remove("dark");
     checkbox.checked = true;
+    ut_change_to_light_mode();
 } else {
     if (checkbox.checked) {
         themeContainer.classList.remove("dark");
         document.cookie = "ctheme=light; path=/";
+        ut_change_to_light_mode();
     } else {
         themeContainer.classList.add("dark");
         document.cookie = "ctheme=dark; path=/";
+        ut_change_to_dark_mode();
     }
 }
-// 添加监听函数，在 checkbox 状态改变时改写 css 变量并改写 cookie
+// 添加监听函数，在 checkbox 状态改变时改写 css 变量并改写 cookie，
+// 同时对 utterance （有文章页有）的主题做出改变
 checkbox.addEventListener("change", function() {
     if (themeContainer && this.checked) {
         themeContainer.classList.remove("dark");
         document.cookie = "ctheme=light; path=/";
+        ut_change_to_light_mode();
     } else {
         themeContainer.classList.add("dark");
         document.cookie = "ctheme=dark; path=/";
+        ut_change_to_dark_mode();
     }
 });
 

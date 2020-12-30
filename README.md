@@ -51,3 +51,4 @@ draft: true
 ---
 ```
 
+I wrote a `notes.txt` in Chinese, which should give a brief structure of this site. It also contains my standards for building and improving.

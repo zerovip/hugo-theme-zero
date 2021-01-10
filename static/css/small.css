@@ -304,18 +304,19 @@ body {
 }
 .right_main_article ul{
     margin-bottom: 0.6rem;
+    margin-left: 3.8rem;
 }
 .right_main_article ul ul{
     margin-bottom: 0.6rem;
-    margin-left: 0.8rem;
+    margin-left: 1.1rem;
 }
 .right_main_article ul ul ul{
     margin-bottom: 0.6rem;
-    margin-left: 1.6rem;
+    margin-left: 1.1rem;
 }
 .right_main_article ul ul ul ul{
     margin-bottom: 0.6rem;
-    margin-left: 2.4rem;
+    margin-left: 1.1rem;
 }
 /* 上面的多级列表缩进，见, https://stackoverflow.com/q/11445453/9783145 */
 /*下面三个都是给列表页用的*/
@@ -396,18 +397,11 @@ blockquote{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: start;
         -ms-flex-align: start;
-            align-items: flex-start;
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
-}
-blockquote:before{
-    -webkit-box-ordinal-group: 0;
-        -ms-flex-order: -1;
-            order: -1;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+            align-items: flex-start;    
 }

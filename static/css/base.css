@@ -413,6 +413,7 @@ strong span{
 .toc_title{
     background-color: var(--c-bar_side);
     color: var(--c-bar-toc_fg);
+    opacity: 0.9;
 }
 .toc_content{
     overflow-y: auto;
@@ -420,6 +421,7 @@ strong span{
     border-style: solid;
     border-width: 0.3rem;
     border-color: var(--c-thin-line);
+    opacity: 0.9;
 }
 .toc_content a{
     color: var(--c-bar-ham_fg);

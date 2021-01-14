@@ -229,36 +229,48 @@ body {
     margin-bottom: 0.5rem;
 }
 .right_main_article h1{
+    padding-left: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.6rem;
     margin-left: -2rem;
     font-size: 1.8rem;
     font-weight: 800;
 }
 .right_main_article h2{
+    padding-left: 0.85rem;
+    margin-top: 0.4rem;
     margin-bottom: 0.6rem;
     margin-left: -1.8rem;
     font-size: 1.7rem;
     font-weight: 700;
 }
 .right_main_article h3{
+    padding-left: 0.7rem;
+    margin-top: 0.3rem;
     margin-bottom: 0.6rem;
     margin-left: -1.6rem;
     font-size: 1.6rem;
     font-weight: 600;
 }
 .right_main_article h4{
+    padding-left: 0.55rem;
+    margin-top: 0.2rem;
     margin-bottom: 0.6rem;
     margin-left: -1.4rem;
     font-size: 1.5rem;
     font-weight: 600;
 }
 .right_main_article h5{
+    padding-left: 0.4rem;
+    margin-top: 0.1rem;
     margin-bottom: 0.6rem;
     margin-left: -1.2rem;
     font-size: 1.4rem;
     font-weight: 600;
 }
 .right_main_article h6{
+    padding-left: 0.25rem;
+    margin-top: 0.05rem;
     margin-bottom: 0.6rem;
     margin-left: -1rem;
     font-size: 1.3rem;

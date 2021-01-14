@@ -295,6 +295,36 @@ code, code span{
     border: none;
     border-top: 0.15rem dotted;
 }
+.right_main_article h1{
+    border-style: groove;
+    border-width: 0.3rem;
+    border-color: var(--c-thin-line);
+}
+.right_main_article h2{
+    border-style: ridge;
+    border-width: 0.26rem;
+    border-color: var(--c-thin-line);
+}
+.right_main_article h3{
+    border-style: inset;
+    border-width: 0.22rem;
+    border-color: var(--c-thin-line);
+}
+.right_main_article h4{
+    border-style: outset;
+    border-width: 0.18rem;
+    border-color: var(--c-thin-line);
+}
+.right_main_article h5{
+    border-style: double;
+    border-width: 0.14rem;
+    border-color: var(--c-thin-line);
+}
+.right_main_article h6{
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: var(--c-thin-line);
+}
 figure{
     text-align: center;
 }

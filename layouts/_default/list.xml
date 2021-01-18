@@ -19,7 +19,7 @@
         {{ if ($currentNode.IsMenuCurrent "main" .) }}
             {{ range where (where (where $currentNode.Site.Pages "Section" (path.Base .URL)) "Title" "ne" "") ".Params.rss_hide" "ne" true }}
                 <item>
-                    <title>ccc{{ .Title }}</title>
+                    <title>{{ .Title }}</title>
                     <link>{{ .Permalink }}</link>
                     <pubDate>{{ .Date.Format "2006-01-02" | safeHTML }}</pubDate>
                     {{ with .Site.Author.email }}
@@ -34,7 +34,7 @@
                 {{ if ($currentNode.IsMenuCurrent "main" .) }}
                     {{ range where $currentNode.Pages ".Params.rss_hide" "ne" true }}
                         <item>
-                            <title>ddd{{ .Title }}</title>
+                            <title>{{ .Title }}</title>
                             <link>{{ .Permalink }}</link>
                             <pubDate>{{ .Date.Format "2006-01-02" | safeHTML }}</pubDate>
                             {{ with .Site.Author.email }}

@@ -338,6 +338,7 @@ body {
     z-index: 1;
     right: 1%;
     top: 20%;
+    max-width: 20%;
 }
 .toc_title{
     position: relative;

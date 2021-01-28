@@ -9,9 +9,13 @@
     </title>
 
     <!-- CSS 外链，进行了小屏幕的适配 -->
-    <link rel="stylesheet" type="text/css" href="/css/base.css" />
-    <link rel="stylesheet" media="screen and (max-width: 1200px)" type="text/css" href="/css/small.css" />
-    <link rel="stylesheet" media="screen and (min-width: 1201px)" type="text/css" href="/css/normal.css" />
+    <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
+    {{ $style_base := resources.Get "css/base.css" | minify | fingerprint }}
+    {{ $style_small := resources.Get "css/small.css" | minify | fingerprint }}
+    {{ $style_normal := resources.Get "css/normal.css" | minify | fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ $style_base.Permalink }}" />
+    <link rel="stylesheet" media="screen and (max-width: 1200px)" type="text/css" href="{{ $style_small.Permalink }}" />
+    <link rel="stylesheet" media="screen and (min-width: 1201px)" type="text/css" href="{{ $style_normal.Permalink }}" />
 
     <!-- highlight 自动生成配色 -->
     <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
@@ -149,7 +153,9 @@
 </div>
 
 <!-- 外链 js -->
-<script type="text/javascript" src="/js/main.js"></script>
+<!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
+{{ $mainJs := resources.Get "js/main.js" | minify | fingerprint }}
+<script type="text/javascript" src="{{ $mainJs.Permalink }}"></script>
 
 <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
 <!--     GitHub：https://github.com/sivan/heti -->

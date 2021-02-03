@@ -280,7 +280,7 @@ code, code span{
     padding-bottom: 0.1rem;
     font-family: FantasqueSansMono;
 }
-.right_main_article a{
+.right_main_article p a{
     text-decoration: underline;
 }
 .right_main_article ol{

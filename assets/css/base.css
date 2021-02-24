@@ -449,19 +449,21 @@ strong span{
 .toc_content{
     overflow-y: auto;
     background-color: var(--c-toc_bg);
+    color: var(--c-bar-toc_fg);
     border-style: solid;
     border-width: 0.3rem;
     border-color: var(--c-thin-line);
-    opacity: 0.9;
+    opacity: 0.96;
 }
 .toc_content a{
-    color: var(--c-bar-ham_fg);
+    color: var(--c-bar-toc_fg);
     font-size: 1.1rem;
     text-decoration: none;
 }
 .toc_content a:hover{
     /*其实对手机端来说这没什么用，因为没法 hover*/
     background-color: var(--c-toc_fg_hover);
+    color: var(--c-read);
 }
 /*下面是防剧透黑块*/
 .black_block{

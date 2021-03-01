@@ -286,6 +286,7 @@ code, code span{
 }
 .right_main_article ol{
     margin-left: 2rem;
+    margin-bottom: 0.7rem;
 }
 .right_main_article p{
     overflow-x: auto; /*为的是让宽一些的图片不把整个右边撑开*/

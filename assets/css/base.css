@@ -273,9 +273,6 @@ code, code span{
     background-color: var(--c-code_bg);
     color: var(--c-code);
     font-size: 1rem;
-    border-radius: 0.15rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     font-family: FantasqueSansMono;
@@ -336,13 +333,9 @@ figcaption{
 pre{
     background-color: var(--c-code_bg);
     line-height: 110%;
-    border-radius: 0.3rem;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    padding-top: 0.3rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-top: 0.8rem;
     padding-bottom: 0.3rem;
     overflow-x: auto;
 }
@@ -392,6 +385,18 @@ tbody tr:nth-child(even){
 }
 tbody tr:nth-child(odd){
     background: var(--c-table_odd);
+}
+.highlight{
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.highlight table{
+    background-color: var(--c-code_bg);
+}
+.highlight table tbody tr td.lntd{
+    border-left-style: solid;
+    border-left-color: grey;
+    border-left-width: 0.1rem;
 }
 img{
     width: auto;

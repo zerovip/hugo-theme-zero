@@ -65,7 +65,7 @@
     --c-dark-code_bg: #A89984; /* gruvbox fg4 */
     --c-dark-shadow: #928374;      /* gruvbox grey */
     --c-dark-notation_fg: #3C3836; /* gruvbox bg1 */
-    --c-dark-notation_bg: #FABD2F; /* gruvbox yellow */
+    --c-dark-notation_bg: #DCBE76; /* gruvbox yellow */
     --c-dark-checkbox: #757575;
 }
 .theme-container{
@@ -423,13 +423,37 @@ img{
     color: var(--c-thick-font);
     font-weight: 400;
 }
-.notation_color{
+blockquote.notation_color:before{
+    content: '˚';
+    font-family: serif;
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: -3.2rem;
+    margin-left: -2rem;
+}
+blockquote.notation_color{
     color: var(--c-notation_fg);
     background-color: var(--c-notation_bg);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.05rem;
+}
+span.notation_color{
+    color: var(--c-notation_fg);
+    background-color: var(--c-notation_bg);
 }
 .notation_color p{
-    margin-bottom: 0rem !important;
+    margin-bottom: 0.4rem !important;
+    margin-top: 0.4rem;
+}
+blockquote.notation_color p{
+    margin-top: 0rem;
 }
 .right_main_notes{
     margin-left: 1.5rem;

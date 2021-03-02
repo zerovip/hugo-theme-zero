@@ -8,7 +8,16 @@
     ◇ {{ i18n "reading-time" }}: {{ .ReadingTime }}{{ i18n "minutes" }}&nbsp;
     <span class="right_main_article-des-sum">
         ◇ {{ i18n "summary" }}:
-        {{ replace (replace (replace (replace (replace (trim .Summary "\n") "<p>" "") "</p>" "") "&rsquo;" "’") "&hellip;" "…") "&amp;" "&" | truncate 50 }}
+        {{ replace
+            (replace
+                (replace
+                    (replace
+                        (replace
+                            (trim .Summary "\n") "<p>" ""
+                        ) "</p>" ""
+                    ) "&rsquo;" "’"
+                ) "&hellip;" "…"
+            ) "&amp;" "&" | truncate 50 }}
     </span>
 </div>
 </a>

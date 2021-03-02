@@ -14,8 +14,10 @@
     {{ $style_small := resources.Get "css/small.css" | minify | fingerprint }}
     {{ $style_normal := resources.Get "css/normal.css" | minify | fingerprint }}
     <link rel="stylesheet" type="text/css" href="{{ $style_base.Permalink }}" />
-    <link rel="stylesheet" media="screen and (max-width: 1200px)" type="text/css" href="{{ $style_small.Permalink }}" />
-    <link rel="stylesheet" media="screen and (min-width: 1201px)" type="text/css" href="{{ $style_normal.Permalink }}" />
+    <link rel="stylesheet" media="screen and (max-width: 1200px)"
+        type="text/css" href="{{ $style_small.Permalink }}" />
+    <link rel="stylesheet" media="screen and (min-width: 1201px)"
+        type="text/css" href="{{ $style_normal.Permalink }}" />
 
     <!-- highlight 自动生成配色 -->
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
@@ -37,7 +39,8 @@
 <!--MathJax 的引用-->
 {{ if (and .IsPage (eq .Params.markup "pandoc")) }}
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" async></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
 {{ end }}
 
 <!--小屏幕顶部设计，在宽屏幕中不显示-->
@@ -84,14 +87,21 @@
                 {{ end }}
                 {{ range $.Site.Home.AllTranslations }}
                     {{ if (eq .Language.Lang $curr_lang) }}
-                        <li class='left_non-footer_option_active'>{{ .Language.LanguageName }} ⦿ </li>
+                        <li class='left_non-footer_option_active'>
+                            {{ .Language.LanguageName }} ⦿ 
+                        </li>
                     {{ else }}
                         {{ if (in $curr_trans_list .Language.Lang) }}
                             <li class='left_non-footer_option_non-active'>
-                                <a href="{{ .Permalink }}{{ substr $curr_page.RelPermalink 4 }}">{{ .Language.LanguageName }} ○ </a>
+                                <a href="{{ .Permalink }}{{ substr 
+                                $curr_page.RelPermalink 4 }}">
+                                    {{ .Language.LanguageName }} ○ 
+                                </a>
                             </li>
                         {{ else }}
-                            <li class='left_non-footer_option_non-active'>{{ .Language.LanguageName }} ⨂ </li>
+                            <li class='left_non-footer_option_non-active'>
+                                {{ .Language.LanguageName }} ⨂ 
+                            </li>
                         {{ end }}
                     {{ end }}
                 {{ end }}
@@ -99,16 +109,27 @@
 
                 <!-- RSS 订阅按钮 -->
                 {{ if .IsNode }}
-                    <li class='left_non-footer_option_active'><a href="{{ .Permalink }}index.xml">{{ i18n "rss_feed" }} <img src="/images/rss.png" /></a></li>
+                    <li class='left_non-footer_option_active'>
+                        <a href="{{ .Permalink }}index.xml">
+                            {{ i18n "rss_feed" }}
+                            <img src="/images/rss.png" />
+                        </a>
+                    </li>
                 {{ else }}
-                    <li class='left_non-footer_option_non-active'>{{ i18n "rss_feed" }} ⨂ </li>
+                    <li class='left_non-footer_option_non-active'>
+                        {{ i18n "rss_feed" }} ⨂ 
+                    </li>
                 {{ end }}
                 <li><br /></li>
             </div>
                 
             <!--题目区-->
             <div class='left_non-footer_head'>
-                <div class='left_non-footer_head_title'><a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a></div>
+                <div class='left_non-footer_head_title'>
+                    <a href="{{ substr .RelPermalink 0 4 }}">
+                        {{ .Site.Title }}
+                    </a>
+                </div>
                 <div class='left_non-footer_head_subtitle'>(●’◡’●)ﾉ</div>
             </div>
 
@@ -121,13 +142,15 @@
             <div class='left_non-footer_main'>
                 {{ $currentNode := . }}
                 {{ range .Site.Menus.main }} {{/* 确保和config中的一级标题的主菜单一致，下面也是 */}}
-                    <div  class="h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Section) }}active{{ end }}">
+                    <div  class="h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
+                    or (eq .Identifier $currentNode.Section) }}active{{ end }}">
                         <a href="{{ .URL }}">{{ .Name }}</a>
                     </div>
                     {{ if .HasChildren }}
                         {{ range .Children }}
                             {{ if ne .Identifier ""}}
-                                <div class="h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) | or (eq .Identifier $currentNode.Params.section) }}active{{ end }}">
+                                <div class="h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
+                                or (eq .Identifier $currentNode.Params.section) }}active{{ end }}">
                                     <a href="{{ .URL }}">{{ .Name }} </a>
                                 </div>
                             {{ end }}

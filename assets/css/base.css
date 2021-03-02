@@ -269,13 +269,19 @@ a:visited{
 .right_main_article{
     color: var(--c-read);
 }
-code, code span{
+code{
     background-color: var(--c-code_bg);
     color: var(--c-code);
     font-size: 1rem;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
     font-family: FantasqueSansMono;
+}
+.chroma code{
+    padding-left: 0rem;
+    padding-right: 0rem;
 }
 .right_main_article p a,
 .right_main_article table a{

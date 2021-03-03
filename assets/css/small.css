@@ -405,7 +405,8 @@ body {
     height: 94vh;
     z-index: 1;
 }
-blockquote{
+blockquote,
+div.notation_color{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

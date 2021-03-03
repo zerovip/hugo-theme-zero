@@ -356,7 +356,8 @@ body {
 .toc:hover .toc_content{
     display: block;
 }
-blockquote{
+blockquote,
+div.notation_color{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

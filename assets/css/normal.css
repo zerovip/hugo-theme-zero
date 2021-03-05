@@ -302,12 +302,13 @@ body {
 .right_main_article-title{
     margin-left: 0.75rem;
     margin-right: 0.75rem;
+    margin-top: 0.35rem;
     font-size: 1.4rem;
 }
 .right_main_article-des{
     margin-left: 0.75rem;
     margin-right: 0.75rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.4rem;
     font-size: 0.85rem;
 }
 .right_main_article-des-sum{

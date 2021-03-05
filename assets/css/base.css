@@ -35,8 +35,8 @@
     --c-light-toc_fg_hover: var(--c-light-table-footnote);
     --c-light-quote_bg: #FBF1C7;       /* gruvbox light bg */
     --c-light-quote_fg: #7C6F64;       /* gruvbox light grey */
-    --c-light-code: #000000;        /* black */
-    --c-light-code_bg: #BCBFB2;       /* (2H61T31--w0w0) Secondary Color B 2 */
+    --c-light-code: #f8f8f2;    /* 使用 hugo gen chromastyles 生成的，dracula */
+    --c-light-code_bg: #282a36; /* 使用 hugo gen chromastyles 生成的，dracula */
     --c-light-shadow: #888888;      /* grey */
     --c-light-notation_fg: #3C3836; /* gruvbox bg1 */
     --c-light-notation_bg: #FDE763;
@@ -61,8 +61,8 @@
     --c-dark-toc_fg_hover: var(--c-dark-table-footnote);
     --c-dark-quote_bg: #3C3836;   /* gruvbox bg1 */
     --c-dark-quote_fg: #A89984; /* gruvbox fg4 */
-    --c-dark-code: #000000; /* black */
-    --c-dark-code_bg: #A89984; /* gruvbox fg4 */
+    --c-dark-code: #f8f8f2;    /* 使用 hugo gen chromastyles 生成的，dracula */
+    --c-dark-code_bg: #282a36; /* 使用 hugo gen chromastyles 生成的，dracula */
     --c-dark-shadow: #928374;      /* gruvbox grey */
     --c-dark-notation_fg: #3C3836; /* gruvbox bg1 */
     --c-dark-notation_bg: #DCBE76; /* gruvbox yellow, but turn down its brightness */
@@ -176,13 +176,19 @@ body{
     height: 100vh;
     background-color: var(--c-background);
 }
-a:link{
-    color: var(--c-link);
-    text-decoration: none;
-}
+a:link,
 a:visited{
     color: var(--c-link);
     text-decoration: none;
+    border-style: dashed;
+    border-width: 0.1rem;
+    border-color: transparent;
+}
+a:hover{
+    border-style: dashed;
+    border-width: 0.1rem;
+    border-color: var(--c-read);
+    box-shadow: var(--c-thick-font) 0px 1px 3px, var(--c-normal-font) 0px 1px 2px;
 }
 .bar_left_button{
     background-color: var(--c-bar_side);
@@ -279,9 +285,12 @@ code{
     padding-bottom: 0.15rem;
     font-family: FantasqueSansMono;
 }
-.chroma code{
+pre code{
     padding-left: 0rem;
     padding-right: 0rem;
+}
+.chroma code span{
+    font-family: FantasqueSansMono;
 }
 .right_main_article p a,
 .right_main_article table a{
@@ -369,6 +378,7 @@ blockquote:before{
     margin-left: -2rem;
 }
 table{
+    font-size: 1.05rem;
     margin: auto;
     background-color: var(--c-table-footnote);
     margin-bottom: 0.25rem;
@@ -490,12 +500,13 @@ strong span{
     opacity: 0.96;
 }
 .toc_content a{
+    border-style: none;
     color: var(--c-bar-toc_fg);
     font-size: 1.1rem;
     text-decoration: none;
 }
 .toc_content a:hover{
-    /*其实对手机端来说这没什么用，因为没法 hover*/
+    border-style: none;
     background-color: var(--c-toc_fg_hover);
     color: var(--c-read);
 }

@@ -293,7 +293,8 @@ pre code{
     font-family: FantasqueSansMono;
 }
 .right_main_article p a,
-.right_main_article table a{
+.right_main_article table a,
+.right_main_article li a{
     text-decoration: underline;
 }
 .right_main_article ol{

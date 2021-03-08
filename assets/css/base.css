@@ -238,17 +238,9 @@ a:hover{
     list-style: none;
 }
 .left_non-footer .h1{
-    padding-top: 1.25rem;
-    font-size: 1.5rem;
     color: var(--c-normal-font);
-    font-weight: 700;
-    border-bottom: 0.375rem var(--c-thin-line) solid;
 }
 .left_non-footer .h2{
-    padding-top: 0.4rem;
-    padding-left: 0.725rem;
-    font-size: 1.2rem; 
-    font-weight: 600;
     color: var(--c-normal-font);
 }
 .left_non-footer .h1.active::after {
@@ -274,41 +266,6 @@ a:hover{
 }
 .right_main_article{
     color: var(--c-read);
-}
-code{
-    background-color: var(--c-code_bg);
-    color: var(--c-code);
-    font-size: 1rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.15rem;
-    padding-bottom: 0.15rem;
-    font-family: FantasqueSansMono;
-}
-pre code{
-    padding-left: 0rem;
-    padding-right: 0rem;
-}
-.chroma code span{
-    font-family: FantasqueSansMono;
-}
-.right_main_article p a,
-.right_main_article table a,
-.right_main_article li a{
-    text-decoration: underline;
-}
-.right_main_article ol{
-    margin-left: 2rem;
-    margin-bottom: 0.7rem;
-}
-.right_main_article p{
-    overflow-x: auto; /*为的是让宽一些的图片不把整个右边撑开*/
-    overflow-y: hidden;
-}
-.right_main_article hr{
-    height: 1.5rem;
-    border: none;
-    border-top: 0.15rem dotted;
 }
 .right_main_article h1{
     border-style: groove;
@@ -340,130 +297,116 @@ pre code{
     border-width: 0.1rem;
     border-color: var(--c-table_odd);
 }
-figure{
+/* 段落区 */
+.right_main_article p{
+    overflow-x: auto; /*为的是让宽一些的图片不把整个右边撑开*/
+    overflow-y: hidden;
+}
+/* 链接区 */
+.right_main_article p a,
+.right_main_article table a,
+.right_main_article li a{
+    text-decoration: underline;
+}
+/* 分割线 */
+.right_main_article hr{
+    height: 1.5rem;
+    border: none;
+    border-top: 0.15rem dotted;
+}
+/* 图片区 */
+.right_main_article figure{
     text-align: center;
 }
-figcaption{
-    font-size: 75%
-}
-pre{
-    background-color: var(--c-code_bg);
-    line-height: 110%;
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.3rem;
-    overflow-x: auto;
-}
-blockquote{
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding-left: 3rem;
-    padding-right: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    font-size: 1.05rem;
-    color: var(--c-quote_fg);
-    background-color: var(--c-quote_bg);
-}
-blockquote p{
-    margin-top: 1rem;
-}
-blockquote:before{
-    content: '“';
-    font-family: serif;
-    font-size: 3em;
-    font-weight: bold;
-    line-height: 1;
-    margin-bottom: -3.2rem;
-    margin-left: -2rem;
-}
-table{
-    font-size: 1.05rem;
-    margin: auto;
-    background-color: var(--c-table-footnote);
-    margin-bottom: 0.25rem;
-}
-thead tr{
-    background: var(--c-table-footnote);
-}
-th{
-    border-bottom: 0.125rem solid var(--c-table_border);
-    padding-top: 0.125rem;
-    padding-left: 0.7rem;
-    padding-right: 0.7rem;
-}
-td{
-    padding-left: 0.7rem;
-    padding-right: 0.7rem;
-}
-tbody tr:nth-child(even){
-    background: var(--c-table_even);
-}
-tbody tr:nth-child(odd){
-    background: var(--c-table_odd);
-}
-.highlight{
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
-}
-.highlight table{
-    background-color: var(--c-code_bg);
-}
-.highlight table tbody tr td.lntd{
-    border-left-style: solid;
-    border-left-color: grey;
-    border-left-width: 0.1rem;
-}
-img{
+.right_main_article img{
     width: auto;
     height: auto;
     max-width: 90%;
     max-height: 100%;
 }
-/*下面三个都是给列表页用的*/
-.right_main_article-title{
-    color: var(--c-normal-font);
-    font-weight: 600;
+.right_main_article figcaption{
+    font-size: 75%
 }
-.right_main_article-des{
-    color: var(--c-normal-font);
-    border-bottom: 0.275rem var(--c-thin-line) solid;
+/* 表格区 */
+.right_main_article table{
+    margin: auto;
+    background-color: var(--c-table-footnote);
+    margin-bottom: 0.25rem;
 }
-.right_main_article-des-sum{
-    color: var(--c-thick-font);
-    font-weight: 400;
+.right_main_article thead tr{
+    background: var(--c-table-footnote);
 }
-div.notation_color{
+.right_main_article th{
+    border-bottom: 0.125rem solid var(--c-table_border);
+    padding-top: 0.125rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+.right_main_article td{
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+.right_main_article tbody tr:nth-child(even){
+    background: var(--c-table_even);
+}
+.right_main_article tbody tr:nth-child(odd){
+    background: var(--c-table_odd);
+}
+/* 代码区 *//* 行内代码 */
+.right_main_article code{
+    background-color: var(--c-code_bg);
+    color: var(--c-code); /* 上面这两行不仅仅作用于行内代码，代码块也有作用 */
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem; /* 上面这四行也对代码块有效，但不希望这样，所以代码块那里重写覆盖了这四行 */
+    font-family: FantasqueSansMono; /* 这行对代码块无效，是因为代码块在 <code> 里还有一个 <span> */
+}
+/* 代码区 *//* 代码块 */
+.right_main_article .highlight table{ /* 覆盖表格区的背景颜色 */
+    background-color: var(--c-code_bg);
+}
+.right_main_article .highlight table tbody tr td.lntd{
+    border-left-style: solid;
+    border-left-color: grey;
+    border-left-width: 0.1rem;
+}
+.right_main_article pre{ /* 代码块整体，一个矩形 */
+    background-color: var(--c-code_bg); /* 未指定语言的代码块没有表格结构，所以这里还要再次指明背景 */
+    overflow-x: auto;
+    /* 它还有一些边距、行高的设置，见 normal 与 small */
+}
+.right_main_article pre code{ /* 代码块整体，每一行组成的锯齿形 */
+    padding-left: 0rem; /* 这四行覆盖了上面 code 里的那四行 */
+    padding-right: 0rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.right_main_article pre code span{ /* 代码块里面具体的每一行 */
+    font-family: FantasqueSansMono;
+}
+/* 引用区 */
+.right_main_article blockquote{
+    color: var(--c-quote_fg);
+    background-color: var(--c-quote_bg);
+}
+.right_main_article blockquote:before{
+    content: '“';
+    font-family: serif;
+    font-weight: bold;
+}
+/* 自定义高亮区 *//* 包括行间高亮与高亮块 */
+.right_main_article .notation_color{
     color: var(--c-notation_fg);
     background-color: var(--c-notation_bg);
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding-left: 3rem;
-    padding-right: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 0.3rem;
-    font-size: 1.05rem;
 }
-div.notation_color p{
-    margin-bottom: 0.2rem;
-    margin-top: 0rem;
-}
-div.notation_color:before{
+/* 自定义高亮区 *//* 高亮块 */
+.right_main_article div.notation_color:before{
     content: '˚';
     font-family: serif;
-    font-size: 3em;
     font-weight: bold;
-    line-height: 1;
-    margin-bottom: -3.2rem;
-    margin-left: -2rem;
 }
-span.notation_color{
-    color: var(--c-notation_fg);
-    background-color: var(--c-notation_bg);
-}
+/* right_main_article 部分结束 */
 .right_main_notes{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -481,6 +424,19 @@ strong span{
 .footnotes p{
     background-color: var(--c-table-footnote);
     color: var(--c-read);
+}
+/*下面三个都是给列表页用的*/
+.right_main_article-title{
+    color: var(--c-normal-font);
+    font-weight: 600;
+}
+.right_main_article-des{
+    color: var(--c-normal-font);
+    border-bottom: 0.275rem var(--c-thin-line) solid;
+}
+.right_main_article-des-sum{
+    color: var(--c-thick-font);
+    font-weight: 400;
 }
 .right_comments{
     background-color: var(--c-background);

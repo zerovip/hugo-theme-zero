@@ -126,6 +126,18 @@ body {
         -ms-flex-order: 3;
             order: 3;
 }
+.left_non-footer .h1{
+    padding-top: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 0.375rem var(--c-thin-line) solid;
+}
+.left_non-footer .h2{
+    padding-top: 0.4rem;
+    padding-left: 0.725rem;
+    font-size: 1.2rem; 
+    font-weight: 600;
+}
 .left_footer{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -276,10 +288,99 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
 }
+/* 段落区 */
 .right_main_article p{
-    margin-bottom: 0.6rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
     text-indent: 2.4rem; /* article font-size 的二倍，确保是空了两个格.*/
     line-height: 160%;
+}
+/* 表格区 */
+.right_main_article table{
+    font-size: 1.05rem;
+}
+/* 代码区 *//* 行内代码 */
+.right_main_article code{ /* 不仅仅作用于行内代码，代码块也有作用 */
+    font-size: 1rem;
+}
+/* 代码区 *//* 代码块 */
+.right_main_article pre{ /* 代码块整体，一个矩形 */
+    line-height: 1.15rem; /* 比上面 code 那里的字号稍大即可 */
+    padding-left: 0.8rem;
+    padding-right: 0rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+/* 引用区 */
+.right_main_article blockquote{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;    
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.3rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    font-size: 1.05rem;
+}
+.right_main_article blockquote:before{
+    font-size: 3em;
+    margin-bottom: -3.2rem;
+    margin-left: -2rem;
+    line-height: 3rem;
+}
+.right_main_article blockquote p{
+    margin-top: 0.4rem;
+    margin-bottom: 0rem;
+    margin-left: 1rem;
+}
+/* 自定义高亮区 *//* 高亮块 */
+.right_main_article div.notation_color{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;    
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.3rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    font-size: 1.05rem;
+}
+.right_main_article div.notation_color:before{
+    font-size: 3em;
+    margin-bottom: -3.2rem;
+    margin-left: -2rem;
+    line-height: 3rem;
+}
+.right_main_article div.notation_color p{
+    margin-top: 0.4rem;
+    margin-bottom: 0rem;
+    margin-left: 1rem;
+}
+/* 列表区 */
+.right_main_article ol{
+    margin-left: 2rem;
+    margin-bottom: 0.7rem;
 }
 .right_main_article ul{
     margin-bottom: 0.6rem;
@@ -298,6 +399,7 @@ body {
     margin-left: 1.2rem;
 }
 /* 上面的多级列表缩进，见, https://stackoverflow.com/q/11445453/9783145 */
+/* right_main_article 部分结束 */
 /*下面三个都是给列表页用的*/
 .right_main_article-title{
     margin-left: 0.75rem;
@@ -356,17 +458,4 @@ body {
 }
 .toc:hover .toc_content{
     display: block;
-}
-blockquote,
-div.notation_color{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;    
 }

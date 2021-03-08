@@ -147,6 +147,7 @@ body {
             order: 1;
     -ms-flex-item-align: end;
         align-self: flex-end;
+    font-size: 0.75rem;
 }
 .left_non-footer_head{
     display: none;
@@ -163,6 +164,18 @@ body {
         -ms-flex-order: 2;
             order: 2;
 }
+.left_non-footer .h1{
+    padding-top: 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border-bottom: 0.2rem var(--c-thin-line) solid;
+}
+.left_non-footer .h2{
+    padding-top: 0.3rem;
+    padding-left: 0.725rem;
+    font-size: 1rem; 
+    font-weight: 400;
+}
 .left_footer{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -175,6 +188,7 @@ body {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    font-size: 0.75rem;
 }
 .right{
     display: -webkit-box;
@@ -266,7 +280,7 @@ body {
     margin-top: 0.5rem;
     margin-bottom: 0.6rem;
     margin-left: -0.2rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 800;
 }
 .right_main_article h2{
@@ -274,7 +288,7 @@ body {
     margin-top: 0.4rem;
     margin-bottom: 0.55rem;
     margin-left: -0.2rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
 }
 .right_main_article h3{
@@ -282,7 +296,7 @@ body {
     margin-top: 0.3rem;
     margin-bottom: 0.5rem;
     margin-left: -0.2rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 .right_main_article h4{
@@ -290,7 +304,7 @@ body {
     margin-top: 0.2rem;
     margin-bottom: 0.45rem;
     margin-left: -0.2rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 500;
 }
 .right_main_article h5{
@@ -298,7 +312,7 @@ body {
     margin-top: 0.1rem;
     margin-bottom: 0.4rem;
     margin-left: -0.2rem;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 500;
 }
 .right_main_article h6{
@@ -306,17 +320,106 @@ body {
     margin-top: 0.05rem;
     margin-bottom: 0.4rem;
     margin-left: -0.2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
 }
+/* 段落区 */
 .right_main_article p{
-    margin-bottom: 0.6rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     text-indent: 2rem; /* article font-size 的二倍，确保是空了两个格.*/
     line-height: 150%;
 }
+/* 表格区 */
+.right_main_article table{
+    font-size: 0.8rem;
+}
+/* 代码区 *//* 行内代码 */
+.right_main_article code{ /* 不仅仅作用于行内代码，代码块也有作用 */
+    font-size: 0.9rem;
+}
+/* 代码区 *//* 代码块 */
+.right_main_article pre{ /* 代码块整体，一个矩形 */
+    line-height: 1.05rem; /* 比上面 code 那里的字号稍大即可 */
+    padding-left: 0.7rem;
+    padding-right: 0rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+/* 引用区 */
+.right_main_article blockquote{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;    
+    margin-top: 0rem;
+    margin-bottom: 0.2rem;
+    margin-left: -0.8rem;
+    margin-right: -0.8rem;
+    padding-left: 2.4rem;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 0.85rem;
+}
+.right_main_article blockquote:before{
+    font-size: 2.4rem;
+    margin-bottom: -2.5rem;
+    margin-left: -2rem;
+    line-height: 2.4rem;
+}
+.right_main_article blockquote p{
+    margin-top: 0.2rem;
+    margin-bottom: 0rem;
+    margin-left: 0.1rem;
+}
+/* 自定义高亮区 *//* 高亮块 */
+.right_main_article div.notation_color{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;    
+    margin-top: 0rem;
+    margin-bottom: 0.2rem;
+    margin-left: -0.8rem;
+    margin-right: -0.8rem;
+    padding-left: 2.4rem;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 0.85rem;
+}
+.right_main_article div.notation_color:before{
+    font-size: 2.4rem;
+    margin-bottom: -2.5rem;
+    margin-left: -2rem;
+    line-height: 2.4rem;
+}
+.right_main_article div.notation_color p{
+    margin-top: 0.2rem;
+    margin-bottom: 0rem;
+    margin-left: -0.5rem;
+}
+/* 列表区 */
+.right_main_article ol{
+    margin-left: 1.5rem;
+    margin-bottom: 0.6rem;
+}
 .right_main_article ul{
     margin-bottom: 0.6rem;
-    margin-left: 3.8rem;
+    margin-left: 3.5rem;
 }
 .right_main_article ul ul{
     margin-bottom: 0.6rem;
@@ -331,6 +434,7 @@ body {
     margin-left: 1.1rem;
 }
 /* 上面的多级列表缩进，见, https://stackoverflow.com/q/11445453/9783145 */
+/* right_main_article 部分结束 */
 /*下面三个都是给列表页用的*/
 .right_main_article-title{
     margin-left: 0.6rem;
@@ -405,17 +509,4 @@ body {
             order: 2;
     height: 94vh;
     z-index: 1;
-}
-blockquote,
-div.notation_color{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;    
 }

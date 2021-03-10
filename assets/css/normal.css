@@ -238,7 +238,7 @@ body {
     /* 应该就是首页吧？ */
     /*order: 1;*/
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2.5rem;
 }
 .right_main_article h1{
     padding-left: 1rem;
@@ -404,13 +404,13 @@ body {
 .right_main_article-title{
     margin-left: 0.75rem;
     margin-right: 0.75rem;
-    margin-top: 0.35rem;
+    margin-top: 0.45rem;
     font-size: 1.4rem;
 }
 .right_main_article-des{
     margin-left: 0.75rem;
     margin-right: 0.75rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     font-size: 0.85rem;
 }
 .right_main_article-des-sum{

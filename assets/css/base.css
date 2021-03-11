@@ -373,7 +373,7 @@ a:hover{
 }
 .right_main_article pre{ /* 代码块整体，一个矩形 */
     background-color: var(--c-code_bg); /* 未指定语言的代码块没有表格结构，所以这里还要再次指明背景 */
-    overflow-x: auto;
+    overflow-x: auto; /* 这一行好像没什么用 */
     /* 它还有一些边距、行高的设置，见 normal 与 small */
 }
 .right_main_article pre code{ /* 代码块整体，每一行组成的锯齿形 */

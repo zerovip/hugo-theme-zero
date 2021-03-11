@@ -339,7 +339,11 @@ body {
     font-size: 0.9rem;
 }
 /* 代码区 *//* 代码块 */
-.right_main_article pre{ /* 代码块整体，一个矩形 */
+.right_main_article .highlight{ /* 代码块整体 */
+    padding-top: 0.05rem;
+    padding-bottom: 0.2rem;
+}
+.right_main_article pre{ /* 代码语句整体，一个矩形 */
     line-height: 1.05rem; /* 比上面 code 那里的字号稍大即可 */
     padding-left: 0.7rem;
     padding-right: 0rem;

@@ -60,11 +60,11 @@ if (ctheme == "dark") {
 } else {
     if (checkbox.checked) {
         themeContainer.classList.remove("dark");
-        document.cookie = "ctheme=light; path=/";
+        document.cookie = "ctheme=light; path=/; SameSite=Lax";
         ut_change_to_light_mode();
     } else {
         themeContainer.classList.add("dark");
-        document.cookie = "ctheme=dark; path=/";
+        document.cookie = "ctheme=dark; path=/; SameSite=Lax";
         ut_change_to_dark_mode();
     }
 }
@@ -73,11 +73,11 @@ if (ctheme == "dark") {
 checkbox.addEventListener("change", function() {
     if (themeContainer && this.checked) {
         themeContainer.classList.remove("dark");
-        document.cookie = "ctheme=light; path=/";
+        document.cookie = "ctheme=light; path=/; SameSite=Lax";
         ut_change_to_light_mode();
     } else {
         themeContainer.classList.add("dark");
-        document.cookie = "ctheme=dark; path=/";
+        document.cookie = "ctheme=dark; path=/; SameSite=Lax";
         ut_change_to_dark_mode();
     }
 });

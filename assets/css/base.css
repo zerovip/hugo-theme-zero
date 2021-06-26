@@ -352,6 +352,31 @@ a:hover{
 .right_main_article tbody tr:nth-child(odd){
     background: var(--c-table_odd);
 }
+.record-blank-cell{
+    border-top: 0.125rem solid var(--c-table_border);
+    border-right: 0.125rem solid var(--c-table_border);
+    border-bottom: none;
+    border-left: none;
+}
+.record-total-cell{
+    border-top: double var(--c-table_border);
+    border-right: 0.125rem solid var(--c-table_border);
+    border-bottom: double var(--c-table_border);
+    border-left: 0.125rem solid var(--c-table_border);
+    padding: 0.5rem;
+    background-color: var(--c-notation_bg);
+    color: var(--c-notation_fg);
+}
+.record-odd-cell{
+    border: 0.125rem solid var(--c-table_border);
+    background-color: var(--c-table_odd);
+    padding: 0.5rem;
+}
+.record-even-cell{
+    border: 0.125rem solid var(--c-table_border);
+    background: var(--c-table_even);
+    padding: 0.5rem;
+}
 /* 代码区 *//* 行内代码 */
 .right_main_article code{
     background-color: var(--c-code_bg);

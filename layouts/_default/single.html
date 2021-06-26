@@ -44,6 +44,7 @@
             {{ end }}
             <p></p><p></p><p></p><p></p>
         </div>
+        <!-- 下面是数学笔记的 PDF 显示部分 -->
         {{ with .Params.file_path }}
             <div class="right_main_notes">
                 <p>{{ i18n "not-show" }}<a href="/{{ . }}">{{ i18n "here" }}</a>{{ i18n "download" }}.</p>
@@ -51,6 +52,8 @@
                 <br/><br/><br/><br/><br/>
             </div>
         {{ end }}
+        <!-- 下面是看过的书和电影那两个特殊页的表格展示 -->
+        {{ partial "record.html" . }}
     </div>
     {{ if not .Site.IsServer }}
     <!--本地测试时不加载评论区-->

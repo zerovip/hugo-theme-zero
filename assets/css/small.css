@@ -165,13 +165,13 @@ body {
             order: 2;
 }
 .left_non-footer .h1{
-    padding-top: 0.75rem;
+    padding-top: 0.4rem;
     font-size: 1.15rem;
     font-weight: 600;
     border-bottom: 0.2rem var(--c-thin-line) solid;
 }
 .left_non-footer .h2{
-    padding-top: 0.3rem;
+    padding-top: 0.2rem;
     padding-left: 0.725rem;
     font-size: 1rem; 
     font-weight: 400;

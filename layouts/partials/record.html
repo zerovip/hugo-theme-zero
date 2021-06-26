@@ -1,0 +1,159 @@
+{{ $curr_page := . }}
+{{ range $key, $value := $.Site.Data }}
+<!-- https://gohugo.io/templates/introduction/#example-4-declaring-variable-names-for-a-map-elements-key-_and_-value -->
+<!-- 这个方法真的是太灵光一现了！我自己在最开始都没有想到. -->
+<!-- 我最开始的想法是：data/book.json, data/book.en.json, data/book.fr.json -->
+<!-- 或者是：data/book_zh.json, data/book_en.json, data/book_fr.json -->
+<!--     然后想办法搞 variable variables. -->
+<!-- 但这两个思路都没有成功. 然后我就想 python 里面怎么搞 variable variables 的呢？ -->
+<!--     好像字典就可以！那放进 golang 里，不就是 map 吗？那好像可以改变一下文件结构， -->
+<!--     改成 /data/zh/book.json, /data/en/book.json, /data/fr/book.json -->
+<!--     hugo 处理这种文件夹不就是给转化成 map 吗？语言选项就成了 map 的一个 key 了！ -->
+<!-- 简直非常完美！这就是处理 variable variables 的绝妙方案啊！ -->
+<!-- 别忘了把当前页弄一个 curr_page 变量出来就行了 -->
+    {{ if eq $key $curr_page.Language.Lang }}
+
+        {{ if eq ($curr_page.Param "menu.main.identifier") "book" }}
+        <!-- 下面是读过的书 -->
+        {{ $book_overview := dict }}
+            共 {{ len $value.book }} 本：
+            <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
+            {{ range $value.book }}
+                {{ if (index $book_overview (substr .mark_date 0 4)) }}
+                    {{ $book_overview = merge $book_overview
+                        (dict (substr .mark_date 0 4) (add 1
+                            (index $book_overview (substr .mark_date 0 4)))
+                        )
+                    }}
+                {{ else }}
+                    {{ $book_overview = merge $book_overview (dict (substr .mark_date 0 4) 1) }}
+                {{ end }}
+            {{ end }}
+            <div class="record-table-wrapper">
+                <table style="undefined;table-layout: fixed; width: 1000px; border-collapse: collapse;">
+                    <colgroup>
+                        <col style="width: 60px">
+                        <col style="width: 400px">
+                        <col style="width: 270px">
+                        <col style="width: 270px">
+                    </colgroup>
+                    <tbody>
+                        {{ $curr_year := 0 }}
+                        {{ $curr_num := (len $value.book) }}
+                        {{ $eoo := "odd" }}
+                        {{ range $value.book }}
+                            {{ if ne (substr .mark_date 0 4) $curr_year }}
+                                {{ $curr_year = (substr .mark_date 0 4) }}
+                                <tr>
+                                    <td class="record-total-cell" colspan="4">
+                                        {{ $curr_year }} 年（共 {{ index $book_overview $curr_year }} 本）
+                                    </td>
+                                </tr>
+                            {{ end }}
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
+                                <td class="record-{{ $eoo }}-cell">书名：<a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a></td>
+                                <td class="record-{{ $eoo }}-cell">标记日期：{{ .mark_date }}</td>
+                                <td class="record-{{ $eoo }}-cell">打分：{{ .my_score }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-blank-cell" rowspan="4"></td>
+                                <td class="record-{{ $eoo }}-cell">作者：{{ .author }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">评价：{{ .my_comment }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell">年份：{{ .public_year }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell">出版社：{{ .press }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell">ISBN：{{ .isbn }}</td>
+                            </tr>
+                            {{ $curr_num = add $curr_num -1 }}
+                            {{ if eq $eoo "odd" }}
+                                {{ $eoo = "even" }}
+                            {{ else if eq $eoo "even" }}
+                                {{ $eoo = "odd" }}
+                            {{ end }}
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+
+        {{ else if eq ($curr_page.Param "menu.main.identifier") "film" }}
+        <!-- 下面是看过的电影 -->
+            {{ $film_overview := dict }}
+            共 {{ len $value.film }} 部：
+            <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
+            {{ range $value.film }}
+                {{ if (index $film_overview (substr .mark_date 0 4)) }}
+                    {{ $film_overview = merge $film_overview
+                        (dict (substr .mark_date 0 4) (add 1
+                            (index $film_overview (substr .mark_date 0 4)))
+                        )
+                    }}
+                {{ else }}
+                    {{ $film_overview = merge $film_overview (dict (substr .mark_date 0 4) 1) }}
+                {{ end }}
+            {{ end }}
+            <div class="record-table-wrapper">
+                <table style="undefined;table-layout: fixed; width: 1000px; border-collapse: collapse;">
+                    <colgroup>
+                        <col style="width: 60px">
+                        <col style="width: 200px">
+                        <col style="width: 200px">
+                        <col style="width: 270px">
+                        <col style="width: 270px">
+                    </colgroup>
+                    <tbody>
+                        {{ $curr_year := 0 }}
+                        {{ $curr_num := (len $value.film) }}
+                        {{ $eoo := "odd" }}
+                        {{ range $value.film }}
+                            {{ if ne (substr .mark_date 0 4) $curr_year }}
+                                {{ $curr_year = (substr .mark_date 0 4) }}
+                                <tr>
+                                    <td class="record-total-cell" colspan="5">
+                                        {{ $curr_year }} 年（共 {{ index $film_overview $curr_year }} 部）
+                                    </td>
+                                </tr>
+                            {{ end }}
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2">名字：<a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a></td>
+                                <td class="record-{{ $eoo }}-cell">标记日期：{{ .mark_date }}</td>
+                                <td class="record-{{ $eoo }}-cell">打分：{{ .my_score }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-blank-cell" rowspan="4"></td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2">原名：{{ .ori_name }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">评价：{{ .my_comment }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell" colspan="2">类型：{{ .film_type }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell">年份：{{ .public_year }}</td>
+                                <td class="record-{{ $eoo }}-cell">地区：{{ .produce_country }}</td>
+                            </tr>
+                            <tr>
+                                <td class="record-{{ $eoo }}-cell">导演：{{ .director }}</td>
+                                <td class="record-{{ $eoo }}-cell">IMDB：<a href="https://www.imdb.com/title/{{ .imdb_id }}/" target="_blank" rel="noreferrer noopener">{{ .imdb_id }}<b>⧉ </b></a></td>
+                            </tr>
+                            {{ $curr_num = add $curr_num -1 }}
+                            {{ if eq $eoo "odd" }}
+                                {{ $eoo = "even" }}
+                            {{ else if eq $eoo "even" }}
+                                {{ $eoo = "odd" }}
+                            {{ end }}
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+
+        {{ end }}
+
+    {{ end }}
+{{ end }}
+

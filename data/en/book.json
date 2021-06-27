@@ -1,8 +1,10 @@
 [
     {
-        "title": "book"
+        "title": "book",
+        "mark_date": "2021-01-01"
     },
     {
-        "title": "a test for data template"
+        "title": "a test for data template",
+        "mark_date": "2020-01-01"
     }
 ]

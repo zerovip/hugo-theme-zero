@@ -51,3 +51,55 @@
 
 - id: summary
   translation: Summary
+
+- id: total
+  translation: " "
+
+- id: ben
+  translation: " book(s) in total."
+
+- id: year
+  translation: ", "
+
+- id: b_year
+  translation: "In "
+
+- id: book_title
+  translation: "Title: "
+
+- id: mark_date
+  translation: "Mark Date: "
+
+- id: my_score
+  translation: "My Score: "
+
+- id: author
+  translation: "Author: "
+
+- id: my_comment
+  translation: "My Comment: "
+
+- id: public_year
+  translation: "Public Year: "
+
+- id: press
+  translation: "Publisher: "
+
+- id: bu
+  translation: " film(s) in total."
+
+- id: film_title
+  translation: "Name: "
+
+- id: ori_name
+  translation: "Original Name: "
+
+- id: film_type
+  translation: "Genre: "
+
+- id: produce_country
+  translation: "Regions: "
+
+- id: director
+  translation: "Director: "
+

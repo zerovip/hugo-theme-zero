@@ -51,3 +51,55 @@
 
 - id: summary
   translation: 摘要
+
+- id: total
+  translation: "共 "
+
+- id: ben
+  translation: " 本："
+
+- id: year
+  translation: 年，
+
+- id: b_year
+  translation: " "
+
+- id: book_title
+  translation: 书名：
+
+- id: mark_date
+  translation: 标记日期：
+
+- id: my_score
+  translation: 打分：
+
+- id: author
+  translation: 作者：
+
+- id: my_comment
+  translation: 评价：
+
+- id: public_year
+  translation: 年份：
+
+- id: press
+  translation: 出版社：
+
+- id: bu
+  translation: 部：
+
+- id: film_title
+  translation: 名字：
+
+- id: ori_name
+  translation: 原名：
+
+- id: film_type
+  translation: 类型：
+
+- id: produce_country
+  translation: 地区：
+
+- id: director
+  translation: 导演：
+

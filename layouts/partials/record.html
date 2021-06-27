@@ -16,7 +16,7 @@
         {{ if eq ($curr_page.Param "menu.main.identifier") "book" }}
         <!-- 下面是读过的书 -->
         {{ $book_overview := dict }}
-            共 {{ len $value.book }} 本：
+            {{ i18n "total" }}{{ len $value.book }}{{ i18n "ben" }}
             <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
             {{ range $value.book }}
                 {{ if (index $book_overview (substr .mark_date 0 4)) }}
@@ -46,26 +46,32 @@
                                 {{ $curr_year = (substr .mark_date 0 4) }}
                                 <tr>
                                     <td class="record-total-cell" colspan="4">
-                                        {{ $curr_year }} 年（共 {{ index $book_overview $curr_year }} 本）
+                                        {{ i18n "b_year" }}{{ $curr_year }}{{ i18n "year"}}{{ i18n "total" }}{{ index $book_overview $curr_year }}{{ i18n "ben" }}
                                     </td>
                                 </tr>
                             {{ end }}
                             <tr>
                                 <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
-                                <td class="record-{{ $eoo }}-cell">书名：<a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a></td>
-                                <td class="record-{{ $eoo }}-cell">标记日期：{{ .mark_date }}</td>
-                                <td class="record-{{ $eoo }}-cell">打分：{{ .my_score }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "book_title" }}
+                                    {{ if .link }}
+                                        <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a>
+                                    {{ else }}
+                                        {{ .title }}
+                                    {{ end }}
+                                </td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ .mark_date }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
                             </tr>
                             <tr>
                                 <td class="record-blank-cell" rowspan="4"></td>
-                                <td class="record-{{ $eoo }}-cell">作者：{{ .author }}</td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">评价：{{ .my_comment }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "author" }}{{ .author }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">{{ i18n "my_comment" }}{{ .my_comment | markdownify }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">年份：{{ .public_year }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "public_year" }}{{ .public_year }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">出版社：{{ .press }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "press" }}{{ .press }}</td>
                             </tr>
                             <tr>
                                 <td class="record-{{ $eoo }}-cell">ISBN：{{ .isbn }}</td>
@@ -84,7 +90,7 @@
         {{ else if eq ($curr_page.Param "menu.main.identifier") "film" }}
         <!-- 下面是看过的电影 -->
             {{ $film_overview := dict }}
-            共 {{ len $value.film }} 部：
+            {{ i18n "total" }}{{ len $value.film }}{{ i18n "bu" }}
             <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
             {{ range $value.film }}
                 {{ if (index $film_overview (substr .mark_date 0 4)) }}
@@ -115,31 +121,41 @@
                                 {{ $curr_year = (substr .mark_date 0 4) }}
                                 <tr>
                                     <td class="record-total-cell" colspan="5">
-                                        {{ $curr_year }} 年（共 {{ index $film_overview $curr_year }} 部）
+                                        {{ i18n "b_year"}}{{ $curr_year }}{{ i18n "year" }}{{ i18n "total"}}{{ index $film_overview $curr_year }}{{ i18n "bu" }}
                                     </td>
                                 </tr>
                             {{ end }}
                             <tr>
                                 <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2">名字：<a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a></td>
-                                <td class="record-{{ $eoo }}-cell">标记日期：{{ .mark_date }}</td>
-                                <td class="record-{{ $eoo }}-cell">打分：{{ .my_score }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "film_title" }}
+                                    {{ if .link }}
+                                        <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a>
+                                    {{ else }}
+                                        {{ .title }}
+                                    {{ end }}
+                                </td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ .mark_date }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
                             </tr>
                             <tr>
                                 <td class="record-blank-cell" rowspan="4"></td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2">原名：{{ .ori_name }}</td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">评价：{{ .my_comment }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "ori_name" }}{{ .ori_name }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">{{ i18n "my_comment" }}{{ .my_comment | markdownify }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell" colspan="2">类型：{{ .film_type }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "film_type" }}{{ .film_type }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">年份：{{ .public_year }}</td>
-                                <td class="record-{{ $eoo }}-cell">地区：{{ .produce_country }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "public_year" }}{{ .public_year }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "produce_country" }}{{ .produce_country }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">导演：{{ .director }}</td>
-                                <td class="record-{{ $eoo }}-cell">IMDB：<a href="https://www.imdb.com/title/{{ .imdb_id }}/" target="_blank" rel="noreferrer noopener">{{ .imdb_id }}<b>⧉ </b></a></td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "director" }}{{ .director }}</td>
+                                <td class="record-{{ $eoo }}-cell">IMDB：
+                                    {{ if .imdb_id }}
+                                        <a href="https://www.imdb.com/title/{{ .imdb_id }}/" target="_blank" rel="noreferrer noopener">{{ .imdb_id }}<b>⧉ </b></a>
+                                    {{ end }}
+                                </td>
                             </tr>
                             {{ $curr_num = add $curr_num -1 }}
                             {{ if eq $eoo "odd" }}

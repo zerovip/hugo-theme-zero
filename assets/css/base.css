@@ -370,11 +370,13 @@ a:hover{
 .record-odd-cell{
     border: 0.125rem solid var(--c-table_border);
     background-color: var(--c-table_odd);
+    color: var(--c-read);
     padding: 0.5rem;
 }
 .record-even-cell{
     border: 0.125rem solid var(--c-table_border);
     background: var(--c-table_even);
+    color: var(--c-read);
     padding: 0.5rem;
 }
 /* 代码区 *//* 行内代码 */

@@ -64,10 +64,13 @@
 {{ end }}
 
 {{ define "toc" }}
-    <div class='toc' id='toc'>
-        <button class='toc_title'>{{ i18n "toc" }}</button>
-        <div class='toc_content'>
-            {{ .TableOfContents }}
+    {{ if eq .Params.no_toc true }}
+    {{ else }}
+        <div class='toc' id='toc'>
+            <button class='toc_title'>{{ i18n "toc" }}</button>
+            <div class='toc_content'>
+                {{ .TableOfContents }}
+            </div>
         </div>
-    </div>
+    {{ end }}
 {{ end }}

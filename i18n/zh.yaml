@@ -86,7 +86,7 @@
   translation: 出版社：
 
 - id: bu
-  translation: 部：
+  translation: " 部："
 
 - id: film_title
   translation: 名字：

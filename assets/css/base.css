@@ -385,8 +385,8 @@ a:hover{
     color: var(--c-code); /* 上面这两行不仅仅作用于行内代码，代码块也有作用 */
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    padding-top: 0.15rem;
-    padding-bottom: 0.15rem; /* 上面这四行也对代码块有效，但不希望这样，所以代码块那里重写覆盖了这四行 */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; /* 上面这四行也对代码块有效，但不希望这样，所以代码块那里重写覆盖了这四行 */
     font-family: FantasqueSansMono; /* 这行对代码块无效，是因为代码块在 <code> 里还有一个 <span> */
 }
 /* 代码区 *//* 代码块 */

@@ -271,31 +271,37 @@ a:hover{
     border-style: groove;
     border-width: 0.3rem;
     border-color: var(--c-table_odd);
+    background-color: var(--c-table_even);
 }
 .right_main_article h2{
     border-style: ridge;
     border-width: 0.26rem;
     border-color: var(--c-table_odd);
+    background-color: var(--c-table_even);
 }
 .right_main_article h3{
     border-style: inset;
     border-width: 0.22rem;
     border-color: var(--c-table_odd);
+    background-color: var(--c-table_even);
 }
 .right_main_article h4{
     border-style: outset;
     border-width: 0.18rem;
     border-color: var(--c-table_odd);
+    background-color: var(--c-table_even);
 }
 .right_main_article h5{
     border-style: double;
     border-width: 0.14rem;
     border-color: var(--c-table_odd);
+    background-color: var(--c-table_even);
 }
 .right_main_article h6{
     border-style: solid;
     border-width: 0.1rem;
     border-color: var(--c-table_odd);
+    background-color: var(--c-table_even);
 }
 /* 段落区 */
 .right_main_article p{
@@ -386,7 +392,7 @@ a:hover{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem; /* 上面这四行也对代码块有效，但不希望这样，所以代码块那里重写覆盖了这四行 */
+    padding-bottom: 0.1rem; /* 上面这四行也对代码块有效，但不希望这样，所以代码块那里重写覆盖了这四行 */
     font-family: FantasqueSansMono; /* 这行对代码块无效，是因为代码块在 <code> 里还有一个 <span> */
 }
 /* 代码区 *//* 代码块 */

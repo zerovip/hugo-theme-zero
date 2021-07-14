@@ -105,8 +105,8 @@ body {
     top: 0;
     bottom: 0;
     z-index: 2;/*确保左边、右边同时拉出时左边覆盖在右边上*/
-    width: 80vw;
-    margin-left: -79.5vw;
+    width: 70vw;
+    margin-left: -69.5vw;
     opacity: 0.6;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -493,7 +493,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: 25vh;
     z-index: 1;
     width: 80vw;
 }

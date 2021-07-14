@@ -3,7 +3,12 @@ function ChangeClassLeft() {
     document.getElementById("left").classList.toggle("left_show");
 }
 function ChangeClassTOC() {
+    document.getElementById("left").classList.remove("left_show");
     document.getElementById("toc").classList.toggle("toc_show");
+}
+function HideBothSide() {
+    document.getElementById("left").classList.remove("left_show");
+    document.getElementById("toc").classList.remove("toc_show");
 }
 
 // 防剧透黑块点击事件

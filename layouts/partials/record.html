@@ -30,6 +30,9 @@
                         {{ $curr_year := 0 }}
                         {{ $curr_num := (len $value.book) }}
                         {{ $eoo := "odd" }}
+                        {{ if (modBool $curr_num 2) }}
+                            {{ $eoo = "even" }}
+                        {{ end }}
                         {{ range $value.book }}
                             {{ if ne (substr .mark_date 0 4) $curr_year }}
                                 {{ $curr_year = (substr .mark_date 0 4) }}
@@ -65,7 +68,7 @@
                             <tr>
                                 <td class="record-{{ $eoo }}-cell">ISBN：{{ .isbn }}</td>
                             </tr>
-                            {{ $curr_num = add $curr_num -1 }}
+                            {{ $curr_num = sub $curr_num 1 }}
                             {{ if eq $eoo "odd" }}
                                 {{ $eoo = "even" }}
                             {{ else if eq $eoo "even" }}
@@ -105,6 +108,9 @@
                         {{ $curr_year := 0 }}
                         {{ $curr_num := (len $value.film) }}
                         {{ $eoo := "odd" }}
+                        {{ if (modBool $curr_num 2) }}
+                            {{ $eoo = "even" }}
+                        {{ end }}
                         {{ range $value.film }}
                             {{ if ne (substr .mark_date 0 4) $curr_year }}
                                 {{ $curr_year = (substr .mark_date 0 4) }}
@@ -146,7 +152,7 @@
                                     {{ end }}
                                 </td>
                             </tr>
-                            {{ $curr_num = add $curr_num -1 }}
+                            {{ $curr_num = sub $curr_num 1 }}
                             {{ if eq $eoo "odd" }}
                                 {{ $eoo = "even" }}
                             {{ else if eq $eoo "even" }}

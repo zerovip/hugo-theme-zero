@@ -37,6 +37,8 @@ body {
     width: 25vw;
     height: 100vh;
     margin-left: 0.5vw;
+    position: relative;
+    z-index: 1;
 }
 .left_non-footer{
     display: -webkit-box;
@@ -442,7 +444,7 @@ body {
 .toc{
     overflow-y: auto;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     right: 1%;
     top: 20%;
     max-width: 20%;

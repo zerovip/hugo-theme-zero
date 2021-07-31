@@ -16,8 +16,8 @@ About noopener, no refferrer, see
         target="_blank" rel="noreferrer noopener"
     {{ end }}
 >
-    {{ .Text | safeHTML }}
-    {{ if strings.HasPrefix .Destination "http" }}
-        <b>⧉ </b>
-    {{ end }}
+    {{- .Text | safeHTML -}}
+    {{- if strings.HasPrefix .Destination "http" -}}
+        <b><sub></sup>⧉</sup></b>
+    {{- end -}}
 </a>

@@ -344,13 +344,18 @@ a:hover{
 }
 .right_main_article th{
     border-bottom: 0.125rem solid var(--c-table_border);
-    padding-top: 0.125rem;
     padding-left: 0.7rem;
     padding-right: 0.7rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    white-space: nowrap;
 }
 .right_main_article td{
     padding-left: 0.7rem;
     padding-right: 0.7rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    white-space: nowrap;
 }
 .right_main_article tbody tr:nth-child(even){
     background: var(--c-table_even);

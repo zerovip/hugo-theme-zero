@@ -8,8 +8,9 @@ About noopener, no refferrer, see
     https://blog.bhanuteja.dev/noopener-noreferrer-and-nofollow-when-to-use-them-how-can-these-prevent-phishing-attacks
     https://www.tutorialdocs.com/article/html-opener-blank.html
 -->
+{{- /* This comment removes the ultra space */ -}}
 <a href="{{ .Destination | safeURL }}"
-    {{ with .Title}}
+    {{ with .Title }}
         title="{{ . }}"
     {{ end }}
     {{ if strings.HasPrefix .Destination "http" }}
@@ -21,3 +22,4 @@ About noopener, no refferrer, see
         <b><sub></sup>⧉</sup></b>
     {{- end -}}
 </a>
+{{- /* This comment removes the ultra space */ -}}

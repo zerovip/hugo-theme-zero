@@ -22,9 +22,9 @@
                 <table style="undefined; table-layout: fixed; width: 1000px; border-collapse: collapse;">
                     <colgroup>
                         <col style="width: 60px">
-                        <col style="width: 400px">
-                        <col style="width: 270px">
-                        <col style="width: 270px">
+                        <col style="width: 340px">
+                        <col style="width: 300px">
+                        <col style="width: 300px">
                     </colgroup>
                     <tbody>
                         {{ $curr_year := 0 }}
@@ -45,11 +45,11 @@
                             <tr>
                                 <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "book_title" }}
-                                    {{ if .link }}
-                                        <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a>
-                                    {{ else }}
-                                        {{ .title }}
-                                    {{ end }}
+                                    {{- if .link -}}
+                                        <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{- .title -}}<b>⧉ </b></a>
+                                    {{- else -}}
+                                        {{- .title -}}
+                                    {{- end -}}
                                 </td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ .mark_date | time.Format ":date_long" }}</td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
@@ -99,8 +99,8 @@
                 <table style="undefined; table-layout: fixed; width: 1000px; border-collapse: collapse;">
                     <colgroup>
                         <col style="width: 60px">
-                        <col style="width: 200px">
-                        <col style="width: 200px">
+                        <col style="width: 210px">
+                        <col style="width: 190px">
                         <col style="width: 270px">
                         <col style="width: 270px">
                     </colgroup>
@@ -123,11 +123,11 @@
                             <tr>
                                 <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
                                 <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "film_title" }}
-                                    {{ if .link }}
-                                        <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{ .title }}<b>⧉ </b></a>
-                                    {{ else }}
-                                        {{ .title }}
-                                    {{ end }}
+                                    {{- if .link -}}
+                                        <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{- .title -}}<b>⧉ </b></a>
+                                    {{- else -}}
+                                        {{- .title -}}
+                                    {{- end -}}
                                 </td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ .mark_date | time.Format ":date_long" }}</td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
@@ -138,18 +138,18 @@
                                 <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">{{ i18n "my_comment" }}{{ .my_comment | markdownify }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "film_type" }}{{ .film_type }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "director" }}{{ .director }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "public_year" }}{{ .public_year }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "film_type" }}{{ .film_type }}</td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "produce_country" }}{{ .produce_country }}</td>
                             </tr>
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "director" }}{{ .director }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "public_year" }}{{ .public_year }}</td>
                                 <td class="record-{{ $eoo }}-cell">IMDB：
-                                    {{ if .imdb_id }}
-                                        <a href="https://www.imdb.com/title/{{ .imdb_id }}/" target="_blank" rel="noreferrer noopener">{{ .imdb_id }}<b>⧉ </b></a>
-                                    {{ end }}
+                                    {{- if .imdb_id -}}
+                                        <a href="https://www.imdb.com/title/{{ .imdb_id }}/" target="_blank" rel="noreferrer noopener">{{- .imdb_id -}}<b>⧉ </b></a>
+                                    {{- end -}}
                                 </td>
                             </tr>
                             {{ $curr_num = sub $curr_num 1 }}

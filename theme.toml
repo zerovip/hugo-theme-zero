@@ -8,7 +8,7 @@ description = "A simpple hugo theme made by Zero"
 homepage = "https://github.com/zerovip/hugo-theme-zero"
 tags = []
 features = []
-min_version = "0.81"
+min_version = "0.87.0"
 
 [author]
   name = "Zero"

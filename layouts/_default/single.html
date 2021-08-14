@@ -12,7 +12,7 @@
             {{ .Title }}
         </div>
         <div class="right_head_des">
-            {{ .Date.Format "2006-01-02" }} - {{ .WordCount }} {{ i18n "count" }}
+            {{ .Date | time.Format ":date_long" }} - {{ .WordCount }} {{ i18n "count" }}
         </div>
     </div>
 {{ end }}

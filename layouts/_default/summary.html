@@ -4,7 +4,7 @@
 </div>
 <div class="right_main_article-des">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    ◇ {{ .Date.Format "2006-01-02" }}&nbsp;
+    ◇ {{ .Date | time.Format ":date_long" }}&nbsp;
     ◇ {{ i18n "reading-time" }}: {{ .ReadingTime }}{{ i18n "minutes" }}&nbsp;
     <span class="right_main_article-des-sum">
         ◇ {{ i18n "summary" }}:

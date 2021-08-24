@@ -17,7 +17,9 @@
     /*     k7w0 是 Scheme Contrast 中间稍下 */
 /* light mode */
     --c-light-background: #EEFFE7;  /* (2H61T31--w0w0) Primary Color 1 *//* 亲自指定 */
+    --c-light-backimg: url('/images/inspiration-geometry.png'); /* from: https://www.transparenttextures.com/ */
     --c-light-background_left: var(--c-light-background);
+    --c-light-backimg_left: url('/images/asfalt-dark.png'); /* from: https://www.transparenttextures.com/ */
     --c-light-read: #174D00;        /* (2H61T31----00) Primary Color 3 */
     --c-light-normal-font: #66A64B; /* (2H61T31--w0w0) Primary Color 3 */
     --c-light-thick-font: #316C18;  /* (2H61Thyoew0w0) Primary Color 3 *//* (2H61T31--w0w0) Primary Color 3 做 Primary Color 1 */
@@ -43,7 +45,9 @@
     --c-light-checkbox: #FFA500;    /* 亲自指定 */
 /* dark mode */
     --c-dark-background: #282828;   /* gruvbox bg */
+    --c-dark-backimg: url('/images/stardust.png'); /* from: https://www.transparenttextures.com/ */
     --c-dark-background_left: var(--c-dark-background);
+    --c-dark-backimg_left: url('/images/asfalt-light.png'); /* from: https://www.transparenttextures.com/ */
     --c-dark-read: #A89984; /* gruvbox fg4 */
     --c-dark-normal-font: #537D54;  /* gruvbox aqua */
     --c-dark-thick-font: #8EC07C;   /* gruvbox aqua */
@@ -70,7 +74,9 @@
 }
 .theme-container{
     --c-background: var(--c-light-background);
+    --c-backimg: var(--c-light-backimg);
     --c-background_left: var(--c-light-background_left);
+    --c-backimg_left: var(--c-light-backimg_left);
     --c-read: var(--c-light-read);
     --c-normal-font: var(--c-light-normal-font);
     --c-thick-font: var(--c-light-thick-font);
@@ -97,7 +103,9 @@
 }
 .theme-container.dark{
     --c-background: var(--c-dark-background);
+    --c-backimg: var(--c-dark-backimg);
     --c-background_left: var(--c-dark-background_left);
+    --c-backimg_left: var(--c-dark-backimg_left);
     --c-read: var(--c-dark-read);
     --c-normal-font: var(--c-dark-normal-font);
     --c-thick-font: var(--c-dark-thick-font);
@@ -175,6 +183,7 @@ body{
     overflow: hidden;
     height: 100vh;
     background-color: var(--c-background);
+    background-image: var(--c-backimg);
 }
 a:link,
 a:visited{
@@ -205,6 +214,7 @@ a:hover{
 }
 .left{
     background-color: var(--c-background_left);
+    background-image: var(--c-backimg_left);
     -webkit-box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem var(--c-shadow);
             box-shadow: -0.03125rem -0.0625rem 0.375rem 0.1875rem var(--c-shadow);
     /*上面盒子阴影的六个参数：水平阴影位置（负值为向下），竖直阴影位置，模糊距离，阴影尺寸，颜色，inset 内阴影*/
@@ -477,7 +487,6 @@ strong span{
     font-weight: 400;
 }
 .right_comments{
-    background-color: var(--c-background);
     border-top: 0.375rem var(--c-thin-line) solid;
 }
 .toc_title{

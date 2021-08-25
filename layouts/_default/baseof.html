@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class='bar_title'>
-        <a href="{{ substr .RelPermalink 0 4 }}">{{ .Site.Title }}</a>
+        <a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
     </div>
     <div class='bar_right_button'>
         {{ block "bar_toc" . }}{{ end }}
@@ -81,9 +81,11 @@
                 <!-- 语言选项部分 -->
                 {{ $curr_page := . }}
                 {{ $curr_lang := $curr_page.Language.Lang }}
-                {{ $curr_trans_list := slice }}
+                {{ $curr_trans_dict := dict }}
                 {{ range $curr_page.Translations }}
-                    {{ $curr_trans_list = $curr_trans_list | append .Language.Lang }}
+                    {{ $curr_trans_dict = merge $curr_trans_dict
+                        (dict .Language.Lang .Permalink)
+                    }}
                 {{ end }}
                 {{ range $.Site.Home.AllTranslations }}
                     {{ if (eq .Language.Lang $curr_lang) }}
@@ -91,10 +93,9 @@
                             {{ .Language.LanguageName }} ⦿ 
                         </li>
                     {{ else }}
-                        {{ if (in $curr_trans_list .Language.Lang) }}
+                        {{ if (index $curr_trans_dict .Language.Lang) }}
                             <li class='left_non-footer_option_non-active'>
-                                <a href="{{ .Permalink }}{{ substr 
-                                $curr_page.RelPermalink 4 }}">
+                                <a href="{{ index $curr_trans_dict .Language.Lang }}">
                                     {{ .Language.LanguageName }} ○ 
                                 </a>
                             </li>
@@ -117,7 +118,7 @@
                     </li>
                 {{ else }}
                     <li class='left_non-footer_option_non-active'>
-                        {{ i18n "rss_feed" }} ⨂ 
+                        {{ i18n "rss_feed" }} ⊠ 
                     </li>
                 {{ end }}
                 <li><br /></li>
@@ -126,7 +127,7 @@
             <!--题目区-->
             <div class='left_non-footer_head'>
                 <div class='left_non-footer_head_title'>
-                    <a href="{{ substr .RelPermalink 0 4 }}">
+                    <a href="{{ "/" | relLangURL }}">
                         {{ .Site.Title }}
                     </a>
                 </div>

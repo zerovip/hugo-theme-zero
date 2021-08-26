@@ -5,7 +5,7 @@
         {{ if eq ($curr_page.Param "menu.main.identifier") "book" }}
         <!-- 下面是读过的书 -->
             {{ $book_overview := dict }}
-            <p style="color: var(--c-read);">{{ i18n "total" }}{{ len $value.book }}{{ i18n "ben" }}</p>
+            <p style="color: var(--c-read); margin: auto;">{{ i18n "total" }}{{ len $value.book }}{{ i18n "ben" }}</p>
             <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
             {{ range $value.book }}
                 {{ if (index $book_overview (substr .mark_date 0 4)) }}
@@ -19,7 +19,7 @@
                 {{ end }}
             {{ end }}
             <div class="record-table-wrapper">
-                <table style="undefined; table-layout: fixed; width: 1000px; border-collapse: collapse;">
+                <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>
                         <col style="width: 60px">
                         <col style="width: 340px">
@@ -82,7 +82,7 @@
         {{ else if eq ($curr_page.Param "menu.main.identifier") "film" }}
         <!-- 下面是看过的电影 -->
             {{ $film_overview := dict }}
-            <p style="color: var(--c-read);">{{ i18n "total" }}{{ len $value.film }}{{ i18n "bu" }}</p>
+            <p style="color: var(--c-read); margin: auto;">{{ i18n "total" }}{{ len $value.film }}{{ i18n "bu" }}</p>
             <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
             {{ range $value.film }}
                 {{ if (index $film_overview (substr .mark_date 0 4)) }}
@@ -96,7 +96,7 @@
                 {{ end }}
             {{ end }}
             <div class="record-table-wrapper">
-                <table style="undefined; table-layout: fixed; width: 1000px; border-collapse: collapse;">
+                <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>
                         <col style="width: 60px">
                         <col style="width: 210px">

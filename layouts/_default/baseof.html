@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="theme-container">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=divice-width, initial-scale=1.0">
@@ -19,6 +19,11 @@
     <link rel="stylesheet" media="screen and (min-width: 1201px)"
         type="text/css" href="{{ $style_normal.Permalink }}" />
 
+    <!-- 主题颜色深浅的外链 js -->
+    <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
+    {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
+    <script type="text/javascript" src="{{ $cthemeJs.Permalink }}"></script>
+
     <!-- highlight 自动生成配色 -->
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
     <link rel="stylesheet" type="text/css" href="{{ $style_syntax.Permalink }}" />
@@ -35,7 +40,7 @@
     {{ end }}
 </head>
 
-<body class="theme-container">
+<body>
 <!--MathJax 的引用-->
 {{ if (and .IsPage (eq .Params.markup "pandoc")) }}
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" async></script>

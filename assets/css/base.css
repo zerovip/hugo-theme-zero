@@ -182,8 +182,8 @@
 body{
     overflow: hidden;
     height: 100vh;
-    background-color: var(--c-background);
-    background-image: var(--c-backimg);
+    /* background-color: var(--c-background); */
+    /* background-image: var(--c-backimg); */
 }
 a:link,
 a:visited{
@@ -267,6 +267,10 @@ a:hover{
     color: var(--c-normal-font);
     border-bottom: 0.1rem solid;
     border-top: 0.1rem solid;
+}
+.right{
+    background-color: var(--c-background);
+    background-image: var(--c-backimg);
 }
 .right_head_title{
     color: var(--c-normal-font);

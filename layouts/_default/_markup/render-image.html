@@ -1,4 +1,10 @@
 <figure>
-    <img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}"
+        {{ $file_name_split := split (.Destination | safeURL) "." }}
+        {{ $file_name_len := len $file_name_split }}
+        {{ if eq (index $file_name_split (sub $file_name_len 2)) "i" }}
+            style="filter: var(--c-img-filter);"
+        {{ end }}
+    >
     <figcaption>◉ {{ i18n "figure" }}. {{ .Text }}</figcaption>
 </figure>

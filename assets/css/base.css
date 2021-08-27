@@ -43,6 +43,7 @@
     --c-light-notation_fg: #3C3836; /* gruvbox bg1 */
     --c-light-notation_bg: #FDE763;
     --c-light-checkbox: #FFA500;    /* 亲自指定 */
+    --c-light-img-filter: invert(0%); /* 亮色主题下图片不变 */
 /* dark mode */
     --c-dark-background: #282828;   /* gruvbox bg */
     --c-dark-backimg: url('/images/stardust.png'); /* from: https://www.transparenttextures.com/ */
@@ -71,6 +72,7 @@
     --c-dark-notation_fg: #3C3836; /* gruvbox bg1 */
     --c-dark-notation_bg: #DCBE76; /* gruvbox yellow, but turn down its brightness */
     --c-dark-checkbox: #757575;
+    --c-dark-img-filter: invert(100%); /* 暗色主题下图片反色 */
 }
 .theme-container{
     --c-background: var(--c-light-background);
@@ -100,6 +102,7 @@
     --c-notation_fg: var(--c-light-notation_fg);
     --c-notation_bg: var(--c-light-notation_bg);
     --c-checkbox: var(--c-light-checkbox);
+    --c-img-filter: var(--c-light-img-filter);
 }
 .theme-container.dark{
     --c-background: var(--c-dark-background);
@@ -129,6 +132,7 @@
     --c-notation_fg: var(--c-dark-notation_fg);
     --c-notation_bg: var(--c-dark-notation_bg);
     --c-checkbox: var(--c-dark-checkbox);
+    --c-img-filter: var(--c-dark-img-filter);
 }
 /* The switch - the box around the slider */
 .switch{

@@ -2,13 +2,15 @@
   translation: Tous Droits Réservés.
 
 - id: count
-  translation: mots
+  one: mot
+  other: mots
 
 - id: reading-time
   translation: Temps estimé
 
 - id: minutes
-  translation: minutes
+  one: minute
+  other: minutes
 
 - id: hello
   translation: Bonjour!
@@ -31,14 +33,11 @@
 - id: other-articles
   translation: Autres liens dans cette colonne
 
-- id: num_di
-  translation: "no"
-
-- id: num_qi
-  translation: ":"
+- id: num_other
+  translation: 'no {{ . }}: '
 
 - id: this-article
-  translation: (Celui-là!)
+  translation: " (Celui-là!)"
 
 - id: not-show
   translation: "S'il ne s'affiche pas, cliquez "
@@ -52,17 +51,12 @@
 - id: summary
   translation: Résumé
 
-- id: total
-  translation: " "
+- id: total_book
+  one: "{{ . }} livre au total."
+  other: "{{ . }} livres au total."
 
-- id: ben
-  translation: " livre(s) au total."
-
-- id: year
-  translation: ", "
-
-- id: b_year
-  translation: "En "
+- id: year_book
+  translation: "En {{ . }}, j’ai lu "
 
 - id: book_title
   translation: "Titre: "
@@ -85,8 +79,12 @@
 - id: press
   translation: "Editeur: "
 
-- id: bu
-  translation: " film(s) au total."
+- id: total_film
+  one: "{{ . }} film ou série télévisée au total."
+  other: "{{ . }} films ou séries télévisées au total."
+
+- id: year_film
+  translation: "En {{ . }}, j’ai regardé "
 
 - id: film_title
   translation: "Nom: "

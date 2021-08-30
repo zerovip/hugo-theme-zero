@@ -31,11 +31,8 @@
 - id: other-articles
   translation: 友情链接（该栏目下的其他文章）
 
-- id: num_di
-  translation: 第
-
-- id: num_qi
-  translation: 期：
+- id: num_other
+  translation: '第 {{ . }} 期：'
 
 - id: this-article
   translation: （就是这篇！）
@@ -52,17 +49,11 @@
 - id: summary
   translation: 摘要
 
-- id: total
-  translation: "共 "
+- id: total_book
+  translation: "共 {{ . }} 本书："
 
-- id: ben
-  translation: " 本："
-
-- id: year
-  translation: " 年，"
-
-- id: b_year
-  translation: " "
+- id: year_book
+  translation: "在 {{ . }} 年，我读了"
 
 - id: book_title
   translation: 书名：
@@ -85,8 +76,11 @@
 - id: press
   translation: 出版社：
 
-- id: bu
-  translation: " 部："
+- id: total_film
+  translation: "共 {{ . }} 部电影或电视剧："
+
+- id: year_film
+  translation: "在 {{ . }} 年，我看了"
 
 - id: film_title
   translation: 名字：

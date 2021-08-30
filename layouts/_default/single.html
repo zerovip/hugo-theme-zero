@@ -12,7 +12,7 @@
             {{ .Title }}
         </div>
         <div class="right_head_des">
-            {{ .Date | time.Format ":date_long" }} - {{ .WordCount }} {{ i18n "count" }}
+            {{ .Date | time.Format ":date_long" }} - {{ .WordCount }} {{ i18n "count" .WordCount }}
         </div>
     </div>
 {{ end }}
@@ -34,9 +34,9 @@
                 {{ range .Site.Pages.ByDate }}
                     {{ if eq .Params.column $currentNode.Params.column }}
                         {{ if eq . $currentNode }}
-                            <li> {{ i18n "num_di" }} {{$.Scratch.Get "counter"}} {{ i18n "num_qi" }}{{ .Title }}{{ i18n "this-article" }}</li>
+                            <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}{{ .Title }}{{ i18n "this-article" }}</li>
                         {{ else }}
-                            <li> {{ i18n "num_di" }} {{$.Scratch.Get "counter"}} {{ i18n "num_qi" }}<a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                            <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}<a href="{{ .Permalink }}">{{ .Title }}</a></li>
                         {{ end }}
                         {{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
                     {{ end }}

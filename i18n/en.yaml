@@ -31,7 +31,7 @@
   translation: Figure
 
 - id: other-articles
-  translation: Other links in this column
+  translation: See also
 
 - id: num_other
   translation: "No.{{ . }}: "

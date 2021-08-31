@@ -26,6 +26,8 @@
             <!-- 下面是友情链接部分 -->
             <!-- 计数部分参考了
                 https://discourse.gohugo.io/t/how-counting-up-a-variable-in-range/586/8 -->
+            <!-- 这个地方要查一下，为什么要用 $.Scratch.Set "counter"，用随便一个变量不行吗？ -->
+            <!-- 如果勤奋的话搞一个大于 2 时再弄，只有 1 篇时不弄，就是提前 range 一遍呗 -->
             {{ if .Params.column }}
                 <p></p><p></p><p></p><p></p><p></p><p></p>
                 <h1>{{ i18n "other-articles" }}</h1>

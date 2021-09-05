@@ -4,6 +4,8 @@
         {{ $file_name_len := len $file_name_split }}
         {{ if eq (index $file_name_split (sub $file_name_len 2)) "i" }}
             style="filter: var(--c-img-filter);"
+        {{ else }}
+            style="filter: var(--c-img-filter2)"
         {{ end }}
     >
     <figcaption>◉ {{ i18n "figure" }}. {{ .Text }}</figcaption>

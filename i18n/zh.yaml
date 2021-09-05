@@ -50,10 +50,10 @@
   translation: 摘要
 
 - id: total_book
-  translation: "共 {{ . }} 本书："
+  translation: "我读了共 {{ . }} 本书："
 
-- id: year_book
-  translation: "在 {{ . }} 年，我读了"
+- id: year_record
+  translation: "在 {{ . }} 年，"
 
 - id: book_title
   translation: 书名：
@@ -77,10 +77,7 @@
   translation: 出版社：
 
 - id: total_film
-  translation: "共 {{ . }} 部电影或电视剧："
-
-- id: year_film
-  translation: "在 {{ . }} 年，我看了"
+  translation: "我看了共 {{ . }} 部电影或电视剧："
 
 - id: film_title
   translation: 名字：
@@ -97,3 +94,5 @@
 - id: director
   translation: 导演：
 
+- id: average_score
+  translation: "（我的平均打分是：{{ . }}）"

@@ -5,7 +5,7 @@
         {{ if eq ($curr_page.Param "menu.main.identifier") "book" }}
         <!-- 下面是读过的书 -->
             {{ $book_overview := dict }}
-            <p style="color: var(--c-read); margin: auto;">{{ i18n "total_book" (len $value.book) }}</p>
+            {{ $total_score_book := 0 }}
             <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
             {{ range $value.book }}
                 {{ if (index $book_overview (substr .mark_date 0 4)) }}
@@ -17,7 +17,12 @@
                 {{ else }}
                     {{ $book_overview = merge $book_overview (dict (substr .mark_date 0 4) 1) }}
                 {{ end }}
+                {{ if .my_score }}
+                    {{ $total_score_book = add $total_score_book (div (len .my_score) 1.5) }}
+                {{ end }}
             {{ end }}
+            <p style="color: var(--c-read); margin: auto;">{{ i18n "total_book" (len $value.book) }}</p>
+            <p style="color: var(--c-read); margin: auto;">{{ i18n "average_score" ((div (add $total_score_book 0.0) (len $value.book)) | lang.FormatNumber 2) }}</p>
             <div class="record-table-wrapper">
                 <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>
@@ -38,7 +43,7 @@
                                 {{ $curr_year = (substr .mark_date 0 4) }}
                                 <tr>
                                     <td class="record-total-cell" colspan="4">
-                                        {{ i18n "year_book" ($curr_year) }}{{ i18n "total_book" (index $book_overview $curr_year) }}
+                                        {{ i18n "year_record" ($curr_year) }}{{ i18n "total_book" (index $book_overview $curr_year) }}
                                     </td>
                                 </tr>
                             {{ end }}
@@ -82,7 +87,7 @@
         {{ else if eq ($curr_page.Param "menu.main.identifier") "film" }}
         <!-- 下面是看过的电影 -->
             {{ $film_overview := dict }}
-            <p style="color: var(--c-read); margin: auto;">{{ i18n "total_film" (len $value.film) }}</p>
+            {{ $total_score_film := 0 }}
             <!-- 先 range 一遍，得到年份分布，即每一年分别标记了多少 -->
             {{ range $value.film }}
                 {{ if (index $film_overview (substr .mark_date 0 4)) }}
@@ -94,7 +99,12 @@
                 {{ else }}
                     {{ $film_overview = merge $film_overview (dict (substr .mark_date 0 4) 1) }}
                 {{ end }}
+                {{ if .my_score }}
+                    {{ $total_score_film = add $total_score_film (div (len .my_score) 1.5) }}
+                {{ end }}
             {{ end }}
+            <p style="color: var(--c-read); margin: auto;">{{ i18n "total_film" (len $value.film) }}</p>
+            <p style="color: var(--c-read); margin: auto;">{{ i18n "average_score" ((div (add $total_score_film 0.0) (len $value.film)) | lang.FormatNumber 2) }}</p>
             <div class="record-table-wrapper">
                 <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>
@@ -116,7 +126,7 @@
                                 {{ $curr_year = (substr .mark_date 0 4) }}
                                 <tr>
                                     <td class="record-total-cell" colspan="5">
-                                        {{ i18n "year_film" ($curr_year) }}{{ i18n "total_film" (index $film_overview $curr_year) }}
+                                        {{ i18n "year_record" ($curr_year) }}{{ i18n "total_film" (index $film_overview $curr_year) }}
                                     </td>
                                 </tr>
                             {{ end }}

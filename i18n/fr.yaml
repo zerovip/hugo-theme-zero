@@ -52,11 +52,11 @@
   translation: Résumé
 
 - id: total_book
-  one: "{{ . }} livre au total."
-  other: "{{ . }} livres au total."
+  one: "j’ai lu {{ . }} livre au total:"
+  other: "j’ai lu {{ . }} livres au total:"
 
-- id: year_book
-  translation: "En {{ . }}, j’ai lu "
+- id: year_record
+  translation: "En {{ . }}, "
 
 - id: book_title
   translation: "Titre: "
@@ -80,11 +80,8 @@
   translation: "Editeur: "
 
 - id: total_film
-  one: "{{ . }} film ou série télévisée au total."
-  other: "{{ . }} films ou séries télévisées au total."
-
-- id: year_film
-  translation: "En {{ . }}, j’ai regardé "
+  one: "j’ai regardé {{ . }} film ou série télévisée au total:"
+  other: "j’ai regardé {{ . }} films ou séries télévisées au total:"
 
 - id: film_title
   translation: "Nom: "
@@ -101,3 +98,5 @@
 - id: director
   translation: "Réalisateur: "
 
+- id: average_score
+  translation: " (mon score moyen est: {{ . }})"

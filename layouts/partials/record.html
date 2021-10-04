@@ -58,7 +58,7 @@
                                         {{- .title -}}
                                     {{- end -}}
                                 </td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ .mark_date | time.Format ":date_long" }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ substr .mark_date 0 10 | time.Format ":date_long" }}</td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
                             </tr>
                             <tr>
@@ -143,7 +143,7 @@
                                         {{- .title -}}
                                     {{- end -}}
                                 </td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ .mark_date | time.Format ":date_long" }}</td>
+                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ substr .mark_date 0 10 | time.Format ":date_long" }}</td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
                             </tr>
                             <tr>

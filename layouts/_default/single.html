@@ -7,19 +7,19 @@
 {{ end }}
 
 {{ define "right_head" }}
-    <div class="right_head">
+    <header class="right_head">
         <div class="right_head_title">
             {{ .Title }}
         </div>
         <div class="right_head_des">
-            {{ .Date | time.Format ":date_long" }} - {{ .WordCount }} {{ i18n "count" .WordCount }}
+            <time>{{ .Date | time.Format ":date_long" }}</time> - {{ .WordCount }} {{ i18n "count" .WordCount }}
         </div>
-    </div>
+    </header>
 {{ end }}
 
 {{ define "right_main" }}
     <div class="right_main">
-        <div class="right_main_article">
+        <article class="right_main_article">
             <!-- <div class="entry heti"> -->
                 {{ .Content }}
             <!-- </div> -->
@@ -45,7 +45,7 @@
                 {{ end }}
             {{ end }}
             <p></p><p></p><p></p><p></p>
-        </div>
+        </article>
         <!-- 下面是数学笔记的 PDF 显示部分 -->
         {{ with .Params.file_path }}
             <div class="right_main_notes">
@@ -68,11 +68,11 @@
 {{ define "toc" }}
     {{ if eq .Params.no_toc true }}
     {{ else }}
-        <div class='toc' id='toc'>
+        <aside class='toc' id='toc'>
             <button class='toc_title'>{{ i18n "toc" }}</button>
             <div class='toc_content'>
                 {{ .TableOfContents }}
             </div>
-        </div>
+        </aside>
     {{ end }}
 {{ end }}

@@ -49,7 +49,7 @@
 {{ end }}
 
 <!--小屏幕顶部设计，在宽屏幕中不显示-->
-<div class='bar_for_phone'>
+<nav class='bar_for_phone'>
     <div class='bar_left_button'>
         <div class='left_button_for_bar' onclick="ChangeClassLeft()">
             <div class="bar1"></div>
@@ -63,58 +63,59 @@
     <div class='bar_right_button'>
         {{ block "bar_toc" . }}{{ end }}
     </div>
-</div>
+</nav>
 
 <!-- 网页端主体-->
 <div class='body_for_pc'>
     <!--左边栏-->
-    <div class='left' id='left'>
+    <aside class='left' id='left'>
         <!--非页脚区-->
         <div class='left_non-footer'>
             <!--选项区-->
             <div class='left_non-footer_option'>
                 <!-- 主题切换部分 -->
-                <div class="theme-switch">
+                <command class='left_non-footer_option_theme-switch'>
                     <label class="switch">
                         <input type="checkbox" class="theme-switcher"
-                            checked onchange="themeSwitch()">
+                            onchange="themeSwitch()">
                         <!-- 是明亮模式嘛？checked 为明亮模式. -->
                         <span class="slider round"></span>
                     </label>
-                </div>
-                <li><br /></li>
+                </command>
 
                 <!-- 语言选项部分 -->
-                {{ $curr_page := . }}
-                {{ $curr_lang := $curr_page.Language.Lang }}
-                {{ $curr_trans_dict := dict }}
-                {{ range $curr_page.Translations }}
-                    {{ $curr_trans_dict = merge $curr_trans_dict
-                        (dict .Language.Lang .Permalink)
-                    }}
-                {{ end }}
-                {{ range $.Site.Home.AllTranslations }}
-                    {{ if (eq .Language.Lang $curr_lang) }}
-                        <li class='left_non-footer_option_active'>
-                            {{ .Language.LanguageName }} ⦿ 
-                        </li>
-                    {{ else }}
-                        {{ if (index $curr_trans_dict .Language.Lang) }}
-                            <li class='left_non-footer_option_non-active'>
-                                <a href="{{ index $curr_trans_dict .Language.Lang }}">
-                                    {{ .Language.LanguageName }} ○ 
-                                </a>
+                <ul role="radiogroup" class='left_non-footer_option_language'>
+                    {{ $curr_page := . }}
+                    {{ $curr_lang := $curr_page.Language.Lang }}
+                    {{ $curr_trans_dict := dict }}
+                    {{ range $curr_page.Translations }}
+                        {{ $curr_trans_dict = merge $curr_trans_dict
+                            (dict .Language.Lang .Permalink)
+                        }}
+                    {{ end }}
+                    {{ range $.Site.Home.AllTranslations }}
+                        {{ if (eq .Language.Lang $curr_lang) }}
+                            <li role="radio" aria-checked="true" class='left_non-footer_option_active'>
+                                {{ .Language.LanguageName }} ⦿ 
                             </li>
                         {{ else }}
-                            <li class='left_non-footer_option_non-active'>
-                                {{ .Language.LanguageName }} ⨂ 
-                            </li>
+                            {{ if (index $curr_trans_dict .Language.Lang) }}
+                                <li role="radio" aria-checked="false" class='left_non-footer_option_non-active'>
+                                    <a href="{{ index $curr_trans_dict .Language.Lang }}">
+                                        {{ .Language.LanguageName }} ○ 
+                                    </a>
+                                </li>
+                            {{ else }}
+                                <li role="radio" aria-checked="disabled" class='left_non-footer_option_non-active'>
+                                    {{ .Language.LanguageName }} ⨂ 
+                                </li>
+                            {{ end }}
                         {{ end }}
                     {{ end }}
-                {{ end }}
-                <li><br /></li>
+                </ul>
 
                 <!-- RSS 订阅按钮 -->
+                <command class='left_non-footer_option_rss'>
                 {{ if .IsNode }}
                     <li class='left_non-footer_option_active'>
                         <a href="{{ .Permalink }}index.xml">
@@ -127,18 +128,18 @@
                         {{ i18n "rss_feed" }} ⊠ 
                     </li>
                 {{ end }}
-                <li><br /></li>
+                </command>
             </div>
                 
             <!--题目区-->
-            <div class='left_non-footer_head'>
+            <header class='left_non-footer_head'>
                 <div class='left_non-footer_head_title'>
                     <a href="{{ "/" | relLangURL }}">
                         {{ .Site.Title }}
                     </a>
                 </div>
                 <div class='left_non-footer_head_subtitle'>(●’◡’●)ﾉ</div>
-            </div>
+            </header>
 
             <!--导航区-->
             <!--这里独创的有
@@ -146,7 +147,7 @@
                 它是等价于网上找到的下面这一行的
                 {{/* if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) */}}active{{/* end */}}
             -->
-            <div class='left_non-footer_main'>
+            <nav class='left_non-footer_main'>
                 {{ $currentNode := . }}
                 {{ range .Site.Menus.main }} {{/* 确保和config中的一级标题的主菜单一致，下面也是 */}}
                     <div  class="h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
@@ -164,14 +165,14 @@
                         {{ end }}
                     {{ end }}
                 {{end}}
-            </div>
+            </nav>
 
         </div>
         <!--页脚版权区-->
-        <div class='left_footer'>
+        <footer class='left_footer'>
             <div class='copyright'>©2019-{{ now.Format "2006" }} {{ i18n "copyright" }}</div>
-        </div>
-    </div>
+        </footer>
+    </aside>
 
     <!--右边主要部分-->
     <div class='right' onclick="HideBothSide()">

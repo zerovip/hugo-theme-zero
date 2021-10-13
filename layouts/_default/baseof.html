@@ -74,14 +74,14 @@
             <!--选项区-->
             <div class='left_non-footer_option'>
                 <!-- 主题切换部分 -->
-                <command class='left_non-footer_option_theme-switch'>
+                <div role="checkbox" class='left_non-footer_option_theme-switch'>
                     <label class="switch">
                         <input type="checkbox" class="theme-switcher"
                             onchange="themeSwitch()">
                         <!-- 是明亮模式嘛？checked 为明亮模式. -->
                         <span class="slider round"></span>
                     </label>
-                </command>
+                </div>
 
                 <!-- 语言选项部分 -->
                 <ul role="radiogroup" class='left_non-footer_option_language'>
@@ -115,7 +115,7 @@
                 </ul>
 
                 <!-- RSS 订阅按钮 -->
-                <command class='left_non-footer_option_rss'>
+                <div role="button" class='left_non-footer_option_rss'>
                 {{ if .IsNode }}
                     <li class='left_non-footer_option_active'>
                         <a href="{{ .Permalink }}index.xml">
@@ -128,7 +128,7 @@
                         {{ i18n "rss_feed" }} ⊠ 
                     </li>
                 {{ end }}
-                </command>
+                </div>
             </div>
                 
             <!--题目区-->

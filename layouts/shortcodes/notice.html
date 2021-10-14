@@ -1,0 +1,7 @@
+{{ $style := .Get 0 }}
+{{- if eq $style "sentence" -}}
+    <mark class='notation_color'>{{- .Inner -}}</mark>
+{{- else if eq $style "paragraph" -}}
+    <div role="mark" class='notation_color'>{{- .Inner -}}</div>
+{{- end -}}
+

@@ -365,6 +365,19 @@ body {
 .right_main_article table{
     font-size: 0.8rem;
 }
+.record-blank-cell{
+    font-size: 0.8rem;
+}
+.record-total-cell{
+    font-size: 0.8rem;
+}
+.record-odd-cell{
+    font-size: 0.8rem;
+}
+.record-even-cell{
+    font-size: 0.8rem;
+}
+
 /* 代码区 *//* 行内代码 */
 .right_main_article code{ /* 不仅仅作用于行内代码，代码块也有作用 */
     font-size: 0.9rem;

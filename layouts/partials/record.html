@@ -21,10 +21,10 @@
                     {{ $total_score_book = add $total_score_book (div (len .my_score) 1.5) }}
                 {{ end }}
             {{ end }}
-            <p style="color: var(--c-read); margin: auto;">🞗🞗🞗🞗🞗</p>
+            <p style="color: var(--c-read); margin: auto;">-----</p>
             <p style="color: var(--c-read); margin: auto;">{{ i18n "total_book" (len $value.book) }}</p>
             <p style="color: var(--c-read); margin: auto;">{{ i18n "average_score" ((div (add $total_score_book 0.0) (len $value.book)) | lang.FormatNumber 2) }}</p>
-            <p style="color: var(--c-read); margin: auto;">🞗🞗🞗🞗🞗</p>
+            <p style="color: var(--c-read); margin: auto;">-----</p>
             <div class="record-table-wrapper">
                 <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>
@@ -105,10 +105,10 @@
                     {{ $total_score_film = add $total_score_film (div (len .my_score) 1.5) }}
                 {{ end }}
             {{ end }}
-            <p style="color: var(--c-read); margin: auto;">🞗🞗🞗🞗🞗</p>
+            <p style="color: var(--c-read); margin: auto;">-----</p>
             <p style="color: var(--c-read); margin: auto;">{{ i18n "total_film" (len $value.film) }}</p>
             <p style="color: var(--c-read); margin: auto;">{{ i18n "average_score" ((div (add $total_score_film 0.0) (len $value.film)) | lang.FormatNumber 2) }}</p>
-            <p style="color: var(--c-read); margin: auto;">🞗🞗🞗🞗🞗</p>
+            <p style="color: var(--c-read); margin: auto;">-----</p>
             <div class="record-table-wrapper">
                 <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>

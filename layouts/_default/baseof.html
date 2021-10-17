@@ -13,20 +13,25 @@
     {{ $style_base := resources.Get "css/base.css" | minify | fingerprint }}
     {{ $style_small := resources.Get "css/small.css" | minify | fingerprint }}
     {{ $style_normal := resources.Get "css/normal.css" | minify | fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $style_base.Permalink }}" />
+    <link rel="stylesheet" type="text/css" href="{{ $style_base.Permalink }}"
+        integrity="{{ $style_base.Data.Integrity }}" />
     <link rel="stylesheet" media="screen and (max-width: 1200px)"
-        type="text/css" href="{{ $style_small.Permalink }}" />
+        type="text/css" href="{{ $style_small.Permalink }}"
+        integrity="{{ $style_small.Data.Integrity }}" />
     <link rel="stylesheet" media="screen and (min-width: 1201px)"
-        type="text/css" href="{{ $style_normal.Permalink }}" />
+        type="text/css" href="{{ $style_normal.Permalink }}"
+        integrity="{{ $style_normal.Data.Integrity }}" />
 
     <!-- 主题颜色深浅的外链 js -->
     <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
     {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
-    <script type="text/javascript" src="{{ $cthemeJs.Permalink }}"></script>
+    <script type="text/javascript" src="{{ $cthemeJs.Permalink }}"
+        integrity="{{ $cthemeJs.Data.Integrity }}"></script>
 
     <!-- highlight 自动生成配色 -->
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $style_syntax.Permalink }}" />
+    <link rel="stylesheet" type="text/css" href="{{ $style_syntax.Permalink }}"
+        integrity="{{ $style_syntax.Data.Integrity }}" />
 
     <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
     <!--     GitHub：https://github.com/sivan/heti -->
@@ -187,7 +192,8 @@
 <!-- 外链 js -->
 <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
 {{ $mainJs := resources.Get "js/main.js" | minify | fingerprint }}
-<script type="text/javascript" src="{{ $mainJs.Permalink }}"></script>
+<script type="text/javascript" src="{{ $mainJs.Permalink }}"
+    integrity="{{ $mainJs.Data.Integrity }}"></script>
 
 <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
 <!--     GitHub：https://github.com/sivan/heti -->

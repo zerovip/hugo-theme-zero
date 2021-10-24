@@ -38,7 +38,7 @@
                         {{ if eq . $currentNode }}
                             <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}{{ .Title }}{{ i18n "this-article" }}</li>
                         {{ else }}
-                            <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}<a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                            <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}<a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                         {{ end }}
                         {{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
                     {{ end }}

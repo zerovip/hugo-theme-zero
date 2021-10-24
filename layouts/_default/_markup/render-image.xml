@@ -1,0 +1,4 @@
+<figure>
+    <img loading="lazy" src="{{ .Page.Permalink }}{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <figcaption>◉ {{ i18n "figure" }}. {{ .Text }}</figcaption>
+</figure>

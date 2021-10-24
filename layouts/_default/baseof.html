@@ -13,24 +13,24 @@
     {{ $style_base := resources.Get "css/base.css" | minify | fingerprint }}
     {{ $style_small := resources.Get "css/small.css" | minify | fingerprint }}
     {{ $style_normal := resources.Get "css/normal.css" | minify | fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $style_base.Permalink }}"
+    <link rel="stylesheet" type="text/css" href="{{ $style_base.RelPermalink }}"
         integrity="{{ $style_base.Data.Integrity }}" />
     <link rel="stylesheet" media="screen and (max-width: 1200px)"
-        type="text/css" href="{{ $style_small.Permalink }}"
+        type="text/css" href="{{ $style_small.RelPermalink }}"
         integrity="{{ $style_small.Data.Integrity }}" />
     <link rel="stylesheet" media="screen and (min-width: 1201px)"
-        type="text/css" href="{{ $style_normal.Permalink }}"
+        type="text/css" href="{{ $style_normal.RelPermalink }}"
         integrity="{{ $style_normal.Data.Integrity }}" />
 
     <!-- 主题颜色深浅的外链 js -->
     <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
     {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
-    <script type="text/javascript" src="{{ $cthemeJs.Permalink }}"
+    <script type="text/javascript" src="{{ $cthemeJs.RelPermalink }}"
         integrity="{{ $cthemeJs.Data.Integrity }}"></script>
 
     <!-- highlight 自动生成配色 -->
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $style_syntax.Permalink }}"
+    <link rel="stylesheet" type="text/css" href="{{ $style_syntax.RelPermalink }}"
         integrity="{{ $style_syntax.Data.Integrity }}" />
 
     <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
@@ -95,7 +95,7 @@
                     {{ $curr_trans_dict := dict }}
                     {{ range $curr_page.Translations }}
                         {{ $curr_trans_dict = merge $curr_trans_dict
-                            (dict .Language.Lang .Permalink)
+                            (dict .Language.Lang .RelPermalink)
                         }}
                     {{ end }}
                     {{ range $.Site.Home.AllTranslations }}
@@ -192,7 +192,7 @@
 <!-- 外链 js -->
 <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
 {{ $mainJs := resources.Get "js/main.js" | minify | fingerprint }}
-<script type="text/javascript" src="{{ $mainJs.Permalink }}"
+<script type="text/javascript" src="{{ $mainJs.RelPermalink }}"
     integrity="{{ $mainJs.Data.Integrity }}"></script>
 
 <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->

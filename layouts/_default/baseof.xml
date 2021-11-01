@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>{{ block "rss_title" . }}{{ end }} | {{ .Site.Title }}</title>
-        <link>{{ .Permalink }}</link>
-        <atom:link href="{{ .Permalink }}index.xml" rel="self" type="application/rss+xml" />
+        <link>{{ .Param "baseURL" }}{{ .RelPermalink }}</link>
+        <atom:link href="{{ .Param "baseURL" }}{{ .RelPermalink }}index.xml" rel="self" type="application/rss+xml" />
         <description>
             {{ i18n "recent_content" }} | {{ block "rss_title" . }}{{ end }} | {{ .Site.Title }}
         </description>

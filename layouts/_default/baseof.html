@@ -34,7 +34,7 @@
 
     <!--Google Analytics 部分以及 GoatCounter 部分-->
     {{ if not .Site.IsServer }}
-        {{ template "_internal/google_analytics_async.html" . }}
+        {{ template "_internal/google_analytics.html" . }}
         <script data-goatcounter='https://{{ .Param "GoatCounterName" }}.goatcounter.com/count'
         async src='//gc.zgo.at/count.js'></script>
     {{ end }}
@@ -117,16 +117,16 @@
                 <!-- RSS 订阅按钮 -->
                 <div class='left_non-footer_option_rss'>
                     {{ if .IsNode }}
-                        <dl class='left_non-footer_option_active'>
+                        <div class='left_non-footer_option_active'>
                             <a href='{{ if not .Site.IsServer }}{{ .Param "baseURL" }}{{ end }}{{ .RelPermalink }}index.xml'>
                                 {{ i18n "rss_feed" }}
                                 <img src='/images/rss.png' alt='RSS icon' />
                             </a>
-                        </dl>
+                        </div>
                     {{ else }}
-                        <dl class='left_non-footer_option_non-active'>
+                        <div class='left_non-footer_option_non-active'>
                             {{ i18n "rss_feed" }} ⊠ 
-                        </dl>
+                        </div>
                     {{ end }}
                 </div>
             </div>

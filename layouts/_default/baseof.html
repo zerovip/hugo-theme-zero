@@ -22,7 +22,7 @@
     <!-- 主题颜色深浅的外链 js -->
     <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
     {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
-    <script type="text/javascript" src="{{ $cthemeJs.RelPermalink }}"></script>
+    <script src="{{ $cthemeJs.RelPermalink }}"></script>
 
     <!-- highlight 自动生成配色 -->
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
@@ -187,7 +187,7 @@
 <!-- 外链 js -->
 <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
 {{ $mainJs := resources.Get "js/main.js" | minify | fingerprint }}
-<script type="text/javascript" src="{{ $mainJs.RelPermalink }}"></script>
+<script src="{{ $mainJs.RelPermalink }}"></script>
 
 <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
 <!--     GitHub：https://github.com/sivan/heti -->

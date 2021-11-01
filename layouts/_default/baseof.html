@@ -115,19 +115,19 @@
                 </ul>
 
                 <!-- RSS 订阅按钮 -->
-                <div role='button' class='left_non-footer_option_rss'>
-                {{ if .IsNode }}
-                    <li class='left_non-footer_option_active'>
-                        <a href='{{ if not .Site.IsServer }}{{ .Param "baseURL" }}{{ end }}{{ .RelPermalink }}index.xml'>
-                            {{ i18n "rss_feed" }}
-                            <img src='/images/rss.png' />
-                        </a>
-                    </li>
-                {{ else }}
-                    <li class='left_non-footer_option_non-active'>
-                        {{ i18n "rss_feed" }} ⊠ 
-                    </li>
-                {{ end }}
+                <div class='left_non-footer_option_rss'>
+                    {{ if .IsNode }}
+                        <dl class='left_non-footer_option_active'>
+                            <a href='{{ if not .Site.IsServer }}{{ .Param "baseURL" }}{{ end }}{{ .RelPermalink }}index.xml'>
+                                {{ i18n "rss_feed" }}
+                                <img src='/images/rss.png' alt='RSS icon' />
+                            </a>
+                        </dl>
+                    {{ else }}
+                        <dl class='left_non-footer_option_non-active'>
+                            {{ i18n "rss_feed" }} ⊠ 
+                        </dl>
+                    {{ end }}
                 </div>
             </div>
                 

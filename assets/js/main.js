@@ -46,21 +46,25 @@ function ut_change_to_dark_mode() {
 function themeSwitch() {
     if (checkbox.checked) {
         themeContainer.classList.remove("dark");
+        themeSwitcher.setAttribute("aria-checked", 'true');
         localStorage.setItem("ctheme", "light");
         ut_change_to_light_mode();
     } else {
         themeContainer.classList.add("dark");
+        themeSwitcher.setAttribute("aria-checked", 'false');
         localStorage.setItem("ctheme", "dark");
         ut_change_to_dark_mode();
     }
 }
 
 const checkbox = document.querySelector(".theme-switcher");
+const themeSwitcher = document.querySelector(".left_non-footer_option_theme-switch");
 if (checked === 1) {
     checkbox.checked = true;
     ut_change_to_light_mode();
 } else if (checked === 0) {
     checkbox.checked = false;
+    themeSwitcher.setAttribute("aria-checked", 'false');
     ut_change_to_dark_mode();
 }
 

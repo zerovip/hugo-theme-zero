@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ .Language.Lang }}" class="theme-container">
+<html lang='{{ .Language.Lang }}' class='theme-container'>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=divice-width, initial-scale=1.0'>
     {{ hugo.Generator }}
     <title>
         {{ block "head_title" . }}{{ end }} | {{ .Site.Title }}
@@ -13,52 +13,52 @@
     {{ $style_base := resources.Get "css/base.css" | minify | fingerprint }}
     {{ $style_small := resources.Get "css/small.css" | minify | fingerprint }}
     {{ $style_normal := resources.Get "css/normal.css" | minify | fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $style_base.RelPermalink }}" />
-    <link rel="stylesheet" media="screen and (max-width: 1200px)"
-        type="text/css" href="{{ $style_small.RelPermalink }}" />
-    <link rel="stylesheet" media="screen and (min-width: 1201px)"
-        type="text/css" href="{{ $style_normal.RelPermalink }}" />
+    <link rel='stylesheet' type='text/css' href='{{ $style_base.RelPermalink }}' />
+    <link rel='stylesheet' media='screen and (max-width: 1200px)'
+        type='text/css' href='{{ $style_small.RelPermalink }}' />
+    <link rel='stylesheet' media='screen and (min-width: 1201px)'
+        type='text/css' href='{{ $style_normal.RelPermalink }}' />
 
     <!-- 主题颜色深浅的外链 js -->
     <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
     {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
-    <script src="{{ $cthemeJs.RelPermalink }}"></script>
+    <script src='{{ $cthemeJs.RelPermalink }}'></script>
 
     <!-- highlight 自动生成配色 -->
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $style_syntax.RelPermalink }}" />
+    <link rel='stylesheet' type='text/css' href='{{ $style_syntax.RelPermalink }}' />
 
     <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
     <!--     GitHub：https://github.com/sivan/heti -->
-    <!-- <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css"> -->
+    <!-- <link rel='stylesheet' href='//unpkg.com/heti/umd/heti.min.css'> -->
 
     <!--Google Analytics 部分以及 GoatCounter 部分-->
     {{ if not .Site.IsServer }}
         {{ template "_internal/google_analytics_async.html" . }}
-        <script data-goatcounter="https://{{ .Param "GoatCounterName" }}.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        <script data-goatcounter='https://{{ .Param "GoatCounterName" }}.goatcounter.com/count'
+        async src='//gc.zgo.at/count.js'></script>
     {{ end }}
 </head>
 
 <body>
 <!--MathJax 的引用-->
 {{ if (and .IsPage (eq .Params.markup "pandoc")) }}
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" async></script>
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <script src='https://polyfill.io/v3/polyfill.min.js?features=es6' async></script>
+    <script id='MathJax-script' async
+        src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js'></script>
 {{ end }}
 
 <!--小屏幕顶部设计，在宽屏幕中不显示-->
 <nav class='bar_for_phone'>
     <div class='bar_left_button'>
-        <div class='left_button_for_bar' onclick="ChangeClassLeft()">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
+        <div class='left_button_for_bar' onclick='ChangeClassLeft()'>
+            <div class='bar1'></div>
+            <div class='bar2'></div>
+            <div class='bar3'></div>
         </div>
     </div>
     <div class='bar_title'>
-        <a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+        <a href='{{ "/" | relLangURL }}'>{{ .Site.Title }}</a>
     </div>
     <div class='bar_right_button'>
         {{ block "bar_toc" . }}{{ end }}
@@ -74,17 +74,17 @@
             <!--选项区-->
             <div class='left_non-footer_option'>
                 <!-- 主题切换部分 -->
-                <div role="checkbox" class='left_non-footer_option_theme-switch'>
-                    <label class="switch">
-                        <input type="checkbox" class="theme-switcher"
-                            onchange="themeSwitch()">
+                <div role='checkbox' aria-checked='true' class='left_non-footer_option_theme-switch'>
+                    <label class='switch'>
+                        <input type='checkbox' class='theme-switcher'
+                            onchange='themeSwitch()'>
                         <!-- 是明亮模式嘛？checked 为明亮模式. -->
-                        <span class="slider round"></span>
+                        <span class='slider round'></span>
                     </label>
                 </div>
 
                 <!-- 语言选项部分 -->
-                <ul role="radiogroup" class='left_non-footer_option_language'>
+                <ul role='radiogroup' class='left_non-footer_option_language'>
                     {{ $curr_page := . }}
                     {{ $curr_lang := $curr_page.Language.Lang }}
                     {{ $curr_trans_dict := dict }}
@@ -95,18 +95,18 @@
                     {{ end }}
                     {{ range $.Site.Home.AllTranslations }}
                         {{ if (eq .Language.Lang $curr_lang) }}
-                            <li role="radio" aria-checked="true" class='left_non-footer_option_active'>
+                            <li role='radio' aria-checked='true' class='left_non-footer_option_active'>
                                 {{ .Language.LanguageName }} ⦿ 
                             </li>
                         {{ else }}
                             {{ if (index $curr_trans_dict .Language.Lang) }}
-                                <li role="radio" aria-checked="false" class='left_non-footer_option_non-active'>
-                                    <a href="{{ index $curr_trans_dict .Language.Lang }}">
+                                <li role='radio' aria-checked='false' class='left_non-footer_option_non-active'>
+                                    <a href='{{ index $curr_trans_dict .Language.Lang }}'>
                                         {{ .Language.LanguageName }} ○ 
                                     </a>
                                 </li>
                             {{ else }}
-                                <li role="radio" aria-checked="disabled" class='left_non-footer_option_non-active'>
+                                <li role='radio' aria-checked='disabled' class='left_non-footer_option_non-active'>
                                     {{ .Language.LanguageName }} ⨂ 
                                 </li>
                             {{ end }}
@@ -115,12 +115,12 @@
                 </ul>
 
                 <!-- RSS 订阅按钮 -->
-                <div role="button" class='left_non-footer_option_rss'>
+                <div role='button' class='left_non-footer_option_rss'>
                 {{ if .IsNode }}
                     <li class='left_non-footer_option_active'>
-                        <a href="{{ if not .Site.IsServer }}{{ .Param "baseURL" }}{{ end }}{{ .RelPermalink }}index.xml">
+                        <a href='{{ if not .Site.IsServer }}{{ .Param "baseURL" }}{{ end }}{{ .RelPermalink }}index.xml'>
                             {{ i18n "rss_feed" }}
-                            <img src="/images/rss.png" />
+                            <img src='/images/rss.png' />
                         </a>
                     </li>
                 {{ else }}
@@ -134,7 +134,7 @@
             <!--题目区-->
             <header class='left_non-footer_head'>
                 <div class='left_non-footer_head_title'>
-                    <a href="{{ "/" | relLangURL }}">
+                    <a href='{{ "/" | relLangURL }}'>
                         {{ .Site.Title }}
                     </a>
                 </div>
@@ -150,16 +150,16 @@
             <nav class='left_non-footer_main'>
                 {{ $currentNode := . }}
                 {{ range .Site.Menus.main }} {{/* 确保和config中的一级标题的主菜单一致，下面也是 */}}
-                    <div  class="h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
-                    or (eq .Identifier $currentNode.Section) }}active{{ end }}">
-                        <a href="{{ .URL }}">{{ .Name }}</a>
+                    <div  class='h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
+                    or (eq .Identifier $currentNode.Section) }}active{{ end }}'>
+                        <a href='{{ .URL }}'>{{ .Name }}</a>
                     </div>
                     {{ if .HasChildren }}
                         {{ range .Children }}
                             {{ if ne .Identifier ""}}
-                                <div class="h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
-                                or (eq .Identifier $currentNode.Params.section) }}active{{ end }}">
-                                    <a href="{{ .URL }}">{{ .Name }} </a>
+                                <div class='h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
+                                or (eq .Identifier $currentNode.Params.section) }}active{{ end }}'>
+                                    <a href='{{ .URL }}'>{{ .Name }} </a>
                                 </div>
                             {{ end }}
                         {{ end }}
@@ -175,7 +175,7 @@
     </aside>
 
     <!--右边主要部分-->
-    <div class='right' onclick="HideBothSide()">
+    <div class='right' onclick='HideBothSide()'>
         {{ block "right_head" . }}{{ end }}
         {{ block "right_main" . }}{{ end }}
     </div>
@@ -187,11 +187,11 @@
 <!-- 外链 js -->
 <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
 {{ $mainJs := resources.Get "js/main.js" | minify | fingerprint }}
-<script src="{{ $mainJs.RelPermalink }}"></script>
+<script src='{{ $mainJs.RelPermalink }}'></script>
 
 <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
 <!--     GitHub：https://github.com/sivan/heti -->
-<!-- <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script> -->
+<!-- <script src='//unpkg.com/heti/umd/heti-addon.min.js'></script> -->
 <!-- <script> -->
 <!--     const heti = new Heti('.heti'); -->
 <!--     heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压 -->

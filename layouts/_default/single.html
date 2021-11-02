@@ -66,8 +66,7 @@
 {{ end }}
 
 {{ define "toc" }}
-    {{ if eq .Params.no_toc true }}
-    {{ else }}
+    {{ if and (gt .WordCount 400) (ne .Params.no_toc true) }}
         <aside class='toc' id='toc'>
             <button class='toc_title'>{{ i18n "toc" }}</button>
             <div class='toc_content'>

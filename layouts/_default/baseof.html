@@ -19,11 +19,6 @@
     <link rel='stylesheet' media='screen and (min-width: 1201px)'
         type='text/css' href='{{ $style_normal.RelPermalink }}' />
 
-    <!-- 主题颜色深浅的外链 js -->
-    <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
-    {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
-    <script src='{{ $cthemeJs.RelPermalink }}'></script>
-
     <!-- highlight 自动生成配色 -->
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
     <link rel='stylesheet' type='text/css' href='{{ $style_syntax.RelPermalink }}' />
@@ -31,6 +26,30 @@
     <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
     <!--     GitHub：https://github.com/sivan/heti -->
     <!-- <link rel='stylesheet' href='//unpkg.com/heti/umd/heti.min.css'> -->
+
+    <!-- 主题颜色深浅的外链 js -->
+    <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
+    {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
+    <script src='{{ $cthemeJs.RelPermalink }}'></script>
+
+    <!--KaTeX 的引用-->
+    {{ if (and .IsPage (eq .Params.markup "pandoc")) }}
+        <!-- katex -->
+        {{ $style_katex := resources.Get "katex/katex.css" | minify | fingerprint }}
+        <link rel='stylesheet' type='text/css' href='{{ $style_katex.RelPermalink }}' />
+        {{ $katexJs := resources.Get "katex/katex.js" | minify | fingerprint }}
+        <script defer src='{{ $katexJs.RelPermalink }}'></script>
+
+        <!-- katex auto render -->
+        {{ $karJs := resources.Get "katex/auto-render.js" | minify | fingerprint }}
+        <script defer src='{{ $karJs.RelPermalink }}' onload="renderMathInElement(document.body);"></script>
+
+        <!-- katex copy tex friendly -->
+        {{ $style_kct := resources.Get "katex/copy-tex.css" | minify | fingerprint }}
+        <link rel='stylesheet' type='text/css' href='{{ $style_kct.RelPermalink }}' />
+        {{ $kctJs := resources.Get "katex/copy-tex.js" | minify | fingerprint }}
+        <script defer src='{{ $kctJs.RelPermalink }}'></script>
+    {{ end }}
 
     <!--Google Analytics 部分以及 GoatCounter 部分-->
     {{ if not .Site.IsServer }}
@@ -41,13 +60,6 @@
 </head>
 
 <body>
-<!--MathJax 的引用-->
-{{ if (and .IsPage (eq .Params.markup "pandoc")) }}
-    <script src='https://polyfill.io/v3/polyfill.min.js?features=es6' async></script>
-    <script id='MathJax-script' async
-        src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js'></script>
-{{ end }}
-
 <!--小屏幕顶部设计，在宽屏幕中不显示-->
 <nav class='bar_for_phone'>
     <div class='bar_left_button'>

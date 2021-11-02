@@ -9,17 +9,17 @@ About noopener, no refferrer, see
     https://www.tutorialdocs.com/article/html-opener-blank.html
 -->
 {{- /* This comment removes the ultra space */ -}}
-<a href="{{ .Destination | safeURL }}"
+<a href='{{ .Destination | safeURL }}'
     {{ with .Title }}
-        title="{{ . }}"
+        title='{{ . }}'
     {{ end }}
     {{ if strings.HasPrefix .Destination "http" }}
-        target="_blank" rel="noreferrer noopener"
+        target='_blank' rel='noreferrer noopener'
     {{ end }}
 >
     {{- .Text | safeHTML -}}
     {{- if strings.HasPrefix .Destination "http" -}}
-        <b><sub></sup>⧉</sup></b>
+        <b><sub>⧉</sub></b>
     {{- end -}}
 </a>
 {{- /* This comment removes the ultra space */ -}}

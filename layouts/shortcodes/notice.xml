@@ -1,0 +1,7 @@
+{{ $style := .Get 0 }}
+{{- if eq $style "sentence" -}}
+    <span style='background-color:#FDE763;'>{{- .Inner -}}</span>
+{{- else if eq $style "paragraph" -}}
+    <div style='background-color:#FDE763;'>{{- .Inner -}}</div>
+{{- end -}}
+

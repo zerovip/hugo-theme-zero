@@ -1,0 +1,26 @@
+<!--
+    Should use absolute URL instead of relative URL in RSS feed.
+-->
+{{- /* This comment removes the ultra space */ -}}
+<a href='
+    {{- if not (strings.HasPrefix .Destination "http") -}}
+        {{- if strings.HasPrefix .Destination "#" -}}
+            {{- .Page.Param "baseURL" -}}{{- .Page.Permalink -}}
+        {{- else -}}
+            {{- .Page.Param "baseURL" -}}
+        {{- end -}}
+    {{- end -}}
+    {{ .Destination | safeURL }}'
+    {{ with .Title }}
+        title='{{ . }}'
+    {{ end }}
+    {{ if strings.HasPrefix .Destination "http" }}
+        target='_blank' rel='noreferrer noopener'
+    {{ end }}
+>
+    {{- .Text | safeHTML -}}
+    {{- if strings.HasPrefix .Destination "http" -}}
+        <b><sub>⧉</sub></b>
+    {{- end -}}
+</a>
+{{- /* This comment removes the ultra space */ -}}

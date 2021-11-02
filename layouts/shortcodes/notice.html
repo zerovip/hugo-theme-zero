@@ -2,6 +2,7 @@
 {{- if eq $style "sentence" -}}
     <mark class='notation_color'>{{- .Inner -}}</mark>
 {{- else if eq $style "paragraph" -}}
-    <div role='note' class='notation_color'>{{- .Inner -}}</div>
+    <div role='note' class='notation_color'>
+        {{- .Inner -}}
+    </div>
 {{- end -}}
-

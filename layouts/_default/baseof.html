@@ -96,7 +96,7 @@
                 </div>
 
                 <!-- 语言选项部分 -->
-                <ul role='radiogroup' class='left_non-footer_option_language'>
+                <ul role='listbox' class='left_non-footer_option_language'>
                     {{ $curr_page := . }}
                     {{ $curr_lang := $curr_page.Language.Lang }}
                     {{ $curr_trans_dict := dict }}
@@ -107,18 +107,18 @@
                     {{ end }}
                     {{ range $.Site.Home.AllTranslations }}
                         {{ if (eq .Language.Lang $curr_lang) }}
-                            <li role='radio' aria-checked='true' class='left_non-footer_option_active'>
+                            <li role='option' aria-selected='true' class='left_non-footer_option_active'>
                                 {{ .Language.LanguageName }} ⦿ 
                             </li>
                         {{ else }}
                             {{ if (index $curr_trans_dict .Language.Lang) }}
-                                <li role='radio' aria-checked='false' class='left_non-footer_option_non-active'>
+                                <li role='option' aria-selected='false' class='left_non-footer_option_non-active'>
                                     <a href='{{ index $curr_trans_dict .Language.Lang }}'>
                                         {{ .Language.LanguageName }} ○ 
                                     </a>
                                 </li>
                             {{ else }}
-                                <li role='radio' aria-checked='disabled' class='left_non-footer_option_non-active'>
+                                <li role='option' class='left_non-footer_option_non-active'>
                                     {{ .Language.LanguageName }} ⨂ 
                                 </li>
                             {{ end }}

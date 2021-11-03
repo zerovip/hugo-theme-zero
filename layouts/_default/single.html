@@ -12,7 +12,7 @@
             {{ .Title }}
         </div>
         <div class="right_head_des">
-            <time>{{ .Date | time.Format ":date_long" }}</time> - {{ .WordCount }} {{ i18n "count" .WordCount }}
+            {{ .Date | time.Format ":date_long" }} - {{ .WordCount }} {{ i18n "count" .WordCount }}
         </div>
     </header>
 {{ end }}
@@ -21,7 +21,7 @@
     <div class="right_main">
         <article class="right_main_article">
             <!-- <div class="entry heti"> -->
-                {{ .Content }}
+            {{ .Content }}
             <!-- </div> -->
             <!-- 下面是友情链接部分 -->
             <!-- 计数部分参考了
@@ -31,18 +31,20 @@
             {{ if .Params.column }}
                 <p></p><p></p><p></p><p></p><p></p><p></p>
                 <h1>{{ i18n "other-articles" }}</h1>
-                {{ $currentNode := . }}
-                {{ $.Scratch.Set "counter" 1 }}
-                {{ range .Site.Pages.ByDate }}
-                    {{ if eq .Params.column $currentNode.Params.column }}
-                        {{ if eq . $currentNode }}
-                            <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}{{ .Title }}{{ i18n "this-article" }}</li>
-                        {{ else }}
-                            <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}<a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                <ol>
+                    {{ $currentNode := . }}
+                    {{ $.Scratch.Set "counter" 1 }}
+                    {{ range .Site.Pages.ByDate }}
+                        {{ if eq .Params.column $currentNode.Params.column }}
+                            {{ if eq . $currentNode }}
+                                <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}{{ .Title }}{{ i18n "this-article" }}</li>
+                            {{ else }}
+                                <li> {{ i18n "num_other" ($.Scratch.Get "counter") }}<a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                            {{ end }}
+                            {{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
                         {{ end }}
-                        {{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
                     {{ end }}
-                {{ end }}
+                </ol>
             {{ end }}
             <p></p><p></p><p></p><p></p>
         </article>

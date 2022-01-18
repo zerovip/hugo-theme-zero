@@ -1,8 +1,12 @@
-{{ $style := .Get 0 }}
-{{- if eq $style "sentence" -}}
+{{- if .Get 0 -}}
+    {{- $style := .Get 0 -}}
+    {{- if eq $style "paragraph" -}}
+        <div role='note' class='notation_color'>
+            {{- .Inner -}}
+        </div>
+    {{- else if eq $style "sentence" -}}
+        <mark class='notation_color'>{{- .Inner -}}</mark>
+    {{- end -}}
+{{- else -}}
     <mark class='notation_color'>{{- .Inner -}}</mark>
-{{- else if eq $style "paragraph" -}}
-    <div role='note' class='notation_color'>
-        {{- .Inner -}}
-    </div>
 {{- end -}}

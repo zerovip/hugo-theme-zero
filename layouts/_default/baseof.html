@@ -32,7 +32,7 @@
     {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
     <script src='{{ $cthemeJs.RelPermalink }}'></script>
 
-    <!--KaTeX 的引用-->
+    <!--KaTeX 的引用（v 0.16.0）-->
     {{ if (and .IsPage (eq .Params.markup "pandoc")) }}
         <!-- katex -->
         {{ $style_katex := resources.Get "katex/katex.css" | minify | fingerprint }}

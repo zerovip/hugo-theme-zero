@@ -4506,7 +4506,7 @@ defineSymbol(math, main, bin, "\u2293", "\\sqcap", true);
 defineSymbol(math, main, bin, "\u2217", "\\ast");
 defineSymbol(math, main, bin, "\u2294", "\\sqcup", true);
 defineSymbol(math, main, bin, "\u25EF", "\\bigcirc", true);
-defineSymbol(math, main, bin, "\u2219", "\\bullet");
+defineSymbol(math, main, bin, "\u2219", "\\bullet", true);
 defineSymbol(math, main, bin, "\u2021", "\\ddagger");
 defineSymbol(math, main, bin, "\u2240", "\\wr", true);
 defineSymbol(math, main, bin, "\u2A3F", "\\amalg");
@@ -4865,13 +4865,13 @@ defineSymbol(math, main, bin, "\u2217", "*", true);
 defineSymbol(math, main, bin, "+", "+");
 defineSymbol(math, main, bin, "\u2212", "-", true);
 defineSymbol(math, main, bin, "\u22C5", "\\cdot", true);
-defineSymbol(math, main, bin, "\u2218", "\\circ");
+defineSymbol(math, main, bin, "\u2218", "\\circ", true);
 defineSymbol(math, main, bin, "\xF7", "\\div", true);
 defineSymbol(math, main, bin, "\xB1", "\\pm", true);
 defineSymbol(math, main, bin, "\xD7", "\\times", true);
 defineSymbol(math, main, bin, "\u2229", "\\cap", true);
 defineSymbol(math, main, bin, "\u222A", "\\cup", true);
-defineSymbol(math, main, bin, "\u2216", "\\setminus");
+defineSymbol(math, main, bin, "\u2216", "\\setminus", true);
 defineSymbol(math, main, bin, "\u2227", "\\land");
 defineSymbol(math, main, bin, "\u2228", "\\lor");
 defineSymbol(math, main, bin, "\u2227", "\\wedge", true);
@@ -11419,7 +11419,7 @@ function mclass_mathmlBuilder(group, options) {
   var inner = buildMathML_buildExpression(group.body, options);
 
   if (group.mclass === "minner") {
-    return mathMLTree.newDocumentFragment(inner);
+    node = new mathMLTree.MathNode("mpadded", inner);
   } else if (group.mclass === "mord") {
     if (group.isCharacterBox) {
       node = inner[0];
@@ -11447,6 +11447,10 @@ function mclass_mathmlBuilder(group, options) {
     } else if (group.mclass === "mopen" || group.mclass === "mclose") {
       node.attributes.lspace = "0em";
       node.attributes.rspace = "0em";
+    } else if (group.mclass === "minner") {
+      node.attributes.lspace = "0.0556em"; // 1 mu is the most likely option
+
+      node.attributes.width = "+0.1111em";
     } // MathML <mo> default space is 5/18 em, so <mrel> needs no action.
     // Ref: https://developer.mozilla.org/en-US/docs/Web/MathML/Element/mo
 
@@ -16121,7 +16125,70 @@ defineMacro("\\bra", "\\mathinner{\\langle{#1}|}");
 defineMacro("\\ket", "\\mathinner{|{#1}\\rangle}");
 defineMacro("\\braket", "\\mathinner{\\langle{#1}\\rangle}");
 defineMacro("\\Bra", "\\left\\langle#1\\right|");
-defineMacro("\\Ket", "\\left|#1\\right\\rangle"); //////////////////////////////////////////////////////////////////////
+defineMacro("\\Ket", "\\left|#1\\right\\rangle");
+
+var braketHelper = function braketHelper(one) {
+  return function (context) {
+    var left = context.consumeArg().tokens;
+    var middle = context.consumeArg().tokens;
+    var middleDouble = context.consumeArg().tokens;
+    var right = context.consumeArg().tokens;
+    var oldMiddle = context.macros.get("|");
+    var oldMiddleDouble = context.macros.get("\\|");
+    context.macros.beginGroup();
+
+    var midMacro = function midMacro(double) {
+      return function (context) {
+        if (one) {
+          // Only modify the first instance of | or \|
+          context.macros.set("|", oldMiddle);
+
+          if (middleDouble.length) {
+            context.macros.set("\\|", oldMiddleDouble);
+          }
+        }
+
+        var doubled = double;
+
+        if (!double && middleDouble.length) {
+          // Mimic \@ifnextchar
+          var nextToken = context.future();
+
+          if (nextToken.text === "|") {
+            context.popToken();
+            doubled = true;
+          }
+        }
+
+        return {
+          tokens: doubled ? middleDouble : middle,
+          numArgs: 0
+        };
+      };
+    };
+
+    context.macros.set("|", midMacro(false));
+
+    if (middleDouble.length) {
+      context.macros.set("\\|", midMacro(true));
+    }
+
+    var arg = context.consumeArg().tokens;
+    var expanded = context.expandTokens([].concat(right, arg, left));
+    context.macros.endGroup();
+    return {
+      tokens: expanded.reverse(),
+      numArgs: 0
+    };
+  };
+};
+
+defineMacro("\\bra@ket", braketHelper(false));
+defineMacro("\\bra@set", braketHelper(true));
+defineMacro("\\Braket", "\\bra@ket{\\left\\langle}" + "{\\,\\middle\\vert\\,}{\\,\\middle\\vert\\,}{\\right\\rangle}");
+defineMacro("\\Set", "\\bra@set{\\left\\{\\:}" + "{\\;\\middle\\vert\\;}{\\;\\middle\\Vert\\;}{\\:\\right\\}}");
+defineMacro("\\set", "\\bra@set{\\{\\,}{\\mid}{}{\\,\\}}"); // has no support for special || or \|
+//////////////////////////////////////////////////////////////////////
 // actuarialangle.dtx
 
 defineMacro("\\angln", "{\\angl n}"); // Custom Khan Academy colors, should be moved to an optional package
@@ -16591,7 +16658,9 @@ var MacroExpander = /*#__PURE__*/function () {
     return this.macros.has(name) ? this.expandTokens([new Token(name)]) : undefined;
   }
   /**
-   * Fully expand the given token stream and return the resulting list of tokens
+   * Fully expand the given token stream and return the resulting list of
+   * tokens.  Note that the input tokens are in reverse order, but the
+   * output tokens are in forward order.
    */
   ;
 
@@ -16716,8 +16785,116 @@ var MacroExpander = /*#__PURE__*/function () {
 }();
 
 
+;// CONCATENATED MODULE: ./src/unicodeSupOrSub.js
+// Helpers for Parser.js handling of Unicode (sub|super)script characters.
+var unicodeSubRegEx = /^[₊₋₌₍₎₀₁₂₃₄₅₆₇₈₉ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵦᵧᵨᵩᵪ]/;
+var uSubsAndSups = Object.freeze({
+  '₊': '+',
+  '₋': '-',
+  '₌': '=',
+  '₍': '(',
+  '₎': ')',
+  '₀': '0',
+  '₁': '1',
+  '₂': '2',
+  '₃': '3',
+  '₄': '4',
+  '₅': '5',
+  '₆': '6',
+  '₇': '7',
+  '₈': '8',
+  '₉': '9',
+  "\u2090": 'a',
+  "\u2091": 'e',
+  "\u2095": 'h',
+  "\u1D62": 'i',
+  "\u2C7C": 'j',
+  "\u2096": 'k',
+  "\u2097": 'l',
+  "\u2098": 'm',
+  "\u2099": 'n',
+  "\u2092": 'o',
+  "\u209A": 'p',
+  "\u1D63": 'r',
+  "\u209B": 's',
+  "\u209C": 't',
+  "\u1D64": 'u',
+  "\u1D65": 'v',
+  "\u2093": 'x',
+  "\u1D66": 'β',
+  "\u1D67": 'γ',
+  "\u1D68": 'ρ',
+  "\u1D69": "\u03D5",
+  "\u1D6A": 'χ',
+  '⁺': '+',
+  '⁻': '-',
+  '⁼': '=',
+  '⁽': '(',
+  '⁾': ')',
+  '⁰': '0',
+  '¹': '1',
+  '²': '2',
+  '³': '3',
+  '⁴': '4',
+  '⁵': '5',
+  '⁶': '6',
+  '⁷': '7',
+  '⁸': '8',
+  '⁹': '9',
+  "\u1D2C": 'A',
+  "\u1D2E": 'B',
+  "\u1D30": 'D',
+  "\u1D31": 'E',
+  "\u1D33": 'G',
+  "\u1D34": 'H',
+  "\u1D35": 'I',
+  "\u1D36": 'J',
+  "\u1D37": 'K',
+  "\u1D38": 'L',
+  "\u1D39": 'M',
+  "\u1D3A": 'N',
+  "\u1D3C": 'O',
+  "\u1D3E": 'P',
+  "\u1D3F": 'R',
+  "\u1D40": 'T',
+  "\u1D41": 'U',
+  "\u2C7D": 'V',
+  "\u1D42": 'W',
+  "\u1D43": 'a',
+  "\u1D47": 'b',
+  "\u1D9C": 'c',
+  "\u1D48": 'd',
+  "\u1D49": 'e',
+  "\u1DA0": 'f',
+  "\u1D4D": 'g',
+  "\u02B0": 'h',
+  "\u2071": 'i',
+  "\u02B2": 'j',
+  "\u1D4F": 'k',
+  "\u02E1": 'l',
+  "\u1D50": 'm',
+  "\u207F": 'n',
+  "\u1D52": 'o',
+  "\u1D56": 'p',
+  "\u02B3": 'r',
+  "\u02E2": 's',
+  "\u1D57": 't',
+  "\u1D58": 'u',
+  "\u1D5B": 'v',
+  "\u02B7": 'w',
+  "\u02E3": 'x',
+  "\u02B8": 'y',
+  "\u1DBB": 'z',
+  "\u1D5D": 'β',
+  "\u1D5E": 'γ',
+  "\u1D5F": 'δ',
+  "\u1D60": "\u03D5",
+  "\u1D61": 'χ',
+  "\u1DBF": 'θ'
+});
 ;// CONCATENATED MODULE: ./src/Parser.js
 /* eslint no-constant-condition:0 */
+
 
 
 
@@ -17527,6 +17704,46 @@ var Parser = /*#__PURE__*/function () {
           mode: this.mode,
           body: primes
         };
+      } else if (uSubsAndSups[lex.text]) {
+        // A Unicode subscript or superscript character.
+        // We treat these similarly to the unicode-math package.
+        // So we render a string of Unicode (sub|super)scripts the
+        // same as a (sub|super)script of regular characters.
+        var str = uSubsAndSups[lex.text];
+        var isSub = unicodeSubRegEx.test(lex.text);
+        this.consume(); // Continue fetching tokens to fill out the string.
+
+        while (true) {
+          var token = this.fetch().text;
+
+          if (!uSubsAndSups[token]) {
+            break;
+          }
+
+          if (unicodeSubRegEx.test(token) !== isSub) {
+            break;
+          }
+
+          this.consume();
+          str += uSubsAndSups[token];
+        } // Now create a (sub|super)script.
+
+
+        var body = new Parser(str, this.settings).parse();
+
+        if (isSub) {
+          subscript = {
+            type: "ordgroup",
+            mode: "math",
+            body: body
+          };
+        } else {
+          superscript = {
+            type: "ordgroup",
+            mode: "math",
+            body: body
+          };
+        }
       } else {
         // If it wasn't ^, _, or ', stop parsing super/subscripts
         break;
@@ -18347,7 +18564,7 @@ var renderToHTMLTree = function renderToHTMLTree(expression, options) {
   /**
    * Current KaTeX version
    */
-  version: "0.15.1",
+  version: "0.16.0",
 
   /**
    * Renders the given LaTeX into an HTML+MathML combination, and adds

@@ -1,3 +1,7 @@
+{{ define "head_meta" }}
+<meta name='robots' content='noindex'>
+{{ end }}
+
 {{ define "head_title" }}
     {{ $currentNode := . }}
     {{ range .Site.Menus.main }}

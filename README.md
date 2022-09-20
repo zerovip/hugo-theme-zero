@@ -39,7 +39,7 @@ weight:
 # you can set "pandoc" here, then this post supports math format.
 markup: 
 #------------------------------------------------------------------------------
-# Set "true" to `list_hide` and `rss_hide` if this post has secret part.
+# Set "true" to `list_hide` and `rss_hide` if this post has a secret part.
 #------------------------------------------------------------------------------
 # don't show this post in any list.
 list_hide: false
@@ -55,6 +55,10 @@ draft: true
 #------------------------------------------------------------------------------
 # true / false
 no_toc: false
+#------------------------------------------------------------------------------
+# is it not allowed to be indexed by search engines? note that search engines
+# will also NOT index it if `list_hide` or `rss_hide` is set to be "true".
+no_index: false
 #------------------------------------------------------------------------------
 ---
 ```

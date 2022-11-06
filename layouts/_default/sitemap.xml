@@ -1,0 +1,33 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{/*
+  {{ range .Data.Pages }}
+    The original template is copied from:
+        https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/sitemap.xml
+    I edited this line to eliminate the list_hide ones.
+    See also: https://gohugo.io/templates/sitemap-template/
+        `sitemap.xml` is for /zh/sitemap.xml; /en/sitemap.xml; /fr/sitemap.xml
+        `sitemapindex.xml` is for /sitemap.xml
+  */}}
+  {{ range (where .Data.Pages ".Params.list_hide" "ne" true) }}
+    {{- if .Permalink -}}
+  <url>
+    <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
+    <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
+    <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
+    <priority>{{ .Sitemap.Priority }}</priority>{{ end }}{{ if .IsTranslated }}{{ range .Translations }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.Lang }}"
+                href="{{ .Permalink }}"
+                />{{ end }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.Lang }}"
+                href="{{ .Permalink }}"
+                />{{ end }}
+  </url>
+    {{- end -}}
+  {{ end }}
+</urlset>

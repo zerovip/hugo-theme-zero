@@ -41,7 +41,7 @@ markup:
 #------------------------------------------------------------------------------
 # Set "true" to `list_hide` and `rss_hide` if this post has a secret part.
 #------------------------------------------------------------------------------
-# don't show this post in any list.
+# don't show this post in any list (will also be hide in sitemap.xml).
 list_hide: false
 #------------------------------------------------------------------------------
 # don't show this post in any RSS.

@@ -4,64 +4,69 @@ I 最主体的 html 是 themes/zero/layouts/_default/baseof.html
     I.a 所有网页都是由它生成的.
     I.b 它规定了网页的主体结构：
 ==========1<head>
-==========    1.1<charset>
+==========    1.1<meta> {{ block "head_meta" . }}——一些特殊的 meta 信息放置区，主要是为了 noindex 而设计出来的
 ==========    1.2<title> {{ block "head_title" . }}——因每个页面不一样，留出待填充
 ==========    1.3<css>
-==========    1.4<Google_Analytics>
-==========    1.5<script>
+==========    1.4<script>——ctheme.js，换主题颜色
+==========    1.5<KaTeX>——只有 pandoc 为 markup 的网页才会有
+==========    1.6<Google_Analytics/GoatCounter>
 ==========2<body>
-==========    2.1<script> for MathJax——只有 pandoc 为 markup 的网页才会有
-==========    2.2<bar_for_phone>——宽屏幕时的 CSS 为不显示
-==========        2.2.1<bar_left_botton>
-==========        2.2.2<bar_title>
-==========        2.2.3<bar_right_button>
-==========            2.2.3.1{{ block "bar_toc" . }}——只有 single 页才有内容
-==========    2.3<body_for_pc>
-==========        2.3.1<left>——因为所有网页共有，因此在这里写开
-==========            2.3.1.1<left_non-footer>
-==========                2.3.1.1.1<left_non-footer_option>
-==========                2.3.1.1.1<left_non-footer_head>——小屏幕时的 CSS 为不显示
-==========                    2.3.1.1.1.1<left_non-footer_head_title>
-==========                    2.3.1.1.1.2<left_non-footer_head_subtitle>
-==========                2.3.1.1.2<left_non-footer_main>
-==========            2.3.1.2<left_footer>
-==========                2.3.1.2.1<copyright>
-==========        2.3.2<right>——因 index, 404, list, single 各不相同，故只写出结构
-==========            2.3.2.1{{ block "right_head" . }}
-==========            2.3.2.2{{ block "right_main" . }}
-==========        2.3.3<toc>——因只有 single 页面有其他页面没有，故只写出结构
-==========            2.3.3.1{{ block "toc" . }}
+==========    2.1<bar_for_phone>——宽屏幕时的 CSS 为不显示
+==========        2.1.1<bar_left_botton>
+==========        2.1.2<bar_title>
+==========        2.1.3<bar_right_button>
+==========            2.1.3.1{{ block "bar_toc" . }}——只有 single 页才有内容
+==========    2.2<body_for_pc>
+==========        2.2.1<left>——因为所有网页共有，因此在这里写开
+==========            2.2.1.1<left_non-footer>
+==========                2.2.1.1.1<left_non-footer_option>
+==========                2.2.1.1.2<left_non-footer_head>——小屏幕时的 CSS 为不显示
+==========                    2.3.1.1.2.1<left_non-footer_head_title>
+==========                    2.3.1.1.2.2<left_non-footer_head_subtitle>
+==========                2.2.1.1.3<left_non-footer_main>
+==========            2.2.1.2<left_footer>
+==========                2.2.1.2.1<copyright>
+==========        2.2.2<right>——因 index, 404, list, single 各不相同，故只写出结构
+==========            2.2.2.1{{ block "right_head" . }}
+==========            2.2.2.2{{ block "right_main" . }}
+==========        2.2.3<toc>——因只有 single 页面有其他页面没有，故只写出结构
+==========            2.2.3.1{{ block "toc" . }}
+==========    2.3<script>——main.js
 II 接下来就是几个其他的 html，进一步补充上面的 baseof.html 的信息.
     II.a 主页 themes/zero/layouts/index.html
 ==========定义 主页的 1.2{{ "head_title" }}
-==========定义 主页的 2.3.2.1{{ "right_head" }}
-==========定义 主页的 2.3.2.2{{ "right_main" }}
+==========定义 主页的 2.2.2.1{{ "right_head" }}
+==========定义 主页的 2.2.2.2{{ "right_main" }}
     II.b 404页 themes/zero/layouts/404.html
 ==========定义 404页的 1.2{{ "head_title" }}
-==========定义 404页的 2.3.2.1{{ "right_head" }}
-==========定义 404页的 2.3.2.2{{ "right_main" }}
+==========定义 404页的 2.2.2.1{{ "right_head" }}
+==========定义 404页的 2.2.2.2{{ "right_main" }}
     II.c 列表页 themes/zero/layouts/_default/list.html
 ==========定义 列表页的 1.2{{ "head_title" }}——按所在 section 显示
-==========定义 列表页的 2.3.2.1{{ "right_head" }}
+==========定义 列表页的 2.2.2.1{{ "right_head" }}
 ==========    <right_head_title>——按所在 section 显示
 ==========    <right_head_des>——有一个单独的 md 文件，就像普通文章那样
-==========定义 列表页的 2.3.2.2{{ "right_main" }}
+==========定义 列表页的 2.2.2.2{{ "right_main" }}
 ==========    每篇文章一个 summary，使用 .Render 的方法，而不是 partial.
 ==========    见 https://discourse.gohugo.io/t/hugo-theme-engine-render-vs-partial/3018
 ==========    每个 summary 模块在 themes/zero/layouts/_default/summary.html
     II.d 文章页 themes/zero/layouts/_default/single.html
+==========定义 文章页的 1.1{{ "head_meta" }}，如果需要不被搜索引擎收录，则在这里写上 noindex
 ==========定义 文章页的 1.2{{ "head_title" }}
-==========定义 文章页的 2.2.3.1{{ "bar_toc" }}
-==========定义 文章页的 2.3.2.1{{ "right_head" }}
+==========定义 文章页的 2.1.3.1{{ "bar_toc" }}
+==========定义 文章页的 2.2.2.1{{ "right_head" }}
 ==========    <right_head_title>
 ==========    <right_head_des>
-==========定义 文章页的 2.3.2.2{{ "right_main" }}
+==========定义 文章页的 2.2.2.2{{ "right_main" }}
 ==========    <right_main_article>
+==========        <This_Article>
+==========        <List_of_Other_Articles_in_This_Column>
 ==========    <right_main_notes>——只有有 PDF 文件的才有
+==========    <record>——通过 partial 的方法展示书影音的记录表格，只在特定的两个特殊页面展示
 ==========    <right_main_comments>——使用 partial 方法加载评论模块
 ==========        评论模块在 themes/zero/layouts/partials/comments.html
 ==========        其实这是与 right_main 并列的模块
-==========定义 文章页的 2.3.3.1{{ "toc" }}
+==========定义 文章页的 2.2.3.1{{ "toc" }}
 III 网站样式在 CSS 处，有三个样式表，已使用 CSS3 进行重写，新特性有 flex 布局和 transition 动画.
     III.a 基本样式——themes/zero/static/css/base.css
     III.b 宽屏幕样式——themes/zero/static/css/normal.css

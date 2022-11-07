@@ -24,10 +24,6 @@
     {{ $style_syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
     <link rel='stylesheet' type='text/css' href='{{ $style_syntax.RelPermalink }}' />
 
-    <!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
-    <!--     GitHub：https://github.com/sivan/heti -->
-    <!-- <link rel='stylesheet' href='//unpkg.com/heti/umd/heti.min.css'> -->
-
     <!-- 主题颜色深浅的外链 js -->
     <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
     {{ $cthemeJs := resources.Get "js/ctheme.js" | minify | fingerprint }}
@@ -201,14 +197,6 @@
 <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->
 {{ $mainJs := resources.Get "js/main.js" | minify | fingerprint }}
 <script src='{{ $mainJs.RelPermalink }}'></script>
-
-<!-- 加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/ -->
-<!--     GitHub：https://github.com/sivan/heti -->
-<!-- <script src='//unpkg.com/heti/umd/heti-addon.min.js'></script> -->
-<!-- <script> -->
-<!--     const heti = new Heti('.heti'); -->
-<!--     heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压 -->
-<!-- </script> -->
 
 </body>
 </html>

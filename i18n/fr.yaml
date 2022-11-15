@@ -100,3 +100,6 @@
 
 - id: average_score
   translation: " (mon score moyen est: {{ . }})"
+
+- id: search
+  translation: "Rechercher…"

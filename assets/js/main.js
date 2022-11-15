@@ -11,6 +11,20 @@ function HideBothSide() {
     document.getElementById("toc").classList.remove("toc_show");
 }
 
+// 装载搜索页，单独装载是防止 display: none 造成搜索页闪烁
+const non_footer_zone = document.getElementById("left_non-footer");
+const search_template = document.getElementById("search-zone-template");
+const search_clone = search_template.content.cloneNode(true);
+non_footer_zone.appendChild(search_clone);
+// 搜索页显示隐藏事件
+function AddClassSearch() {
+    document.getElementById("search-zone").classList.add("search_show");
+    document.getElementById("search-input-box").focus();
+}
+function RemoveClassSearch() {
+    document.getElementById("search-zone").classList.remove("search_show");
+}
+
 // 防剧透黑块点击事件
 function ChangeClassBlackBlock(wait_to_change) {
     wait_to_change.classList.toggle("black_block_show");

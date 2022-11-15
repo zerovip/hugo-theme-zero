@@ -20,10 +20,18 @@ I 最主体的 html 是 themes/zero/layouts/_default/baseof.html
 ==========        2.2.1<left>——因为所有网页共有，因此在这里写开
 ==========            2.2.1.1<left_non-footer>
 ==========                2.2.1.1.1<left_non-footer_option>
+==========                    2.2.1.1.1.1<left_non-footer_option_search-icon>——小屏幕时的 CSS 为不显示
+==========                    2.2.1.1.1.2<left_non-footer_option_theme-switch>
+==========                    2.2.1.1.1.3<left_non-footer_option_language>
+==========                    2.2.1.1.1.4<left_non-footer_option_rss>
 ==========                2.2.1.1.2<left_non-footer_head>——小屏幕时的 CSS 为不显示
-==========                    2.3.1.1.2.1<left_non-footer_head_title>
-==========                    2.3.1.1.2.2<left_non-footer_head_subtitle>
+==========                    2.2.1.1.2.1<left_non-footer_head_title>
+==========                    2.2.1.1.2.2<left_non-footer_head_subtitle>
 ==========                2.2.1.1.3<left_non-footer_main>
+==========                2.2.1.1.4<left_non-footer_search>——仅在宽屏幕时显示，作为 template 装载进来的
+==========                    2.2.1.1.4.1<left_non-footer_search_search-box>
+==========                    2.2.1.1.4.2<left_non-footer_search_close-sign>
+==========                    2.2.1.1.4.3<left_non-footer_search_results>
 ==========            2.2.1.2<left_footer>
 ==========                2.2.1.2.1<copyright>
 ==========        2.2.2<right>——因 index, 404, list, single 各不相同，故只写出结构

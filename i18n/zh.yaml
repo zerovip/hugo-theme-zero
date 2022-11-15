@@ -96,3 +96,6 @@
 
 - id: average_score
   translation: "（我的平均打分是：{{ . }}）"
+
+- id: search
+  translation: "搜索……"

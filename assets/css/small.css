@@ -149,6 +149,9 @@ body {
         align-self: flex-end;
     font-size: 0.75rem;
 }
+.left_non-footer_option_search-icon{
+    display: none;
+}
 .left_non-footer_option_theme-switch{
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
@@ -206,6 +209,9 @@ body {
     padding-left: 0.725rem;
     font-size: 1rem; 
     font-weight: 400;
+}
+.left_non-footer_search{
+    display: none;
 }
 .left_footer{
     display: -webkit-box;

@@ -79,9 +79,16 @@
     <!--左边栏-->
     <aside class='left' id='left'>
         <!--非页脚区-->
-        <div class='left_non-footer'>
+        <div class='left_non-footer' id='left_non-footer'>
             <!--选项区-->
             <div class='left_non-footer_option'>
+                <!-- 表示搜索的放大镜图标 -->
+                <div class='left_non-footer_option_search-icon' onclick='AddClassSearch()'>
+                    <!-- 搜索图标，纯 CSS 绘制 -->
+                    <!-- 这里使用的是：https://css-tricks.com/the-shapes-of-css/#aa-magnifying-glass-shape -->
+                    <div class="magnifying-glass"></div>
+                </div>
+
                 <!-- 主题切换部分 -->
                 <div role='checkbox' aria-checked='true' class='left_non-footer_option_theme-switch'>
                     <label class='switch'>
@@ -175,8 +182,8 @@
                     {{ end }}
                 {{end}}
             </nav>
-
         </div>
+
         <!--页脚版权区-->
         <footer class='left_footer'>
             <div class='copyright'>©2019-{{ now.Format "2006" }} {{ i18n "copyright" }}</div>
@@ -192,6 +199,31 @@
     <!--目录部分-->
     {{ block "toc" . }}{{ end }}
 </div>
+
+<!-- 搜索页的 template -->
+<template id="search-zone-template">
+    <!-- 搜索页 -->
+    <div class='left_non-footer_search' id='search-zone'>
+        <!-- 搜索页的顶栏 -->
+        <div class='left_non-footer_search_bar'>
+            <!-- 搜索框 -->
+            <input type='search'
+                id='search-input-box'
+                class='left_non-footer_search_bar_search-box'
+                placeholder='{{ i18n "search" }}'
+                autocomplete='off'>
+
+            <!-- 关闭的叉号 -->
+            <div class='left_non-footer_search_bar_close-sign' onclick='RemoveClassSearch()'>
+                <!-- 纯 CSS 绘制，见：https://cssicon.space/#/icon/close -->
+                <div class="close-sign"></div>
+            </div>
+        </div>
+
+        <!-- 搜索结果 -->
+        <div class='left_non-footer_search_results'>搜索结果（施工中）</div>
+    </div>
+</template>
 
 <!-- 外链 js -->
 <!-- 使用了 Hugo Pipes 来 minify 静态文件 -->

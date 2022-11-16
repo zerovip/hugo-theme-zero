@@ -39,7 +39,11 @@ I 最主体的 html 是 themes/zero/layouts/_default/baseof.html
 ==========        2.2.2<right>——因 index, 404, list, single 各不相同，故只写出结构
 ==========            2.2.2.1{{ block "right_head" . }}
 ==========            2.2.2.2{{ block "right_main" . }}
-==========            2.2.2.3<right_search>
+==========            2.2.2.3<right_search>——仅在小屏幕时显示，作为 template 装载进来的
+==========                2.2.2.3.1<search_bar>
+==========                    2.2.2.3.1.1<search_bar_search-box>
+==========                    2.2.2.3.1.2<search_bar_close-sign>
+==========                2.2.2.3.2<search_results>
 ==========        2.2.3<toc>——因只有 single 页面有其他页面没有，故只写出结构
 ==========            2.2.3.1{{ block "toc" . }}
 ==========    2.3<script>——main.js

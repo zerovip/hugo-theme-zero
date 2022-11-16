@@ -2,7 +2,7 @@
 
 My hugo theme made by myself. It was written for personal blogs. I am the first and only user of it as far as I know (you can treat [my blog](https://zerovip.github.io/) as a demo website). I don’t have time or interest to introduce my theme completely and tell everything about how to use it, so it will be VERY difficult if you want to try — you have to read the codes to understand what I am doing. You better find another theme if you are a complete beginner.
 
-The philosophy of this theme is to be as simple and small as possible, with no advanced front-end technology: no Sass (Scss), no Node.js, no NPM, and no jQuery. I wrote every line of code from the scratch. It only relies on pure CSS and vanilla JavaScript. Its JavaScript code is less than 100 lines. So it will be absolutely easy if you want to adjust or modify this theme.
+The philosophy of this theme is to be as simple and small as possible, with no advanced front-end technology: no Sass (Scss), no Node.js, no NPM, and no jQuery. I wrote every line of code from the scratch. It only relies on pure CSS and vanilla JavaScript. Its JavaScript code is less than 200 lines. So it will be absolutely easy if you want to adjust or modify this theme.
 
 I noticed that in most other themes, tags and categories are used to classify posts, which is a mess IMHO. Using menu entry, this theme only focuses on sections, and it supports 2 layers of sections. (Note that the [“Lazy Blogger” mode](https://gohugo.io/templates/menu-templates/#section-menu-for-lazy-bloggers) supports only one layer, i.e., top-level menu, and it doesn’t support multilingual.) 
 

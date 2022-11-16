@@ -66,6 +66,11 @@
             <div class='bar3'></div>
         </div>
     </div>
+    <div class='bar_search-box' onclick='AddClassSearch("right")'>
+        <!-- 搜索图标，纯 CSS 绘制 -->
+        <!-- 这里使用的是：https://css-tricks.com/the-shapes-of-css/#aa-magnifying-glass-shape -->
+        <div class="magnifying-glass"></div>
+    </div>
     <div class='bar_title'>
         <a href='{{ "/" | relLangURL }}'>{{ .Site.Title }}</a>
     </div>
@@ -83,7 +88,7 @@
             <!--选项区-->
             <div class='left_non-footer_option'>
                 <!-- 表示搜索的放大镜图标 -->
-                <div class='left_non-footer_option_search-icon' onclick='AddClassSearch()'>
+                <div class='left_non-footer_option_search-icon' onclick='AddClassSearch("left_non-footer")'>
                     <!-- 搜索图标，纯 CSS 绘制 -->
                     <!-- 这里使用的是：https://css-tricks.com/the-shapes-of-css/#aa-magnifying-glass-shape -->
                     <div class="magnifying-glass"></div>
@@ -191,7 +196,7 @@
     </aside>
 
     <!--右边主要部分-->
-    <div class='right' onclick='HideBothSide()'>
+    <div class='right' id='right' onclick='HideBothSide()'>
         {{ block "right_head" . }}{{ end }}
         {{ block "right_main" . }}{{ end }}
     </div>
@@ -202,26 +207,30 @@
 
 <!-- 搜索页的 template -->
 <template id="search-zone-template">
-    <!-- 搜索页 -->
-    <div class='left_non-footer_search' id='search-zone'>
+    <!-- 搜索页，这里的 class 是在 main.js 中装载 template 时才添加的，
+    按需添加（添加到左边是 left_non-footer_search，添加到右边是 right_search），
+    这样能够做到 template 的代码复用。实际的显示是利用 CSS，根据这两个不同的
+    class 控制左右两边的这个部分分别是否显示。
+    -->
+    <div class='' id='search-zone'>
         <!-- 搜索页的顶栏 -->
-        <div class='left_non-footer_search_bar'>
+        <div class='search_bar'>
             <!-- 搜索框 -->
             <input type='search'
                 id='search-input-box'
-                class='left_non-footer_search_bar_search-box'
+                class='search_bar_search-box'
                 placeholder='{{ i18n "search" }}'
                 autocomplete='off'>
 
             <!-- 关闭的叉号 -->
-            <div class='left_non-footer_search_bar_close-sign' onclick='RemoveClassSearch()'>
+            <div class='search_bar_close-sign' onclick='RemoveClassSearch(this)'>
                 <!-- 纯 CSS 绘制，见：https://cssicon.space/#/icon/close -->
                 <div class="close-sign"></div>
             </div>
         </div>
 
         <!-- 搜索结果 -->
-        <div class='left_non-footer_search_results'>搜索结果（施工中）</div>
+        <div class='search_results'>搜索结果（施工中）</div>
     </div>
 </template>
 

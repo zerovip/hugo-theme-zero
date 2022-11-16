@@ -49,7 +49,7 @@ body {
     margin-top: 0.15rem;
     margin-bottom: 0.15rem;
 }
-.bar_title{
+.bar_search-box{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -59,25 +59,72 @@ body {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.magnifying-glass{
+    font-size: 20rem;
+    display: inline-block;
+    width: 0.8rem;
+    box-sizing: content-box;
+    height: 0.8rem;
+    border: 0.2rem solid var(--c-normal-font);
+    position: relative;
+    border-radius: 0.7rem;
+}
+.magnifying-glass:hover{
+    border-color: var(--c-background);
+    cursor: pointer;
+}
+.magnifying-glass:before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -0.5rem;
+    bottom: -0.2rem;
+    border-width: 0;
+    background: var(--c-normal-font);
+    width: 0.7rem;
+    height: 0.16rem;
+    transform: rotate(45deg);
+}
+.magnifying-glass:hover::before{
+    background: var(--c-background);
+}
+.bar_title{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;/*上下的中间*/
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;/*左右的右边*/
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    padding-left: 1rem;
-    font-size: 1.375rem;
+    padding-right: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 .bar_right_button{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
 }
 .toc_title_for_bar{
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 .body_for_pc{
@@ -505,11 +552,11 @@ body {
 .right_main_article-des-sum{
     font-size: 0.8rem;
 }
-.right_main_notes{
+/* .right_main_notes{ */
     /* 注释掉以防在 front matter 有 content 的列表页
      * 顺序错乱 */
     /*order: 2;*/
-}
+/* } */
 .right_comments{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -525,6 +572,75 @@ body {
         flex-shrink: 0;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
+}
+.right_search{
+    display: none;
+    background-color: var(--c-table_even);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    /* overflow-y: auto; */
+}
+.right_search.search_show{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.search_bar{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+.search_bar_search-box{
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-left: 0.8rem;
+    margin-right: 1.35rem;
+}
+.search_bar_close-sign{
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+}
+.search_results{
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
 }
 .toc{
     display: none;

@@ -210,6 +210,9 @@ a:hover{
 .bar_left_button{
     background-color: var(--c-bar_side);
 }
+.bar_search-box{
+    background-color: var(--c-bar_middle);
+}
 .bar_title{
     background-color: var(--c-bar_middle);
 }
@@ -501,6 +504,52 @@ strong span{
 .right_comments{
     border-top: 0.375rem var(--c-thin-line) solid;
 }
+.search_bar_search-box{
+    background-color: var(--c-table_odd);
+    border: 0.1rem solid var(--c-normal-font);
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+}
+.search_bar_close-sign{
+    padding-left: 0.35rem;
+    padding-right: 1.35rem;
+}
+.close-sign{
+    color: var(--c-normal-font);
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.close-sign:hover{
+    color: var(--c-thick-font);
+    cursor: pointer;
+}
+.close-sign:before{
+    content: '';
+    position: absolute;
+    top: 0.8rem;
+    width: 1.6rem;
+    height: 0.2rem;
+    background-color: currentColor;
+    -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+}
+.close-sign:after{
+    content: '';
+    position: absolute;
+    top: 0.8rem;
+    width: 1.6rem;
+    height: 0.2rem;
+    background-color: currentColor;
+    -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+}
+.search_results{
+    padding-top: 0.5rem;
+    padding-bottom: 2.35rem;
+}
 .toc_title{
     background-color: var(--c-bar_side);
     color: var(--c-bar-toc_fg);
@@ -562,9 +611,9 @@ strong span{
 .right_main_article h5{
     counter-reset: h6counter;
 }
-.right_main_article h6{
+/* .right_main_article h6{ */
     /* nothing for counter */
-}
+/* } */
 /* 上面是标题计数器 */
 /* 下面是文章标题计数显示 */
 .right_main_article h1:before {

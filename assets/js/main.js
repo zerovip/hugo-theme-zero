@@ -1,3 +1,4 @@
+'use strict'
 // 小屏幕顶部的两条点击事件
 function ChangeClassLeft() {
     document.getElementById("left").classList.toggle("left_show");
@@ -8,21 +9,32 @@ function ChangeClassTOC() {
 }
 function HideBothSide() {
     document.getElementById("left").classList.remove("left_show");
-    document.getElementById("toc").classList.remove("toc_show");
+    const toc_el = document.getElementById("toc");
+    if (toc_el != null) {
+        toc_el.classList.remove("toc_show");
+    }
 }
 
 // 装载搜索页，单独装载是防止 display: none 造成搜索页闪烁
-const non_footer_zone = document.getElementById("left_non-footer");
+// 先装载模板
 const search_template = document.getElementById("search-zone-template");
-const search_clone = search_template.content.cloneNode(true);
-non_footer_zone.appendChild(search_clone);
-// 搜索页显示隐藏事件
-function AddClassSearch() {
-    document.getElementById("search-zone").classList.add("search_show");
-    document.getElementById("search-input-box").focus();
+function loadTemplate(prefix) {
+    var container = document.getElementById(prefix);
+    var search_clone = search_template.content.cloneNode(true);
+    search_clone.getElementById("search-zone").classList.add(prefix + "_search");
+    search_clone.getElementById("search-input-box").id = prefix + "_search-input-box";
+    search_clone.getElementById("search-zone").id = prefix + "_search";
+    container.appendChild(search_clone);
 }
-function RemoveClassSearch() {
-    document.getElementById("search-zone").classList.remove("search_show");
+loadTemplate("left_non-footer");
+loadTemplate("right");
+// 搜索页显示隐藏事件
+function AddClassSearch(prefix) {
+    document.getElementById(prefix + "_search").classList.add("search_show");
+    document.getElementById(prefix + "_search-input-box").focus();
+}
+function RemoveClassSearch(close_sign) {
+    close_sign.parentNode.parentNode.classList.remove("search_show");
 }
 
 // 防剧透黑块点击事件

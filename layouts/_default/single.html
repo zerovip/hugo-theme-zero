@@ -16,11 +16,11 @@
 
 {{ define "right_head" }}
     <header class="right_head">
-        <div class="right_head_title">
+        <div data-pagefind-meta="title" class="right_head_title">
             {{ .Title }}
         </div>
-        <div class="right_head_des">
-            {{ .Date | time.Format ":date_long" }} - {{ .WordCount }} {{ i18n "count" .WordCount }}
+        <div data-pagefind-ignore class="right_head_des">
+            <span data-pagefind-meta="date">{{ .Date | time.Format ":date_long" }}</span> - {{ .WordCount }} {{ i18n "count" .WordCount }}
         </div>
     </header>
 {{ end }}
@@ -38,8 +38,8 @@
             <!-- 如果勤奋的话搞一个大于 2 时再弄，只有 1 篇时不弄，就是提前 range 一遍呗 -->
             {{ if .Params.column }}
                 <p></p><p></p><p></p><p></p><p></p><p></p>
-                <h1>{{ i18n "other-articles" }}</h1>
-                <ol>
+                <h1 data-pagefind-ignore>{{ i18n "other-articles" }}</h1>
+                <ol data-pagefind-ignore>
                     {{ $currentNode := . }}
                     {{ $.Scratch.Set "counter" 1 }}
                     {{ range .Site.Pages.ByDate }}
@@ -58,7 +58,7 @@
         </article>
         <!-- 下面是数学笔记的 PDF 显示部分 -->
         {{ with .Params.file_path }}
-            <div class="right_main_notes">
+            <div data-pagefind-ignore class="right_main_notes">
                 <p>{{ i18n "not-show" }}<a href="{{ . }}">{{ i18n "here" }}</a>{{ i18n "download" }}.</p>
                 <embed src="{{ . }}" width="100%" height="800" type="application/pdf"/>
                 <br/><br/><br/><br/><br/>
@@ -69,7 +69,7 @@
     </div>
     {{ if not .Site.IsServer }}
     <!--本地测试时不加载评论区-->
-        <div class="right_comments">
+        <div data-pagefind-ignore class="right_comments">
             {{ partial "comments.html" . }}
         </div>
     {{ end }}
@@ -79,7 +79,7 @@
     {{ if and
         (and (gt .WordCount 400) (ne .Params.no_toc true))
         (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") }}
-        <aside class='toc' id='toc'>
+        <aside data-pagefind-ignore class='toc' id='toc'>
             <button class='toc_title'>{{ i18n "toc" }}</button>
             <div class='toc_content'>
                 {{ .TableOfContents }}

@@ -171,15 +171,23 @@
             <nav class='left_non-footer_main'>
                 {{ $currentNode := . }}
                 {{ range .Site.Menus.main }} {{/* 确保和config中的一级标题的主菜单一致，下面也是 */}}
-                    <div  class='h1 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
-                    or (eq .Identifier $currentNode.Section) }}active{{ end }}'>
+                    {{ $if_1_on :=  0 }}
+                    {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
+                    or (eq .Identifier $currentNode.Section) }}
+                        {{ $if_1_on = 1 }}
+                    {{ end }}
+                    <div {{ if $if_1_on }}data-pagefind-filter='1st-section'{{ end }} class='h1 {{ if $if_1_on }}active{{ end }}'>
                         <a href='{{ .URL }}'>{{ .Name }}</a>
                     </div>
                     {{ if .HasChildren }}
                         {{ range .Children }}
-                            {{ if ne .Identifier ""}}
-                                <div class='h2 {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
-                                or (eq .Identifier $currentNode.Params.section) }}active{{ end }}'>
+                            {{ if ne .Identifier "" }}
+                                {{ $if_2_on := 0 }}
+                                {{ if eq .Identifier (path.Base $currentNode.RelPermalink) |
+                                or (eq .Identifier $currentNode.Params.section) }}
+                                    {{ $if_2_on = 1 }}
+                                {{ end }}
+                                <div {{ if $if_2_on }}data-pagefind-filter='2nd-section'{{ end }} class='h2 {{ if $if_2_on }}active{{ end }}'>
                                     <a href='{{ .URL }}'>{{ .Name }} </a>
                                 </div>
                             {{ end }}
@@ -196,7 +204,9 @@
     </aside>
 
     <!--右边主要部分-->
-    <div class='right' id='right' onclick='HideBothSide()'>
+    <div
+    {{ if .IsPage }}data-pagefind-body{{ end }}
+    class='right' id='right' onclick='HideBothSide()'>
         {{ block "right_head" . }}{{ end }}
         {{ block "right_main" . }}{{ end }}
     </div>

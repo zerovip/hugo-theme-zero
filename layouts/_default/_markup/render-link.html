@@ -19,7 +19,7 @@ About noopener, no refferrer, see
 >
     {{- .Text | safeHTML -}}
     {{- if strings.HasPrefix .Destination "http" -}}
-        <b><sub>⧉</sub></b>
+        <b><sub data-pagefind-ignore>⧉</sub></b>
     {{- end -}}
 </a>
 {{- /* This comment removes the ultra space */ -}}

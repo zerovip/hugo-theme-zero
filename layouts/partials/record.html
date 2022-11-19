@@ -21,10 +21,14 @@
                     {{ $total_score_book = add $total_score_book (div (len .my_score) 1.5) }}
                 {{ end }}
             {{ end }}
-            <p style="color: var(--c-read); margin: auto;">-----</p>
-            <p style="color: var(--c-read); margin: auto;">{{ i18n "total_book" (len $value.book) }}</p>
-            <p style="color: var(--c-read); margin: auto;">{{ i18n "average_score" ((div (add $total_score_book 0.0) (len $value.book)) | lang.FormatNumber 2) }}</p>
-            <p style="color: var(--c-read); margin: auto;">-----</p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">-----</p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">
+                {{ i18n "total_book" (len $value.book) }}
+            </p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">
+                {{ i18n "average_score" ((div (add $total_score_book 0.0) (len $value.book)) | lang.FormatNumber 2) }}
+            </p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">-----</p>
             <div class="record-table-wrapper">
                 <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>
@@ -43,36 +47,39 @@
                         {{ range $value.book }}
                             {{ if ne (substr .mark_date 0 4) $curr_year }}
                                 {{ $curr_year = (substr .mark_date 0 4) }}
-                                <tr>
+                                <tr data-pagefind-ignore>
                                     <td class="record-total-cell" colspan="4">
                                         {{ i18n "year_record" ($curr_year) }}{{ i18n "total_book" (index $book_overview $curr_year) }}
                                     </td>
                                 </tr>
                             {{ end }}
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "book_title" }}
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
+                                <td class="record-{{ $eoo }}-cell"><span data-pagefind-ignore>{{ i18n "book_title" }}</span>
                                     {{- if .link -}}
                                         <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{- .title -}}<b>⧉ </b></a>
                                     {{- else -}}
                                         {{- .title -}}
                                     {{- end -}}
                                 </td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ substr .mark_date 0 10 | time.Format ":date_long" }}</td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ substr .mark_date 0 10 | time.Format ":date_long" }}</td>
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
                             </tr>
                             <tr>
                                 <td class="record-blank-cell" rowspan="4"></td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "author" }}{{ .author }}</td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">{{ i18n "my_comment" }}{{ .my_comment | markdownify }}</td>
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell">{{ i18n "author" }}{{ .author }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">
+                                    <span data-pagefind-ignore>{{ i18n "my_comment" }}</span>
+                                    {{ .my_comment | markdownify }}
+                                </td>
                             </tr>
-                            <tr>
+                            <tr data-pagefind-ignore>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "public_year" }}{{ .public_year }}</td>
                             </tr>
-                            <tr>
+                            <tr data-pagefind-ignore>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "press" }}{{ .press }}</td>
                             </tr>
-                            <tr>
+                            <tr data-pagefind-ignore>
                                 <td class="record-{{ $eoo }}-cell">ISBN：{{ .isbn }}</td>
                             </tr>
                             {{ $curr_num = sub $curr_num 1 }}
@@ -105,10 +112,14 @@
                     {{ $total_score_film = add $total_score_film (div (len .my_score) 1.5) }}
                 {{ end }}
             {{ end }}
-            <p style="color: var(--c-read); margin: auto;">-----</p>
-            <p style="color: var(--c-read); margin: auto;">{{ i18n "total_film" (len $value.film) }}</p>
-            <p style="color: var(--c-read); margin: auto;">{{ i18n "average_score" ((div (add $total_score_film 0.0) (len $value.film)) | lang.FormatNumber 2) }}</p>
-            <p style="color: var(--c-read); margin: auto;">-----</p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">-----</p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">
+                {{ i18n "total_film" (len $value.film) }}
+            </p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">
+                {{ i18n "average_score" ((div (add $total_score_film 0.0) (len $value.film)) | lang.FormatNumber 2) }}
+            </p>
+            <p data-pagefind-ignore style="color: var(--c-read); margin: auto;">-----</p>
             <div class="record-table-wrapper">
                 <table style="undefined; table-layout: fixed; width: 1000px; margin: auto; border-collapse: collapse;">
                     <colgroup>
@@ -128,37 +139,46 @@
                         {{ range $value.film }}
                             {{ if ne (substr .mark_date 0 4) $curr_year }}
                                 {{ $curr_year = (substr .mark_date 0 4) }}
-                                <tr>
+                                <tr data-pagefind-ignore>
                                     <td class="record-total-cell" colspan="5">
                                         {{ i18n "year_record" ($curr_year) }}{{ i18n "total_film" (index $film_overview $curr_year) }}
                                     </td>
                                 </tr>
                             {{ end }}
                             <tr>
-                                <td class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "film_title" }}
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell">{{ $curr_num }}</td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2"><span data-pagefind-ignore>{{ i18n "film_title" }}</span>
                                     {{- if .link -}}
                                         <a href="{{ .link }}" target="_blank" rel="noreferrer noopener">{{- .title -}}<b>⧉ </b></a>
                                     {{- else -}}
                                         {{- .title -}}
                                     {{- end -}}
                                 </td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "mark_date" }}{{ substr .mark_date 0 10 | time.Format ":date_long" }}</td>
-                                <td class="record-{{ $eoo }}-cell">{{ i18n "my_score" }}{{ .my_score }}</td>
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell">
+                                    {{ i18n "mark_date" }}{{ substr .mark_date 0 10 | time.Format ":date_long" }}
+                                </td>
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell">
+                                    {{ i18n "my_score" }}{{ .my_score }}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="record-blank-cell" rowspan="4"></td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "ori_name" }}{{ .ori_name }}</td>
-                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">{{ i18n "my_comment" }}{{ .my_comment | markdownify }}</td>
+                                <td data-pagefind-ignore class="record-{{ $eoo }}-cell" colspan="2">
+                                    {{ i18n "ori_name" }}{{ .ori_name }}
+                                </td>
+                                <td class="record-{{ $eoo }}-cell" colspan="2" rowspan="4">
+                                    <span data-pagefind-ignore>{{ i18n "my_comment" }}</span>
+                                    {{ .my_comment | markdownify }}
+                                </td>
                             </tr>
-                            <tr>
+                            <tr data-pagefind-ignore>
                                 <td class="record-{{ $eoo }}-cell" colspan="2">{{ i18n "director" }}{{ .director }}</td>
                             </tr>
-                            <tr>
+                            <tr data-pagefind-ignore>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "film_type" }}{{ .film_type }}</td>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "produce_country" }}{{ .produce_country }}</td>
                             </tr>
-                            <tr>
+                            <tr data-pagefind-ignore>
                                 <td class="record-{{ $eoo }}-cell">{{ i18n "public_year" }}{{ .public_year }}</td>
                                 <td class="record-{{ $eoo }}-cell">IMDB：
                                     {{- if .imdb_id -}}

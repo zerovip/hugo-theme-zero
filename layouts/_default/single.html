@@ -17,7 +17,7 @@
 {{ define "right_head" }}
     <header class="right_head">
         <div data-pagefind-meta="title" class="right_head_title">
-            {{ .Title }}
+            {{- .Title -}}
         </div>
         <div data-pagefind-ignore class="right_head_des">
             <span data-pagefind-meta="date">{{ .Date | time.Format ":date_long" }}</span> - {{ .WordCount }} {{ i18n "count" .WordCount }}

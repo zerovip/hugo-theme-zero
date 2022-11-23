@@ -22,8 +22,8 @@ function HideBothSide() {
 // 装载模板的函数
 const search_template = document.getElementById("search-zone-template");
 function loadTemplate(prefix) {
-    var container = document.getElementById(prefix);
-    var search_clone = search_template.content.cloneNode(true);
+    let container = document.getElementById(prefix);
+    let search_clone = search_template.content.cloneNode(true);
     search_clone.getElementById("search-zone").classList.add(prefix + "_search");
     search_clone.getElementById("search-input-box").id = prefix + "_search-input-box";
     search_clone.getElementById("search-zone").id = prefix + "_search";
@@ -34,11 +34,33 @@ loadTemplate("left_non-footer");
 loadTemplate("right");
 
 // Pagefind 搜索功能
-async function PagefindSearch(text) {
+async function PagefindSearch(text, canvas) {
     const pagefind = await import("/_pagefind/pagefind.js");
     const search = await pagefind.search(text);
-    const fiveResults = await Promise.all(search.results.slice(0, 5).map(r => r.data()));
-    console.log(fiveResults);
+    const result_zone = canvas;
+    // 先清空结果显示区域
+    result_zone.innerHTML = "";
+    for (const result of search.results) {
+        // 解析搜索结果
+        let result_data = await result.data();
+        // 获取结果模板
+        let result_template = document.getElementById("search-result");
+        let result_clone = result_template.content.cloneNode(true);
+        // 渲染模板中结果项目的标题、链接和内容
+        let result_item = result_clone.querySelectorAll("div")[0];
+        result_item.setAttribute("onclick", "location.href='" + result_data.url + "';");
+        let result_divs = result_item.querySelectorAll("div");
+        result_divs[0].textContent = result_data.meta.title;
+        result_divs[1].innerHTML = result_data.excerpt;
+        // 渲染模板中结果项目的日期和所属 section
+        let result_tags = result_divs[2].querySelectorAll("div");
+        result_tags[0].textContent = result_data.meta.date;
+        let section1 = result_data.filters["1st-section"][0];
+        let section2 = result_data.filters["2nd-section"][0];
+        result_tags[1].textContent = section1 + " > " + section2;
+        // 将模板加载进结果显示区域
+        result_zone.appendChild(result_clone);
+    }
 }
 
 // 搜索页的打开与搜索
@@ -58,7 +80,8 @@ function startSearch(prefix) {
             clearTimeout(search_timeout);
             search_timeout = setTimeout(function () {
                 if (search_input.value !== "") {
-                    PagefindSearch(search_input.value);
+                    let render_canvas = search_input.parentNode.nextElementSibling;
+                    PagefindSearch(search_input.value, render_canvas);
                 }
             }, 600);
         });
@@ -83,7 +106,7 @@ function ut_change_to_light_mode() {
             type: "set-theme",
             theme: "github-light"
         };
-        var utterances = document.querySelector("iframe");
+        let utterances = document.querySelector("iframe");
         utterances.contentWindow.postMessage(message, "https://utteranc.es");
     }
     catch(err) {}
@@ -94,7 +117,7 @@ function ut_change_to_dark_mode() {
             type: "set-theme",
             theme: "github-dark"
         };
-        var utterances = document.querySelector("iframe");
+        let utterances = document.querySelector("iframe");
         utterances.contentWindow.postMessage(message, "https://utteranc.es");
     }
     catch(err) {}

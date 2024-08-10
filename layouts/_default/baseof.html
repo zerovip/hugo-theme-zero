@@ -49,7 +49,7 @@
     {{ end }}
 
     <!--Google Analytics 部分以及 GoatCounter 部分-->
-    {{ if not .Site.IsServer }}
+    {{ if not hugo.IsServer }}
         {{ template "_internal/google_analytics.html" . }}
         <script data-goatcounter='https://{{ .Param "GoatCounterName" }}.goatcounter.com/count'
         async src='//gc.zgo.at/count.js'></script>
@@ -139,7 +139,7 @@
                 <div class='left_non-footer_option_rss'>
                     {{ if .IsNode }}
                         <div class='left_non-footer_option_active'>
-                            <a href='{{ if not .Site.IsServer }}{{ .Param "baseURL" }}{{ end }}{{ .RelPermalink }}index.xml'>
+                            <a href='{{ if not hugo.IsServer }}{{ .Param "baseURL" }}{{ end }}{{ .RelPermalink }}index.xml'>
                                 {{ i18n "rss_feed" }}
                                 <img src='/images/rss.png' alt='RSS icon' />
                             </a>

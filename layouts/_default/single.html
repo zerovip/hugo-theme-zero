@@ -67,7 +67,7 @@
         <!-- 下面是看过的书和电影那两个特殊页的表格展示 -->
         {{ partial "record.html" . }}
     </div>
-    {{ if not .Site.IsServer }}
+    {{ if not hugo.IsServer }}
     <!--本地测试时不加载评论区-->
         <div data-pagefind-ignore class="right_comments">
             {{ partial "comments.html" . }}

@@ -11,7 +11,7 @@
             {{ end }}
         {{ end }}
     {{ end }}
-{{ end }} 
+{{ end }}
 
 {{ define "rss_main" }}
     {{ $currentNode := . }}
@@ -22,8 +22,8 @@
                     <title>{{ .Title }}</title>
                     <link>{{ .Param "baseURL" }}{{ .RelPermalink }}</link>
                     <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" | safeHTML }}</pubDate>
-                    {{ with .Site.Author.email }}
-                        <author>{{ . }}{{ with $.Site.Author.name }} ({{ . }}){{ end }}</author>
+                    {{ with site.Params.author.email }}
+                        <author>{{ . }}{{ with site.Params.author.name }} ({{ . }}){{ end }}</author>
                     {{end}}
                     <guid isPermaLink="false">{{ .RelPermalink }}</guid>
                     <description>{{ .Content | html }}</description>
@@ -37,8 +37,8 @@
                             <title>{{ .Title }}</title>
                             <link>{{ .Param "baseURL" }}{{ .RelPermalink }}</link>
                             <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" | safeHTML }}</pubDate>
-                            {{ with .Site.Author.email }}
-                                <author>{{ . }}{{ with $.Site.Author.name }} ({{ . }}){{ end }}</author>
+                            {{ with site.Params.author.email }}
+                                <author>{{ . }}{{ with site.Params.author.name }} ({{ . }}){{ end }}</author>
                             {{end}}
                             <guid isPermaLink="false">{{ .RelPermalink }}</guid>
                             <description>{{ .Content | html }}</description>

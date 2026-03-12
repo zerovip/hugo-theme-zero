@@ -11,14 +11,14 @@
         {{ with .Site.LanguageCode }}
             <language>{{ . }}</language>
         {{end}}
-        {{ with .Site.Author.email }}
+        {{ with site.Params.author.email }}
             <managingEditor>{{ . }}
-                {{ with $.Site.Author.name }} ({{ . }}){{ end }}
+                {{ with site.Params.author.name }} ({{ . }}){{ end }}
             </managingEditor>
         {{end}}
-        {{ with .Site.Author.email }}
+        {{ with site.Params.author.email }}
             <webMaster>{{ . }}
-                {{ with $.Site.Author.name }} ({{ . }}){{ end }}
+                {{ with site.Params.author.name }} ({{ . }}){{ end }}
             </webMaster>
         {{end}}
         {{ with .Site.Copyright }}
@@ -36,4 +36,4 @@
         -->
         {{ block "rss_main" . }}{{ end }}
     </channel>
-</rss> 
+</rss>

@@ -1,5 +1,5 @@
 {{ $curr_page := . }}
-{{ range $key, $value := $.Site.Data }}
+{{ range $key, $value := hugo.Data }}
     {{ if eq $key $curr_page.Language.Lang }}
 
         {{ if eq ($curr_page.Param "menu.main.identifier") "book" }}
@@ -201,4 +201,3 @@
 
     {{ end }}
 {{ end }}
-

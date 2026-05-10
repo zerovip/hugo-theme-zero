@@ -117,18 +117,18 @@
                     {{ range $.Site.Home.AllTranslations }}
                         {{ if (eq .Language.Lang $curr_lang) }}
                             <li role='option' aria-selected='true' class='left_non-footer_option_active'>
-                                {{ .Language.LanguageName }} ⦿ 
+                                {{ .Language.Label }} ⦿ 
                             </li>
                         {{ else }}
                             {{ if (index $curr_trans_dict .Language.Lang) }}
                                 <li role='option' aria-selected='false' class='left_non-footer_option_non-active'>
                                     <a href='{{ index $curr_trans_dict .Language.Lang }}'>
-                                        {{ .Language.LanguageName }} ○ 
+                                        {{ .Language.Label }} ○ 
                                     </a>
                                 </li>
                             {{ else }}
                                 <li role='option' class='left_non-footer_option_non-active'>
-                                    {{ .Language.LanguageName }} ⨂ 
+                                    {{ .Language.Label }} ⨂ 
                                 </li>
                             {{ end }}
                         {{ end }}

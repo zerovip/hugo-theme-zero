@@ -8,7 +8,7 @@
             {{ i18n "recent_content" }} | {{ block "rss_title" . }}{{ end }} | {{ .Site.Title }}
         </description>
         <generator>Hugo -- gohugo.io</generator>
-        {{ with .Site.LanguageCode }}
+        {{ with .Site.Language.Locale }}
             <language>{{ . }}</language>
         {{end}}
         {{ with site.Params.author.email }}

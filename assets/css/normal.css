@@ -1,167 +1,46 @@
-/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
-body {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-}
+/* normal.css：屏幕宽度 ≥ 1201px（桌面、平板横屏）专用。
+ * 共用的结构声明（display / flex-direction / order 等）都在 base.css 里，
+ * 这里只保留大屏特有的布局和数值。
+ * 左右两栏的高度不再单独写：base.css 里 body 固定为可视高度，
+ * .body_for_pc 占满 body，两栏靠 flex 的 stretch 自动等高。 */
+
+/* ===== 顶栏：大屏不显示 ===== */
 .bar_for_phone{
     display: none;
 }
-.body_for_pc{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-}
+
+/* ===== 左边栏：固定在左侧 ===== */
+/* 下面注释掉的是让右边动、左边固定的方案 1（position: sticky），
+ * 浏览器支持可能不好，因此不采用；现在用的是方案 2：右边 overflow-y: auto。 */
 .left{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /* 下面四行是为了让右边动，左边固定住的，这是方案1 */
-    /*position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;*/
-    /* 这个方案可能浏览器支持不好，因此不采用 */
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
     width: 25vw;
-    height: 100vh;
     margin-left: 0.5vw;
     position: relative;
     z-index: 1;
 }
-.left_non-footer{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-}
-.left_non-footer_option{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-}
 .left_non-footer_option_search-icon{
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
     padding-top: 0.35rem;
     padding-bottom: 0.35rem;
     padding-right: 0.1rem;
 }
-.magnifying-glass{
-    font-size: 20rem;
-    display: inline-block;
-    width: 0.8rem;
-    box-sizing: content-box;
-    height: 0.8rem;
-    border: 0.2rem solid var(--c-normal-font);
-    position: relative;
-    border-radius: 0.7rem;
-}
 .magnifying-glass:hover{
     border-color: var(--c-thick-font);
-    cursor: pointer;
-}
-.magnifying-glass:before{
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: -0.5rem;
-    bottom: -0.2rem;
-    border-width: 0;
-    background: var(--c-normal-font);
-    width: 0.7rem;
-    height: 0.16rem;
-    transform: rotate(45deg);
 }
 .magnifying-glass:hover::before{
     background: var(--c-thick-font);
 }
-.left_non-footer_option_theme-switch{
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    padding-top: 0.35rem;
-    padding-bottom: 0.35rem;
-}
-.left_non-footer_option_language{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    padding-top: 0.35rem;
-    padding-bottom: 0.35rem;
-}
-.left_non-footer_option_rss{
-    -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-            order: 4;
-    padding-top: 0.35rem;
-    padding-bottom: 0.35rem;
-}
 .left_non-footer_head{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    flex-direction: column;
+    order: 2;
     padding-top: 0.75rem;
     padding-bottom: 0.125rem;
 }
 .left_non-footer_head_title{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    -ms-flex-item-align: center;
-        align-self: center;
+    order: 1;
+    align-self: center;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     margin-left: 2rem;
@@ -170,30 +49,13 @@ body {
     font-weight: 900;
 }
 .left_non-footer_head_subtitle{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    order: 2;
+    align-self: flex-end;
     margin-right: 20%;
     padding-top: 0.02rem;
     font-size: 1.3rem;
     font-weight: 700;
-}
-.left_non-footer_main{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
 }
 .left_non-footer .h1{
     padding-top: 1.1rem;
@@ -204,257 +66,97 @@ body {
 .left_non-footer .h2{
     padding-top: 0.2rem;
     padding-left: 0.725rem;
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     font-weight: 500;
 }
+
+/* ===== 搜索：面板显示在左边栏里 ===== */
 .left_non-footer_search{
-    display: none;
     background-color: var(--c-table_even);
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     margin-top: -1rem;
-    /* overflow-y: auto; */
 }
 .left_non-footer_search.search_show{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 .search_bar{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-flex: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
     padding-top: 1.3rem;
     padding-bottom: 2.6rem;
     padding-left: 1.3rem;
     padding-right: 1rem;
 }
 .search_bar_search-box{
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    order: 1;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
 }
 .search_bar_close-sign{
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    -webkit-box-flex: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
+    order: 2;
 }
-.search_results{
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-}
-.search_results_item{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-}
-.search_results_item_title{
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-}
-.search_results_item_content{
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-}
-.search_results_item_tags{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-}
-.search_results_item_tags_date{
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-}
-.search_results_item_tags_sections{
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-}
-.left_footer{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-}
+
+/* ===== 右边正文 ===== */
 .right{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
     width: 75vw;
     padding-left: 2rem;
     padding-right: 2rem;
-    /* 下面两行是为了让右边动，左边固定住的，这是方案2 */
-    overflow-y: auto;
-    height: 100vh;
-    /* 这个方案挺不错，先用着 */
 }
 .right_head{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    /*align-items: center;*/
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
     padding-top: 5rem;
     padding-left: 5rem;
     padding-right: 5rem;
 }
 .right_head_title{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
     font-size: 2.3rem;
     font-weight: 600;
 }
 .right_head_des{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
     font-size: 1.25rem;
 }
 .right_main{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
     padding-top: 5rem;
     margin-left: 6%;
     margin-right: 6%;
     padding-bottom: 6rem;
 }
 .right_main_article{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    /* 注释掉以防在 front matter 有 content 的列表页
-     * 顺序错乱 */
-    /* 应该就是首页吧？ */
-    /*order: 1;*/
     font-size: 1.2rem;
     margin-bottom: 2.5rem;
 }
 .right_main_article h1{
-    padding-left: 1rem;
-    margin-top: 0.5rem;
     margin-bottom: 0.6rem;
     margin-left: -2rem;
     font-size: 1.8rem;
     font-weight: 800;
 }
 .right_main_article h2{
-    padding-left: 0.85rem;
-    margin-top: 0.4rem;
     margin-bottom: 0.6rem;
     margin-left: -1.8rem;
     font-size: 1.7rem;
     font-weight: 700;
 }
 .right_main_article h3{
-    padding-left: 0.7rem;
-    margin-top: 0.3rem;
     margin-bottom: 0.6rem;
     margin-left: -1.6rem;
     font-size: 1.6rem;
     font-weight: 600;
 }
 .right_main_article h4{
-    padding-left: 0.55rem;
-    margin-top: 0.2rem;
     margin-bottom: 0.6rem;
     margin-left: -1.4rem;
     font-size: 1.5rem;
     font-weight: 600;
 }
 .right_main_article h5{
-    padding-left: 0.4rem;
-    margin-top: 0.1rem;
     margin-bottom: 0.6rem;
     margin-left: -1.2rem;
     font-size: 1.4rem;
     font-weight: 600;
 }
 .right_main_article h6{
-    padding-left: 0.25rem;
-    margin-top: 0.05rem;
     margin-bottom: 0.6rem;
     margin-left: -1rem;
     font-size: 1.3rem;
@@ -499,51 +201,9 @@ body {
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
 }
-/* 引用区 */
-.right_main_article blockquote{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;    
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.3rem;
-    padding-left: 3rem;
-    padding-right: 1rem;
-    font-size: 1.05rem;
-}
-.right_main_article blockquote:before{
-    font-size: 3em;
-    margin-bottom: -3.2rem;
-    margin-left: -2rem;
-    line-height: 3rem;
-}
-.right_main_article blockquote p{
-    margin-top: 0.4rem;
-    margin-bottom: 0rem;
-    margin-left: 1rem;
-}
-/* 自定义高亮区 *//* 高亮块 */
+/* 引用区与高亮块（两者数值一样） */
+.right_main_article blockquote,
 .right_main_article div.notation_color{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;    
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 1rem;
@@ -554,12 +214,14 @@ body {
     padding-right: 1rem;
     font-size: 1.05rem;
 }
+.right_main_article blockquote:before,
 .right_main_article div.notation_color:before{
     font-size: 3em;
     margin-bottom: -3.2rem;
     margin-left: -2rem;
     line-height: 3rem;
 }
+.right_main_article blockquote p,
 .right_main_article div.notation_color p{
     margin-top: 0.4rem;
     margin-bottom: 0rem;
@@ -571,19 +233,11 @@ body {
     margin-bottom: 0.7rem;
 }
 .right_main_article ul{
-    margin-bottom: 0.6rem;
     margin-left: 5rem;
 }
-.right_main_article ul ul{
-    margin-bottom: 0.6rem;
-    margin-left: 1.2rem;
-}
-.right_main_article ul ul ul{
-    margin-bottom: 0.6rem;
-    margin-left: 1.2rem;
-}
+.right_main_article ul ul,
+.right_main_article ul ul ul,
 .right_main_article ul ul ul ul{
-    margin-bottom: 0.6rem;
     margin-left: 1.2rem;
 }
 /* 上面的多级列表缩进，见, https://stackoverflow.com/q/11445453/9783145 */
@@ -604,49 +258,45 @@ body {
 .right_main_article-des-sum{
     font-size: 0.85rem;
 }
-/* .right_main_notes{ */
-    /* 注释掉以防在 front matter 有 content 的列表页
-     * 顺序错乱 */
-    /* order: 2; */
-/* } */
-.right_comments{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-}
-.right_search{
-    display: none;
-}
+
+/* ===== 目录：右上角悬浮 ===== */
 .toc{
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     z-index: 2;
     right: 1%;
     top: 20%;
-    max-width: 20%;
+    max-width: 30%;
+    max-height: calc(80% - 1rem); /* 视口高度 - top 的 20% - 底部留白，保证整块目录不会超出屏幕 */
 }
 .toc_title{
     position: relative;
+    flex-shrink: 0; /* 标题不被压缩 */
     padding: 1rem;
     font-size: 1rem;
     border: none;
     cursor: pointer;
 }
 .toc_content{
-    max-height: 30rem;
+    max-height: 30rem; /* 屏幕足够高时的上限 */
+    min-height: 0;     /* 屏幕不够高时，被 .toc 的 max-height 压缩，并在内部滚动（overflow-y 在 base.css） */
     right: 0;
     display: none;
     position: relative;
 }
-.toc:hover .toc_content{
-    display: block;
+/* 有鼠标的设备：悬停展开 */
+@media (hover: hover) {
+    .toc:hover .toc_content {
+        display: block;
+    }
+}
+/* 触屏设备：靠 class 控制，不再依赖 hover（class 由 main.js 切换） */
+@media (hover: none) {
+    .toc.toc_open .toc_content {
+        display: block;
+    }
+    .toc_title {
+        -webkit-tap-highlight-color: transparent;
+    }
 }

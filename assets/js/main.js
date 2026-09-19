@@ -13,8 +13,31 @@ function HideBothSide() {
     const toc_el = document.getElementById("toc");
     if (toc_el != null) {
         toc_el.classList.remove("toc_show");
+        toc_el.classList.remove("toc_open");
     }
 }
+///////////////////////////////////////////////////////////////////////////////
+// 大屏触屏设备（如 Pad 横屏）：点击标题切换目录，不依赖 :hover
+{
+    const toc_touch = document.getElementById("toc");
+    if (toc_touch !== null) {
+        const touch_mq = window.matchMedia("(hover: none) and (min-width: 1201px)");
+        const toc_title = toc_touch.querySelector(".toc_title");
+        if (toc_title !== null) {
+            toc_title.addEventListener("click", function () {
+                if (touch_mq.matches) {
+                    toc_touch.classList.toggle("toc_open");
+                }
+            });
+        }
+        toc_touch.addEventListener("click", function (e) {
+            if (e.target.closest("a")) {
+                HideBothSide();
+            }
+        });
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // 搜索功能
 

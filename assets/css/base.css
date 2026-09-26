@@ -537,9 +537,76 @@ a:hover{
     color: var(--c-code); /* 上面这两行不仅仅作用于行内代码，代码块也有作用 */
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    padding-top: 0.5rem;
+    padding-top: 0.1rem;
     padding-bottom: 0.1rem; /* 上面这四行也对代码块有效，但不希望这样，所以代码块那里重写覆盖了这四行 */
     font-family: FantasqueSansMono; /* 这行对代码块无效，是因为代码块在 <code> 里还有一个 <span> */
+}
+/* 代码区 *//* 代码块 */
+.right_main_article .highlight{
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background-color: var(--c-code_bg);
+    margin-bottom: 0.6rem;
+}
+/* 代码区 *//* 代码块顶部信息栏，由 main.js 插入 */
+.right_main_article .highlight .code-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.6em;
+    color: var(--c-code);
+    background-color: rgba(255, 255, 255, 0.06);
+    border-bottom: 0.06rem solid rgba(255, 255, 255, 0.15);
+    user-select: none;
+}
+.right_main_article .highlight .code-header-left{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.right_main_article .highlight .code-lang{
+    opacity: 0.65;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.right_main_article .highlight .code-toggle-btn,
+.right_main_article .highlight .code-copy-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1em;
+    background: transparent;
+    border: 0.06rem solid rgba(248, 248, 242, 0.4);
+    color: var(--c-code);
+    border-radius: 0.3rem;
+    padding: 0.05rem 0.6rem;
+    line-height: 1.4;
+    cursor: pointer;
+}
+.right_main_article .highlight .code-toggle-btn:hover,
+.right_main_article .highlight .code-copy-btn:hover{
+    border-color: var(--c-code);
+}
+.right_main_article .highlight .code-toggle-icon{
+    display: inline-block;
+    transition: transform 0.15s ease-in-out;
+}
+.right_main_article .highlight.is-expanded .code-toggle-icon{
+    transform: rotate(90deg);
+}
+/* 代码区 *//* 垂直滚动容器：当代码超过 25 行或超过用户屏幕高度的 60% 就滚动并展示展开按钮 */
+.right_main_article .highlight > .chroma{
+    overflow: auto;
+    overscroll-behavior: auto;
+    max-height: min(
+        60vh,
+        calc(25 * var(--code-line-height, 1.15rem) + 2 * var(--code-pad-v, 0.6rem))
+    );
+}
+.right_main_article .highlight.is-expanded > .chroma{
+    max-height: none;
+    overflow-y: visible;
 }
 /* 代码区 *//* 代码块 */
 .right_main_article .highlight table{ /* 覆盖表格区的背景颜色 */
@@ -875,3 +942,53 @@ strong span{
     content: counters(section,".") " ";
 }
 /* 上面是目录标题计数显示 */
+/* 下面是图片查看器：点击放大 */
+.right_main_article img{
+    cursor: zoom-in;
+}
+.lightbox-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+.lightbox-overlay.is-open{
+    display: flex;
+}
+.lightbox-scroll{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lightbox-img{
+    max-width: 90vw;
+    max-height: 90vh;
+    transform: scale(var(--zoom, 1));
+    transition: transform 0.1s ease-out;
+    cursor: zoom-in;
+}
+.lightbox-img.is-zoomed{
+    cursor: zoom-out;
+}
+.lightbox-close{
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 1001;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.lightbox-close:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}

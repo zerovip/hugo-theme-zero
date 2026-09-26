@@ -173,3 +173,139 @@ if (checked === 1) {
     ut_change_to_dark_mode();
 }
 ///////////////////////////////////////////////////////////////////////////////
+// 代码块的折叠展开、一键复制
+document.addEventListener('DOMContentLoaded', function () {
+    var lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+    var i18n = {
+        zh: { expand: '展开', collapse: '收起', copy: '复制代码', copied: '已复制' },
+        en: { expand: 'Expand', collapse: 'Collapse', copy: 'Copy code', copied: 'Copied' },
+        fr: { expand: 'Développer', collapse: 'Réduire', copy: 'Copier le code', copied: 'Copié' }
+    };
+    var t = i18n[lang] || i18n.en;
+
+    document.querySelectorAll('.right_main_article .highlight').forEach(function (block) {
+        var codeEl = block.querySelector('code[data-lang]');
+        var langName = codeEl ? codeEl.getAttribute('data-lang') : '';
+        if (langName === 'fallback') {
+            langName = '';
+        }
+
+        var header = document.createElement('div');
+        header.className = 'code-header';
+        header.innerHTML =
+            '<div class="code-header-left">' +
+                '<span class="code-lang"></span>' +
+                '<button type="button" class="code-toggle-btn" aria-expanded="false">' +
+                    '<span class="code-toggle-icon">▷</span>' +
+                    '<span class="code-toggle-text"></span>' +
+                '</button>' +
+            '</div>' +
+            '<button type="button" class="code-copy-btn">' +
+                '<span class="code-copy-icon">📋</span>' +
+                '<span class="code-copy-text"></span>' +
+            '</button>';
+        header.querySelector('.code-lang').textContent = langName;
+        block.insertBefore(header, block.firstChild);
+
+        var chroma = block.querySelector(':scope > .chroma');
+        var toggleBtn = header.querySelector('.code-toggle-btn');
+        var toggleText = header.querySelector('.code-toggle-text');
+        var copyBtn = header.querySelector('.code-copy-btn');
+        var copyIcon = header.querySelector('.code-copy-icon');
+        var copyText = header.querySelector('.code-copy-text');
+
+        toggleText.textContent = t.expand;
+        copyText.textContent = t.copy;
+
+        // 如果内容没超出高度限制，就不需要展开按钮
+        if (chroma && chroma.scrollHeight <= chroma.clientHeight) {
+            toggleBtn.style.display = 'none';
+        }
+
+        toggleBtn.addEventListener('click', function () {
+            var expanded = block.classList.toggle('is-expanded');
+            toggleBtn.setAttribute('aria-expanded', String(expanded));
+            toggleText.textContent = expanded ? t.collapse : t.expand;
+        });
+
+        // 一键复制
+        copyBtn.addEventListener('click', function () {
+            var codeTd = block.querySelector('td.lntd:last-child');
+            var text = codeTd ? codeTd.innerText : chroma.innerText;
+            navigator.clipboard.writeText(text).then(function () {
+                copyIcon.textContent = '✓';
+                copyText.textContent = t.copied;
+                setTimeout(function () {
+                    copyIcon.textContent = '📋';
+                    copyText.textContent = t.copy;
+                }, 1200);
+            });
+        });
+    });
+});
+///////////////////////////////////////////////////////////////////////////////
+// 图片放大器
+document.addEventListener('DOMContentLoaded', function () {
+    var overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.innerHTML =
+        '<button type="button" class="lightbox-close">×</button>' +
+        '<div class="lightbox-scroll"><img class="lightbox-img"></div>';
+    document.body.appendChild(overlay);
+
+    var scrollBox = overlay.querySelector('.lightbox-scroll');
+    var img = overlay.querySelector('.lightbox-img');
+    var closeBtn = overlay.querySelector('.lightbox-close');
+    var zoom = 1;
+    var MIN_ZOOM = 1;
+    var MAX_ZOOM = 4;
+
+    function setZoom(z) {
+        zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
+        img.style.setProperty('--zoom', zoom);
+        img.classList.toggle('is-zoomed', zoom > MIN_ZOOM);
+    }
+
+    function open(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        setZoom(1);
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden'; // 打开时禁止背后页面跟着滚动
+    }
+
+    function close() {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        img.src = ''; // 关闭后释放大图内存
+    }
+
+    document.querySelectorAll('.right_main_article img').forEach(function (el) {
+        el.addEventListener('click', function () {
+            open(el.src, el.alt);
+        });
+    });
+    
+    closeBtn.addEventListener('click', close);
+
+    // 点击深色背景（而不是图片本身）也关闭
+    scrollBox.addEventListener('click', function (e) {
+        if (e.target === scrollBox) {
+            close();
+        }
+    });
+
+    // 点击图片本身：在 1 倍和 2 倍之间切换，方便没有滚轮的移动端
+    img.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setZoom(zoom > MIN_ZOOM ? MIN_ZOOM : 2);
+    });
+
+    // 鼠标滚轮：桌面端更精细地缩放
+    scrollBox.addEventListener('wheel', function (e) {
+        if (!overlay.classList.contains('is-open')) return;
+        e.preventDefault();
+        setZoom(zoom - e.deltaY * 0.0015 * zoom);
+    }, { passive: false });
+});
+///////////////////////////////////////////////////////////////////////////////

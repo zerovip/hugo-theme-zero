@@ -191,15 +191,17 @@
 }
 /* 代码区 *//* 代码块 */
 .right_main_article .highlight{ /* 代码块整体 */
+    --code-line-height: 1.15rem;
+    --code-pad-v: 0.6rem;
     padding-top: 0.1rem;
     padding-bottom: 0.5rem;
 }
 .right_main_article pre{ /* 代码语句整体，一个矩形 */
-    line-height: 1.15rem; /* 比上面 code 那里的字号稍大即可 */
+    line-height: var(--code-line-height); /* 比上面 code 那里的字号稍大即可 */
     padding-left: 0.8rem;
     padding-right: 0rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
+    padding-top: var(--code-pad-v);
+    padding-bottom: var(--code-pad-v);
 }
 /* 引用区与高亮块（两者数值一样） */
 .right_main_article blockquote,

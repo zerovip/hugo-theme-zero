@@ -965,10 +965,12 @@ strong span{
     justify-content: safe center;
 }
 .lightbox-img{
-    max-width: 90vw;
-    max-height: 90vh;
-    transform: scale(var(--zoom, 1));
-    transition: transform 0.1s ease-out;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    flex-shrink: 0;   /* 禁止 flex 布局压缩图片宽度，允许它真正超出容器、触发滚动 */
     cursor: zoom-in;
 }
 .lightbox-img.is-zoomed{
@@ -983,12 +985,35 @@ strong span{
     height: 2.2rem;
     border-radius: 50%;
     border: none;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #fff;
+    background-color: var(--c-read);
+    color: var(--c-background);
     font-size: 1.4rem;
     line-height: 1;
     cursor: pointer;
 }
 .lightbox-close:hover{
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--c-thick-font);
+}
+.lightbox-zoom-controls{
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.lightbox-zoom-btn{
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--c-read);
+    color: var(--c-background);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.lightbox-zoom-btn:hover{
+    background-color: var(--c-thick-font);
 }

@@ -250,6 +250,10 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.className = 'lightbox-overlay';
     overlay.innerHTML =
         '<button type="button" class="lightbox-close">×</button>' +
+        '<div class="lightbox-zoom-controls">' +
+            '<button type="button" class="lightbox-zoom-btn lightbox-zoom-in">+</button>' +
+            '<button type="button" class="lightbox-zoom-btn lightbox-zoom-out">−</button>' +
+        '</div>' +
         '<div class="lightbox-scroll"><img class="lightbox-img"></div>';
     document.body.appendChild(overlay);
 
@@ -257,27 +261,47 @@ document.addEventListener('DOMContentLoaded', function () {
     var img = overlay.querySelector('.lightbox-img');
     var closeBtn = overlay.querySelector('.lightbox-close');
     var zoom = 1;
-    var MIN_ZOOM = 1;
-    var MAX_ZOOM = 4;
+    var baseWidth = 0; // 1 倍缩放时的像素宽度，打开图片、加载完成后计算
+    var MIN_ZOOM = 0.5;
+    var MAX_ZOOM = 6;
 
-    function setZoom(z) {
-        zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
-        img.style.setProperty('--zoom', zoom);
+    function applySize() {
+        if (baseWidth > 0) {
+            img.style.width = (baseWidth * zoom) + 'px';
+            img.style.height = 'auto'; // 高度按图片本身比例自动跟随
+        }
         img.classList.toggle('is-zoomed', zoom > MIN_ZOOM);
     }
 
     function open(src, alt) {
+        zoom = 1;
+        baseWidth = 0;
+        img.style.width = '';
         img.src = src;
         img.alt = alt || '';
-        setZoom(1);
         overlay.classList.add('is-open');
-        document.body.style.overflow = 'hidden'; // 打开时禁止背后页面跟着滚动
+        document.body.style.overflow = 'hidden';
     }
+
+    // 图片加载完成后，按“不超过屏幕 90%”算出 1 倍缩放时的基准宽度
+    img.addEventListener('load', function () {
+        if (!img.naturalWidth) return;
+        var maxW = window.innerWidth * 0.9;
+        var maxH = window.innerHeight * 0.9;
+        var scale = Math.min(1, maxW / img.naturalWidth, maxH / img.naturalHeight);
+        baseWidth = img.naturalWidth * scale;
+        applySize();
+    });
 
     function close() {
         overlay.classList.remove('is-open');
         document.body.style.overflow = '';
-        img.src = ''; // 关闭后释放大图内存
+        img.src = '';
+    }
+
+    function setZoom(z) {
+        zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
+        applySize();
     }
 
     document.querySelectorAll('.right_main_article img').forEach(function (el) {
@@ -285,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
             open(el.src, el.alt);
         });
     });
-    
+
     closeBtn.addEventListener('click', close);
 
     // 点击深色背景（而不是图片本身）也关闭
@@ -298,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 点击图片本身：在 1 倍和 2 倍之间切换，方便没有滚轮的移动端
     img.addEventListener('click', function (e) {
         e.stopPropagation();
-        setZoom(zoom > MIN_ZOOM ? MIN_ZOOM : 2);
+        setZoom(zoom > 1 ? 1 : 2);
     });
 
     // 鼠标滚轮：桌面端更精细地缩放
@@ -307,5 +331,24 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         setZoom(zoom - e.deltaY * 0.0015 * zoom);
     }, { passive: false });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+            close();
+        }
+    }, true);
+
+    var zoomInBtn = overlay.querySelector('.lightbox-zoom-in');
+    var zoomOutBtn = overlay.querySelector('.lightbox-zoom-out');
+    var ZOOM_STEP = 0.2; // 每次点击缩放的幅度，可以自行调整
+    
+    zoomInBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setZoom(zoom + ZOOM_STEP);
+    });
+    zoomOutBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setZoom(zoom - ZOOM_STEP);
+    });
 });
 ///////////////////////////////////////////////////////////////////////////////

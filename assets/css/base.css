@@ -600,7 +600,7 @@ a:hover{
     overflow: auto;
     overscroll-behavior: auto;
     max-height: min(
-        60vh,
+        45vh,
         calc(25 * var(--code-line-height, 1.15rem) + 2 * var(--code-pad-v, 0.6rem))
     );
 }
@@ -961,8 +961,8 @@ strong span{
     height: 100%;
     overflow: auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: safe center;
+    justify-content: safe center;
 }
 .lightbox-img{
     max-width: 90vw;
